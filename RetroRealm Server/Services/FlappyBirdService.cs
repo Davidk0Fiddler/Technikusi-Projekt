@@ -9,21 +9,26 @@ namespace RetroRealm_Server.Services
     {
         private readonly RetroRealmDatabaseContext _context;
         private readonly ILogService _logService;
-        private readonly IAuthService _authService;
+        //private readonly IRefreshTokenService _refreshTokenService;
 
-        public FlappyBirdService(RetroRealmDatabaseContext context, ILogService logService, IAuthService authService)
+        public FlappyBirdService(RetroRealmDatabaseContext context, ILogService logService
+            //, IRefreshTokenService refreshTokenService
+            )
         {
             _context = context;
             _logService = logService;
-            _authService = authService;
+            //_refreshTokenService = refreshTokenService;
         }
 
         #region Get FlappyBirdStatus by Id
-        public async Task<Result<ReadFlappyBirdStatusDTO>> GetFlappyBirdStatusAsync(RefreshTokenDto model) {
-            var result = await _authService.CheckExpireDateAsync(model);
-            if (!result) return Result<ReadFlappyBirdStatusDTO>.Fail("RefreshToken expired or does not exists!");
+        public async Task<Result<ReadFlappyBirdStatusDTO>> GetFlappyBirdStatusAsync(string username) {
+            //var result = await _refreshTokenService.CheckExpireDateAsync(model);
+            //if (!result) return Result<ReadFlappyBirdStatusDTO>.Fail("RefreshToken expired or does not exists!");
 
-            var userId = await _authService.GetUserIdFromRefreshTokenAsync(model);
+            //var userId = await _refreshTokenService.GetUserIdFromRefreshTokenAsync(model);
+
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.Username == username);
+            var userId = user.Id;
 
             var status = await _context.Flappy_Bird_Status.FirstOrDefaultAsync(s => s.UserId == userId);
 
@@ -66,11 +71,14 @@ namespace RetroRealm_Server.Services
         #endregion
 
         #region Update FlappyBirdStatus
-        public async Task<Result<bool>> UpdateFlappyBirdStatusAsync(UpdateFlappyBirdStatusDTO updatedStatus, RefreshTokenDto model) {
-            var result = await _authService.CheckExpireDateAsync(model);
-            if (!result) return Result<bool>.Fail("RefreshToken expired or does not exists!");
+        public async Task<Result<bool>> UpdateFlappyBirdStatusAsync(UpdateFlappyBirdStatusDTO updatedStatus, string username) {
+            //var result = await _refreshTokenService.CheckExpireDateAsync(model);
+            //if (!result) return Result<bool>.Fail("RefreshToken expired or does not exists!");
 
-            var userId = await _authService.GetUserIdFromRefreshTokenAsync(model);
+            //var userId = await _refreshTokenService.GetUserIdFromRefreshTokenAsync(model);
+
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.Username == username);
+            var userId = user.Id;
 
             var currentStatus = await _context.Flappy_Bird_Status.FirstOrDefaultAsync(s => s.UserId == userId);
 

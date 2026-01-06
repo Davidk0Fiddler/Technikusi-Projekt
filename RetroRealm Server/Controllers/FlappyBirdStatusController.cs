@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RetroRealm_Server.DTOs;
@@ -8,12 +9,14 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace RetroRealm_Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class FlappyBirdStatusController : ControllerBase
     {
         private readonly RetroRealmDatabaseContext _context;
@@ -27,27 +30,27 @@ namespace RetroRealm_Server.Controllers
 
         // GET: api/FlappyBirdStatus/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Result<ReadFlappyBirdStatusDTO>>> GetFlappyBirdStatus(RefreshTokenDto model)
+        public async Task<ActionResult<Result<ReadFlappyBirdStatusDTO>>> GetFlappyBirdStatus()
         {
-            var result = await _flappyBirdStatusService.GetFlappyBirdStatusAsync(model);
+            var result = await _flappyBirdStatusService.GetFlappyBirdStatusAsync(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value);
             if (result.Error == "Status not found!") return NotFound();
 
-            if (result.Error == "RefreshToken expired or does not exists!") return Unauthorized();
+            //if (result.Error == "RefreshToken expired or does not exists!") return Unauthorized();
 
             return Ok(result.Data);
         }
 
-        // PUT: api/FlappyBirdStatus/5
+        // PUT: api/FlappyBirdStatus/
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut]
-        public async Task<IActionResult> PutFlappyBirdStatus(UpdateFlappyBirdStatusDTO updatedStatus, RefreshTokenDto model)
+        public async Task<IActionResult> PutFlappyBirdStatus(UpdateFlappyBirdStatusDTO updatedStatus)
         {
-            var result = await _flappyBirdStatusService.UpdateFlappyBirdStatusAsync(updatedStatus, model);
+            var result = await _flappyBirdStatusService.UpdateFlappyBirdStatusAsync(updatedStatus, User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value);
             if (result.Success) return NoContent();
 
             if (result.Error == "Status not found") return NotFound();
 
-            if (result.Error == "RefreshToken expired or does not exists!") return Unauthorized();
+            //if (result.Error == "RefreshToken expired or does not exists!") return Unauthorized();
 
             return BadRequest();
             

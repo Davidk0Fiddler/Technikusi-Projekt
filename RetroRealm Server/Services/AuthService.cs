@@ -145,22 +145,5 @@ namespace RetroRealm_Server.Services
         }
         #endregion
 
-        public async Task<bool> CheckExpireDateAsync(RefreshTokenDto model)
-        {
-            var refreshToken = await _context.RefreshTokens.Include(rt => rt.User).SingleOrDefaultAsync(rt => rt.Token == model.Token);
-
-            if (refreshToken.Expires < DateTime.UtcNow || refreshToken == null) return false;
-
-            return true;
-
-        }
-
-
-        public async Task<int> GetUserIdFromRefreshTokenAsync(RefreshTokenDto model)
-        {
-            var refreshToken = await _context.RefreshTokens.Include(rt => rt.User).SingleOrDefaultAsync(rt => rt.Token == model.Token);
-            return refreshToken.UserId;
-        }
-
     }
 };

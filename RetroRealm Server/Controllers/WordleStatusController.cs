@@ -1,18 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RetroRealm_Server.DTOs;
 using RetroRealm_Server.Models;
 using RetroRealm_Server.Services.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace RetroRealm_Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class WordleStatusController : ControllerBase
     {
         private readonly RetroRealmDatabaseContext _context;
@@ -26,13 +29,13 @@ namespace RetroRealm_Server.Controllers
 
         // GET: api/WordleStatus/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<ReadWordleStatusDTO>> GetWordleStatus(RefreshTokenDto model)
+        public async Task<ActionResult<ReadWordleStatusDTO>> GetWordleStatus()
         {
-            var result = await _wordleStatusService.GetWordleStatusAsync(model);
+            var result = await _wordleStatusService.GetWordleStatusAsync(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value);
 
             if (result.Error == "Status not found!") return NotFound();
 
-            if (result.Error == "RefreshToken expired or does not exists!") return Unauthorized();
+            //if (result.Error == "RefreshToken expired or does not exists!") return Unauthorized();
 
             return Ok(result.Data);
         }
@@ -40,15 +43,15 @@ namespace RetroRealm_Server.Controllers
         // PUT: api/WordleStatus/
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut]
-        public async Task<IActionResult> PutWordleStatus(UpdateWordleStatusDTO updatedStatus, RefreshTokenDto model)
+        public async Task<IActionResult> PutWordleStatus(UpdateWordleStatusDTO updatedStatus)
         {
-            var result = await _wordleStatusService.UpdateWordleStatusAsync(updatedStatus, model);
+            var result = await _wordleStatusService.UpdateWordleStatusAsync(updatedStatus, User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value);
 
             if (result.Success) return NoContent();
 
             if (result.Error == "Status not found") return NotFound();
 
-            if (result.Error == "RefreshToken expired or does not exists!") return Unauthorized();
+            //if (result.Error == "RefreshToken expired or does not exists!") return Unauthorized();
 
             return BadRequest();
         }

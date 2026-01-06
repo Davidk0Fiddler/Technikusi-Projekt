@@ -9,21 +9,25 @@ namespace RetroRealm_Server.Services
     {
         private readonly RetroRealmDatabaseContext _context;
         private readonly ILogService _logService;
-        private readonly IAuthService _authService; 
+        //private readonly IRefreshTokenService _refreshTokenService; 
 
-        public MemoryGameService(RetroRealmDatabaseContext context, ILogService logService, IAuthService authService)
+        public MemoryGameService(RetroRealmDatabaseContext context, ILogService logService
+            //, IRefreshTokenService refreshTokenService
+            )
         {
             _context = context;
             _logService = logService;
-            _authService = authService;
+            //_refreshTokenService = refreshTokenService;
         }
 
         #region Get MemoryGameStatus by Id
-        public async Task<Result<ReadMemoryGameStatusDTO>> GetMemoryGameStatusAsync(RefreshTokenDto model) {
-            var result = await _authService.CheckExpireDateAsync(model);
-            if (!result) return Result<ReadMemoryGameStatusDTO>.Fail("RefreshToken expired or does not exists!");
-            
-            var userId = await _authService.GetUserIdFromRefreshTokenAsync(model);
+        public async Task<Result<ReadMemoryGameStatusDTO>> GetMemoryGameStatusAsync(string username) {
+            //var result = await _refreshTokenService.CheckExpireDateAsync(model);
+            //if (!result) return Result<ReadMemoryGameStatusDTO>.Fail("RefreshToken expired or does not exists!");
+
+            //var userId = await _refreshTokenService.GetUserIdFromRefreshTokenAsync(model);
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.Username == username);
+            var userId = user.Id;
 
             var status = await _context.Memory_Game_Status.FirstOrDefaultAsync(m => m.UserId == userId);
 
@@ -69,11 +73,13 @@ namespace RetroRealm_Server.Services
         #endregion
 
         #region Update MemoryGameStatus 
-        public async Task<Result<bool>> UpdateMemoryGameStatusAsync(UpdateMemoryGameStatusDTO updatedStatus, RefreshTokenDto model) {
-            var result = await _authService.CheckExpireDateAsync(model);
-            if (!result) return Result<bool>.Fail("RefreshToken expired or does not exists!");
+        public async Task<Result<bool>> UpdateMemoryGameStatusAsync(UpdateMemoryGameStatusDTO updatedStatus, string username) {
+            //var result = await _refreshTokenService.CheckExpireDateAsync(model);
+            //if (!result) return Result<bool>.Fail("RefreshToken expired or does not exists!");
 
-            var userId = await _authService.GetUserIdFromRefreshTokenAsync(model);
+            //var userId = await _refreshTokenService.GetUserIdFromRefreshTokenAsync(model);
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.Username == username);
+            var userId = user.Id;
 
             var currentStatus = await _context.Memory_Game_Status.FirstOrDefaultAsync(s => s.UserId == userId);
 

@@ -10,6 +10,6 @@ namespace RetroRealm_Server.Services.Interfaces
         Task<Result<Avatar>> CreateAvatarAsync(CreateAvatarDTO newAvatar); // Create
         Task<Result<UpdateAvatarDTO>> UpdateAvatarAsync(int id, UpdateAvatarDTO updatedAvatar); // Update
         Task<Result<int>> DeleteAvatarByIdAsync(int id); // Delete
-        Task<Result<bool>> PurchaseAvatarAsync(RefreshTokenDto model, int avatarId);
+        Task<Result<bool>> PurchaseAvatarAsync(string username, int avatarId);
     }
 }

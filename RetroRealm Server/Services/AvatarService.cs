@@ -12,15 +12,17 @@ namespace RetroRealm_Server.Services
         private readonly RetroRealmDatabaseContext _context;
         private readonly ILogService _logService;
         private readonly ILogger<AvatarService> _logger;
-        private readonly IAuthService _authService;
+        //private readonly IRefreshTokenService _refreshTokenService;
 
 
-        public AvatarService(RetroRealmDatabaseContext context , ILogService logService, ILogger<AvatarService> logger, IAuthService authService)
+        public AvatarService(RetroRealmDatabaseContext context , ILogService logService, ILogger<AvatarService> logger
+            //, IRefreshTokenService refreshTokenService
+            )
         {
             _context = context;
             _logService = logService;
             _logger = logger;
-            _authService = authService;
+            //_refreshTokenService = refreshTokenService;
         }
 
         #region Get All Avatars
@@ -142,16 +144,16 @@ namespace RetroRealm_Server.Services
 
         #region Purchase Avatar
 
-        public async Task<Result<bool>> PurchaseAvatarAsync(RefreshTokenDto model, int avatarId) {
-            var result = await _authService.CheckExpireDateAsync(model);
+        public async Task<Result<bool>> PurchaseAvatarAsync(string username ,int avatarId) {
+            //var result = await _refreshTokenService.CheckExpireDateAsync(model);
 
-            if (!result) return Result<bool>.Fail("Refreshtoken expired or does not exists");
+            //if (!result) return Result<bool>.Fail("Refreshtoken expired or does not exists");
 
-            var userId = await _authService.GetUserIdFromRefreshTokenAsync(model);
-		    var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
+            //var userId = await _refreshTokenService.GetUserIdFromRefreshTokenAsync(model);
+		    var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
 		    if (user == null) 
             {
-               return Result<bool>.Fail("Not valid userId!");
+               return Result<bool>.Fail("Not valid User!");
 		    }
 
 		    var avatar = await _context.Avatars.FirstOrDefaultAsync(a => a.Id == avatarId);
@@ -169,17 +171,17 @@ namespace RetroRealm_Server.Services
             try
             {
                 await _context.SaveChangesAsync();
-                await _logService.CreateLogAsync(LogType.Succes.ToString(), null, $"Avatar ({avatarId}) has been succesfully purchased by User-{userId}!", DateTime.Now, null);
+                await _logService.CreateLogAsync(LogType.Succes.ToString(), null, $"Avatar ({avatarId}) has been succesfully purchased by User-{user.Id}!", DateTime.Now, user.Id);
                 return Result<bool>.Ok(true);
             }
             catch (DbUpdateException ex)
             {
-                await _logService.CreateLogAsync(LogType.Error.ToString(), ex.Message, $"Database error during purchasing avatar! User-{userId} | Avatar-{avatarId}", DateTime.Now, null);
+                await _logService.CreateLogAsync(LogType.Error.ToString(), ex.Message, $"Database error during purchasing avatar! User-{user.Id} | Avatar-{avatarId}", DateTime.Now, null);
                 return Result<bool>.Fail("Database error");
             }
             catch (Exception ex)
             {
-                await _logService.CreateLogAsync(LogType.Error.ToString(), ex.Message, $"Error during purchasing avatar! User-{userId} | Avatar-{avatarId}", DateTime.Now, null);
+                await _logService.CreateLogAsync(LogType.Error.ToString(), ex.Message, $"Error during purchasing avatar! User-{user.Id} | Avatar-{avatarId}", DateTime.Now, null);
                 return Result<bool>.Fail("Error");
             }
 	    }

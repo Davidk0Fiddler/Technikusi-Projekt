@@ -10,20 +10,25 @@ namespace RetroRealm_Server.Services
     {
         private readonly RetroRealmDatabaseContext _context;
         private readonly ILogService _logService;
-        private readonly IAuthService _authService;
+        //private readonly IRefreshTokenService _refreshTokenService;
 
-        public BunnyRunService(RetroRealmDatabaseContext context, ILogService logService, IAuthService authService) {
+        public BunnyRunService(RetroRealmDatabaseContext context, ILogService logService
+            //,IRefreshTokenService refreshTokenService
+            ) {
             _context = context;
             _logService = logService;
-            _authService = authService;
+            //_refreshTokenService = refreshTokenService;
         }
 
         #region Get BunnyRunStatus by Id
-        public async Task<Result<ReadBunnyRunStatusDTO>>GetBunnyRunStatusAsync(RefreshTokenDto model) {
-            var result = await _authService.CheckExpireDateAsync(model);
-            if (!result) return Result<ReadBunnyRunStatusDTO>.Fail("RefreshToken expired or does not exists!");
+        public async Task<Result<ReadBunnyRunStatusDTO>>GetBunnyRunStatusAsync(string username) {
+            //var result = await _refreshTokenService.CheckExpireDateAsync(model);
+            //if (!result) return Result<ReadBunnyRunStatusDTO>.Fail("RefreshToken expired or does not exists!");
 
-            var UserId = await _authService.GetUserIdFromRefreshTokenAsync(model);
+            //var UserId = await _refreshTokenService.GetUserIdFromRefreshTokenAsync(model);
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.Username == username);
+            var UserId = user.Id;
+
 
             var status = await _context.Bunny_Run_Status.FirstOrDefaultAsync(r => r.UserId == UserId);
 
@@ -67,11 +72,13 @@ namespace RetroRealm_Server.Services
         #endregion
 
         #region Update BunnyRunStatus
-        public async Task<Result<UpdateBunnyRunStatusDTO>> UpdateBunnyRunStatusAsync(UpdateBunnyRunStatusDTO updatedStatus, RefreshTokenDto model) {
-            var result = await _authService.CheckExpireDateAsync(model);
-            if (!result) return Result<UpdateBunnyRunStatusDTO>.Fail("RefreshToken expired or does not exists!");
+        public async Task<Result<UpdateBunnyRunStatusDTO>> UpdateBunnyRunStatusAsync(UpdateBunnyRunStatusDTO updatedStatus, string username) {
+            //var result = await _refreshTokenService.CheckExpireDateAsync(model);
+            //if (!result) return Result<UpdateBunnyRunStatusDTO>.Fail("RefreshToken expired or does not exists!");
 
-            var UserId = await _authService.GetUserIdFromRefreshTokenAsync(model);
+            //var UserId = await _refreshTokenService.GetUserIdFromRefreshTokenAsync(model);
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.Username == username);
+            var UserId = user.Id;
 
             var currentStatus = await _context.Bunny_Run_Status.FirstOrDefaultAsync(s => s.UserId == UserId);
 

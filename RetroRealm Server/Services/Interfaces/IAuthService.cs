@@ -9,8 +9,6 @@ namespace RetroRealm_Server.Services.Interfaces
         Task<Result<ReadTokenDTO>> LoginAsync(LoginDTO model);
         Task<Result<ReadTokenDTO>> RefreshTokenAsync(RefreshTokenDto model);
         Task<Result<bool>> LogoutAsync(RefreshTokenDto model);
-        Task<bool> CheckExpireDateAsync(RefreshTokenDto model);
-        Task<int> GetUserIdFromRefreshTokenAsync(RefreshTokenDto model);
 
     }
 }

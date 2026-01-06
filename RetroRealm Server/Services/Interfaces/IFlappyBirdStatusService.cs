@@ -5,8 +5,8 @@ namespace RetroRealm_Server.Services.Interfaces
 {
     public interface IFlappyBirdStatusService
     {
-        Task<Result<ReadFlappyBirdStatusDTO>> GetFlappyBirdStatusAsync(RefreshTokenDto model);
+        Task<Result<ReadFlappyBirdStatusDTO>> GetFlappyBirdStatusAsync(string username);
         Task<Result<FlappyBirdStatus>> CreateFlappyBirdStatusAsync(int userId);
-        Task<Result<bool>> UpdateFlappyBirdStatusAsync(UpdateFlappyBirdStatusDTO updatedStatus, RefreshTokenDto model);
+        Task<Result<bool>> UpdateFlappyBirdStatusAsync(UpdateFlappyBirdStatusDTO updatedStatus, string username);
     }
 }

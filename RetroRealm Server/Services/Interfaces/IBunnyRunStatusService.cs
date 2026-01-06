@@ -5,8 +5,8 @@ namespace RetroRealm_Server.Services.Interfaces
 {
     public interface IBunnyRunStatusService
     {
-        Task<Result<ReadBunnyRunStatusDTO>> GetBunnyRunStatusAsync(RefreshTokenDto model);
+        Task<Result<ReadBunnyRunStatusDTO>> GetBunnyRunStatusAsync(string username);
         Task<Result<BunnyRunStatus>> CreateBunnyRunStatusAsync(int userId);
-        Task<Result<UpdateBunnyRunStatusDTO>> UpdateBunnyRunStatusAsync(UpdateBunnyRunStatusDTO updatedStatus, RefreshTokenDto model);
+        Task<Result<UpdateBunnyRunStatusDTO>> UpdateBunnyRunStatusAsync(UpdateBunnyRunStatusDTO updatedStatus, string username);
     }
 }
