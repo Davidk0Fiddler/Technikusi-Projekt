@@ -1,0 +1,104 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "G:\\TechnikusiProjekt\\RetroRealm Server\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{54CD160A-91B7-4170-B155-C03ED8A9A6D8}|RetroRealm Server.csproj|g:\\technikusiprojekt\\retrorealm server\\dtos\\readuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54CD160A-91B7-4170-B155-C03ED8A9A6D8}|RetroRealm Server.csproj|solutionrelative:dtos\\readuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54CD160A-91B7-4170-B155-C03ED8A9A6D8}|RetroRealm Server.csproj|g:\\technikusiprojekt\\retrorealm server\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54CD160A-91B7-4170-B155-C03ED8A9A6D8}|RetroRealm Server.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54CD160A-91B7-4170-B155-C03ED8A9A6D8}|RetroRealm Server.csproj|g:\\technikusiprojekt\\retrorealm server\\services\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54CD160A-91B7-4170-B155-C03ED8A9A6D8}|RetroRealm Server.csproj|solutionrelative:services\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54CD160A-91B7-4170-B155-C03ED8A9A6D8}|RetroRealm Server.csproj|g:\\technikusiprojekt\\retrorealm server\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54CD160A-91B7-4170-B155-C03ED8A9A6D8}|RetroRealm Server.csproj|solutionrelative:services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54CD160A-91B7-4170-B155-C03ED8A9A6D8}|RetroRealm Server.csproj|g:\\technikusiprojekt\\retrorealm server\\services\\bunnyrunservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54CD160A-91B7-4170-B155-C03ED8A9A6D8}|RetroRealm Server.csproj|solutionrelative:services\\bunnyrunservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 941,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ReadUserDTO.cs",
+              "DocumentMoniker": "G:\\TechnikusiProjekt\\RetroRealm Server\\DTOs\\ReadUserDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\ReadUserDTO.cs",
+              "ToolTip": "G:\\TechnikusiProjekt\\RetroRealm Server\\DTOs\\ReadUserDTO.cs",
+              "RelativeToolTip": "DTOs\\ReadUserDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-04T19:56:40.424Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "User.cs",
+              "DocumentMoniker": "G:\\TechnikusiProjekt\\RetroRealm Server\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Models\\User.cs",
+              "ToolTip": "G:\\TechnikusiProjekt\\RetroRealm Server\\Models\\User.cs",
+              "RelativeToolTip": "Models\\User.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-04T19:56:54.065Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BunnyRunService.cs",
+              "DocumentMoniker": "G:\\TechnikusiProjekt\\RetroRealm Server\\Services\\BunnyRunService.cs",
+              "RelativeDocumentMoniker": "Services\\BunnyRunService.cs",
+              "ToolTip": "G:\\TechnikusiProjekt\\RetroRealm Server\\Services\\BunnyRunService.cs",
+              "RelativeToolTip": "Services\\BunnyRunService.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAowCUAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-22T11:01:33.318Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "G:\\TechnikusiProjekt\\RetroRealm Server\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "Services\\UserService.cs",
+              "ToolTip": "G:\\TechnikusiProjekt\\RetroRealm Server\\Services\\UserService.cs",
+              "RelativeToolTip": "Services\\UserService.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAwwFQAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T11:18:01.223Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "G:\\TechnikusiProjekt\\RetroRealm Server\\Services\\Interfaces\\IUserService.cs",
+              "RelativeDocumentMoniker": "Services\\Interfaces\\IUserService.cs",
+              "ToolTip": "G:\\TechnikusiProjekt\\RetroRealm Server\\Services\\Interfaces\\IUserService.cs",
+              "RelativeToolTip": "Services\\Interfaces\\IUserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T11:17:13.672Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

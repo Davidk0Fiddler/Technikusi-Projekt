@@ -1,0 +1,45 @@
+2025-12-02 10:48:58.326 +01:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 10:48:59.839 +01:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 10:48:59.844 +01:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 10:48:59.866 +01:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 10:49:00.177 +01:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 10:49:00.183 +01:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 10:49:00.185 +01:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 10:49:00.196 +01:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 10:49:49.357 +01:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 10:49:49.419 +01:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 10:49:49.423 +01:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 10:49:49.439 +01:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 12:48:24.506 +01:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 12:48:24.569 +01:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 12:48:24.578 +01:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 12:48:24.600 +01:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 12:48:25.222 +01:00 [INF] Avatar has been created! (RetroRealm_Server.Models.Avatar)
+2025-12-02 12:48:40.805 +01:00 [INF] Avatar has been created! (RetroRealm_Server.Models.Avatar)
+2025-12-02 12:48:49.009 +01:00 [INF] Avatar has been created! (RetroRealm_Server.Models.Avatar)
+2025-12-02 12:49:06.069 +01:00 [INF] Avatar has been created! (RetroRealm_Server.Models.Avatar)
+2025-12-02 12:49:29.883 +01:00 [INF] Avatar has been created! (RetroRealm_Server.Models.Avatar)
+2025-12-02 12:49:42.649 +01:00 [INF] Avatar has been created! (RetroRealm_Server.Models.Avatar)
+2025-12-02 12:49:42.729 +01:00 [INF] Avatar has been created! (RetroRealm_Server.Models.Avatar)
+2025-12-02 12:54:06.972 +01:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 12:54:07.017 +01:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 12:54:07.020 +01:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 12:54:07.032 +01:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 12:54:07.220 +01:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 12:54:07.224 +01:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 12:54:07.225 +01:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 12:54:07.231 +01:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 12:55:27.133 +01:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 12:55:27.193 +01:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 12:55:27.196 +01:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 12:55:27.210 +01:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 12:56:58.438 +01:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 12:56:58.499 +01:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 12:56:58.506 +01:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 12:56:58.524 +01:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2025-12-02 12:56:59.036 +01:00 [INF] Avatar has been created! (RetroRealm_Server.Models.Avatar)
+2025-12-02 12:57:21.294 +01:00 [INF] Avatar has been created! (RetroRealm_Server.Models.Avatar)
+2025-12-02 12:57:31.658 +01:00 [INF] Avatar has been created! (RetroRealm_Server.Models.Avatar)
+2025-12-02 12:57:45.063 +01:00 [INF] Avatar has been created! (RetroRealm_Server.Models.Avatar)
+2025-12-02 12:57:51.511 +01:00 [INF] Avatar has been created! (RetroRealm_Server.Models.Avatar)
+2025-12-02 12:58:04.230 +01:00 [INF] Avatar has been created! (RetroRealm_Server.Models.Avatar)

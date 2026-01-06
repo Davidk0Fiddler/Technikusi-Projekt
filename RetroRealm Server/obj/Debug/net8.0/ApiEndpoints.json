@@ -1,0 +1,563 @@
+[
+  {
+    "ContainingType": "RetroRealm_Server.Controllers.AchievementsController",
+    "Method": "GetAchievements",
+    "RelativePath": "api/Achievements",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[RetroRealm_Server.DTOs.ReadAchievementDTO, RetroRealm Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "RetroRealm_Server.Controllers.AchievementsController",
+    "Method": "PostAchievement",
+    "RelativePath": "api/Achievements",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "achievement",
+        "Type": "RetroRealm_Server.DTOs.CreateAchievementDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "RetroRealm_Server.Models.Result\u00601[[RetroRealm_Server.Models.Achievement, RetroRealm Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "RetroRealm_Server.Controllers.AchievementsController",
+    "Method": "GetAchievement",
+    "RelativePath": "api/Achievements/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[RetroRealm_Server.DTOs.ReadAchievementDTO, RetroRealm Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "RetroRealm_Server.Controllers.AchievementsController",
+    "Method": "PutAchievement",
+    "RelativePath": "api/Achievements/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "updatedAchievement",
+        "Type": "RetroRealm_Server.DTOs.UpdateAchievementDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RetroRealm_Server.Controllers.AchievementsController",
+    "Method": "DeleteAchievement",
+    "RelativePath": "api/Achievements/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RetroRealm_Server.Controllers.AvatarsController",
+    "Method": "GetAvatars",
+    "RelativePath": "api/Avatars",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[System.Collections.Generic.List\u00601[[RetroRealm_Server.DTOs.ReadAvatarDTO, RetroRealm Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "RetroRealm_Server.Controllers.AvatarsController",
+    "Method": "PostAvatar",
+    "RelativePath": "api/Avatars",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "avatar",
+        "Type": "RetroRealm_Server.DTOs.CreateAvatarDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "RetroRealm_Server.Models.Avatar",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "RetroRealm_Server.Controllers.AvatarsController",
+    "Method": "GetAvatar",
+    "RelativePath": "api/Avatars/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[RetroRealm_Server.DTOs.ReadAvatarDTO, RetroRealm Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "RetroRealm_Server.Controllers.AvatarsController",
+    "Method": "PutAvatar",
+    "RelativePath": "api/Avatars/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "avatar",
+        "Type": "RetroRealm_Server.DTOs.UpdateAvatarDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RetroRealm_Server.Controllers.AvatarsController",
+    "Method": "DeleteAvatar",
+    "RelativePath": "api/Avatars/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RetroRealm_Server.Controllers.BunnyRunStatusController",
+    "Method": "PutBunnyRunStatus",
+    "RelativePath": "api/BunnyRunStatus",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updatedStatus",
+        "Type": "RetroRealm_Server.DTOs.UpdateBunnyRunStatusDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RetroRealm_Server.Controllers.BunnyRunStatusController",
+    "Method": "GetBunnyRunStatus",
+    "RelativePath": "api/BunnyRunStatus/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "RetroRealm_Server.DTOs.ReadBunnyRunStatusDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "RetroRealm_Server.Controllers.FlappyBirdStatusController",
+    "Method": "PutFlappyBirdStatus",
+    "RelativePath": "api/FlappyBirdStatus",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updatedStatus",
+        "Type": "RetroRealm_Server.DTOs.UpdateFlappyBirdStatusDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RetroRealm_Server.Controllers.FlappyBirdStatusController",
+    "Method": "GetFlappyBirdStatus",
+    "RelativePath": "api/FlappyBirdStatus/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "RetroRealm_Server.Models.Result\u00601[[RetroRealm_Server.DTOs.ReadFlappyBirdStatusDTO, RetroRealm Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "RetroRealm_Server.Controllers.LogsController",
+    "Method": "GetLogs",
+    "RelativePath": "api/Logs",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[RetroRealm_Server.Models.Result\u00601[[System.Collections.Generic.List\u00601[[RetroRealm_Server.Models.Log, RetroRealm Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], RetroRealm Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "RetroRealm_Server.Controllers.LogsController",
+    "Method": "GetLog",
+    "RelativePath": "api/Logs/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "RetroRealm_Server.Models.Result\u00601[[RetroRealm_Server.Models.Log, RetroRealm Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "RetroRealm_Server.Controllers.MemoryGameStatusController",
+    "Method": "PutMemoryGameStatus",
+    "RelativePath": "api/MemoryGameStatus",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updatedStatus",
+        "Type": "RetroRealm_Server.DTOs.UpdateMemoryGameStatusDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RetroRealm_Server.Controllers.MemoryGameStatusController",
+    "Method": "GetMemoryGameStatus",
+    "RelativePath": "api/MemoryGameStatus/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "RetroRealm_Server.DTOs.ReadMemoryGameStatusDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "RetroRealm_Server.Controllers.RolesController",
+    "Method": "GetRoles",
+    "RelativePath": "api/Roles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[RetroRealm_Server.Models.Result\u00601[[System.Collections.Generic.List\u00601[[RetroRealm_Server.DTOs.ReadRoleDTO, RetroRealm Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], RetroRealm Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "RetroRealm_Server.Controllers.RolesController",
+    "Method": "PostRole",
+    "RelativePath": "api/Roles",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "role",
+        "Type": "RetroRealm_Server.DTOs.CreateRoleDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "RetroRealm_Server.Models.Result\u00601[[RetroRealm_Server.Models.Role, RetroRealm Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "RetroRealm_Server.Controllers.RolesController",
+    "Method": "GetRole",
+    "RelativePath": "api/Roles/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[RetroRealm_Server.Models.Result\u00601[[RetroRealm_Server.DTOs.ReadRoleDTO, RetroRealm Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], RetroRealm Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "RetroRealm_Server.Controllers.RolesController",
+    "Method": "PutRole",
+    "RelativePath": "api/Roles/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "role",
+        "Type": "RetroRealm_Server.DTOs.UpdateRoleDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RetroRealm_Server.Controllers.RolesController",
+    "Method": "DeleteRole",
+    "RelativePath": "api/Roles/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RetroRealm_Server.Controllers.WordleStatusController",
+    "Method": "PutWordleStatus",
+    "RelativePath": "api/WordleStatus",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updatedStatus",
+        "Type": "RetroRealm_Server.DTOs.UpdateWordleStatusDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RetroRealm_Server.Controllers.WordleStatusController",
+    "Method": "GetWordleStatus",
+    "RelativePath": "api/WordleStatus/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "RetroRealm_Server.DTOs.ReadWordleStatusDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]
