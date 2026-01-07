@@ -17,8 +17,12 @@ namespace RetroRealm_Server.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
+
+
     public class BunnyRunStatusController : ControllerBase
     {
+
+
         private readonly RetroRealmDatabaseContext _context;
         private readonly IBunnyRunStatusService _bunnyRunStatusService;
 
@@ -33,7 +37,7 @@ namespace RetroRealm_Server.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<ReadBunnyRunStatusDTO>> GetBunnyRunStatus()
         {
-            var result = await _bunnyRunStatusService.GetBunnyRunStatusAsync(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value);
+            var result = await _bunnyRunStatusService.GetBunnyRunStatusAsync(User.Claims.FirstOrDefault(c => c.Type == "unique_name")?.Value);
 
             if (result.Error == "Status not found!") return NotFound();
              
@@ -45,9 +49,14 @@ namespace RetroRealm_Server.Controllers
         [HttpPut]
         public async Task<IActionResult> PutBunnyRunStatus(UpdateBunnyRunStatusDTO updatedStatus)
         {
-            var result = await _bunnyRunStatusService.UpdateBunnyRunStatusAsync(updatedStatus, User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value);
+            foreach (var claim in User.Claims)
+            {
+                Console.WriteLine($"{claim.Type} = {claim.Value}");
+            }
 
-            if (result.Success) NoContent();
+            var result = await _bunnyRunStatusService.UpdateBunnyRunStatusAsync(updatedStatus, User.Claims.FirstOrDefault(c => c.Type == "unique_name")?.Value);
+
+            if (result.Success) return NoContent();
 
             //if (result.Error == "RefreshToken expired or does not exists!") return Unauthorized();
 

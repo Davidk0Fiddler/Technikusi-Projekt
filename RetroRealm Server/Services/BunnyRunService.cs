@@ -77,7 +77,10 @@ namespace RetroRealm_Server.Services
             //if (!result) return Result<UpdateBunnyRunStatusDTO>.Fail("RefreshToken expired or does not exists!");
 
             //var UserId = await _refreshTokenService.GetUserIdFromRefreshTokenAsync(model);
+
+
             var user = await _context.Users.FirstOrDefaultAsync(x => x.Username == username);
+
             var UserId = user.Id;
 
             var currentStatus = await _context.Bunny_Run_Status.FirstOrDefaultAsync(s => s.UserId == UserId);

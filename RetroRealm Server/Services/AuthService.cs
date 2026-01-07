@@ -7,6 +7,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
+
 namespace RetroRealm_Server.Services
 {
     public class AuthService : IAuthService
@@ -51,7 +52,7 @@ namespace RetroRealm_Server.Services
         #region login
         public async Task<Result<ReadTokenDTO>> LoginAsync(LoginDTO model)
         {
-            var user = await _context.Users.SingleOrDefaultAsync(x => x.Username == model.Username);
+            var user = await _context.Users.Include(x => x.Role).SingleOrDefaultAsync(x => x.Username == model.Username);
             if (user == null || !BCrypt.Net.BCrypt.Verify(model.Password, user.PasswordHash))
             {
                 await _logService.CreateLogAsync(LogType.Error.ToString(), null, "Invalid credentials", DateTime.Now, null);
@@ -71,7 +72,7 @@ namespace RetroRealm_Server.Services
 
         #region Refresh Token
         public async Task<Result<ReadTokenDTO>> RefreshTokenAsync(RefreshTokenDto model) {
-            var refreshToken = await _context.RefreshTokens.Include(rt => rt.User).SingleOrDefaultAsync(rt => rt.Token == model.Token);
+            var refreshToken = await _context.RefreshTokens.SingleOrDefaultAsync(rt => rt.Token == model.Token);
             if (refreshToken == null)
             {
                 await _logService.CreateLogAsync(LogType.Error.ToString(), null, "Invalid refresh token", DateTime.Now, null);
@@ -84,14 +85,16 @@ namespace RetroRealm_Server.Services
                 return Result<ReadTokenDTO>.Fail("Expired refresh token");
             }
 
-            var newToken = GenerateJwtToken(refreshToken.User);
+            var user = await _context.Users.Include(x => x.Role).FirstOrDefaultAsync(x => x.Id == refreshToken.UserId);
+
+            var newToken = GenerateJwtToken(user);
             var newRefreshToken = GenerateRefreshToken(refreshToken.User.Id);
 
             _context.RefreshTokens.Remove(refreshToken);
             _context.RefreshTokens.Add(newRefreshToken);
             await _context.SaveChangesAsync();
             await _logService.CreateLogAsync(LogType.Succes.ToString(), null, $"Token refreshed! UserId - {newRefreshToken.UserId}", DateTime.Now, newRefreshToken.UserId);
-            return Result<ReadTokenDTO>.Ok(new ReadTokenDTO { Token = newToken, RefreshToken = refreshToken });
+            return Result<ReadTokenDTO>.Ok(new ReadTokenDTO { Token = newToken, RefreshToken = newRefreshToken });
         }
         #endregion
 
@@ -101,11 +104,11 @@ namespace RetroRealm_Server.Services
 
             if (refreshToken != null)
             {
+                await _logService.CreateLogAsync(LogType.Succes.ToString(), null, $"User {refreshToken.UserId} has logged out!", DateTime.Now, refreshToken.UserId);
                 _context.RefreshTokens.Remove(refreshToken);
                 await _context.SaveChangesAsync();
             }
 
-            await _logService.CreateLogAsync(LogType.Succes.ToString(), null, $"User {refreshToken.UserId} has logged out!", DateTime.Now, refreshToken.UserId);
             return Result<bool>.Ok(true);
         }
         #endregion
@@ -114,7 +117,7 @@ namespace RetroRealm_Server.Services
         private string GenerateJwtToken(User user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]);
+            var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[]

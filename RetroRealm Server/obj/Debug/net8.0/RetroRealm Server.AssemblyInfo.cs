@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RetroRealm Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1e9fa21aa139793565dc5cb1641dce6af700141f")]
 [assembly: System.Reflection.AssemblyProductAttribute("RetroRealm Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RetroRealm Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

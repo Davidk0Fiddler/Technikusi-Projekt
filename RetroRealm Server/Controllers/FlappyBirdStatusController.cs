@@ -32,7 +32,7 @@ namespace RetroRealm_Server.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Result<ReadFlappyBirdStatusDTO>>> GetFlappyBirdStatus()
         {
-            var result = await _flappyBirdStatusService.GetFlappyBirdStatusAsync(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value);
+            var result = await _flappyBirdStatusService.GetFlappyBirdStatusAsync(User.Claims.FirstOrDefault(c => c.Type == "unique_name")?.Value);
             if (result.Error == "Status not found!") return NotFound();
 
             //if (result.Error == "RefreshToken expired or does not exists!") return Unauthorized();
@@ -45,7 +45,7 @@ namespace RetroRealm_Server.Controllers
         [HttpPut]
         public async Task<IActionResult> PutFlappyBirdStatus(UpdateFlappyBirdStatusDTO updatedStatus)
         {
-            var result = await _flappyBirdStatusService.UpdateFlappyBirdStatusAsync(updatedStatus, User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value);
+            var result = await _flappyBirdStatusService.UpdateFlappyBirdStatusAsync(updatedStatus, User.Claims.FirstOrDefault(c => c.Type == "unique_name")?.Value);
             if (result.Success) return NoContent();
 
             if (result.Error == "Status not found") return NotFound();

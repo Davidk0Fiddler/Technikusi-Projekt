@@ -1,1 +1,2 @@
 wwwroot\index.html
+wwwroot\tokenRefresher.js

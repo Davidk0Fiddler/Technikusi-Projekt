@@ -31,7 +31,7 @@ namespace RetroRealm_Server.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<ReadWordleStatusDTO>> GetWordleStatus()
         {
-            var result = await _wordleStatusService.GetWordleStatusAsync(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value);
+            var result = await _wordleStatusService.GetWordleStatusAsync(User.Claims.FirstOrDefault(c => c.Type == "unique_name")?.Value);
 
             if (result.Error == "Status not found!") return NotFound();
 
@@ -45,7 +45,7 @@ namespace RetroRealm_Server.Controllers
         [HttpPut]
         public async Task<IActionResult> PutWordleStatus(UpdateWordleStatusDTO updatedStatus)
         {
-            var result = await _wordleStatusService.UpdateWordleStatusAsync(updatedStatus, User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value);
+            var result = await _wordleStatusService.UpdateWordleStatusAsync(updatedStatus, User.Claims.FirstOrDefault(c => c.Type == "unique_name")?.Value);
 
             if (result.Success) return NoContent();
 

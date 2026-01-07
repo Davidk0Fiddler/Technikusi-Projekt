@@ -31,7 +31,7 @@ namespace RetroRealm_Server.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<ReadMemoryGameStatusDTO>> GetMemoryGameStatus()
         {
-            var result = await _memoryGameStatusService.GetMemoryGameStatusAsync(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value);
+            var result = await _memoryGameStatusService.GetMemoryGameStatusAsync(User.Claims.FirstOrDefault(c => c.Type == "unique_name")?.Value);
 
             if (result.Error == "Status not found") return NotFound();
 
@@ -45,7 +45,7 @@ namespace RetroRealm_Server.Controllers
         [HttpPut]
         public async Task<IActionResult> PutMemoryGameStatus(UpdateMemoryGameStatusDTO updatedStatus)
         {
-            var result = await _memoryGameStatusService.UpdateMemoryGameStatusAsync(updatedStatus, User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value);
+            var result = await _memoryGameStatusService.UpdateMemoryGameStatusAsync(updatedStatus, User.Claims.FirstOrDefault(c => c.Type == "unique_name")?.Value);
 
             if (result.Success) return NoContent();
 
