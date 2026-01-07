@@ -70,6 +70,12 @@ namespace RetroRealm_Server.Services
         }
         #endregion
 
+
+        // NOTE:
+        // In production, refresh token reuse detection and device binding
+        // should be implemented for higher security.
+        // This implementation is sufficient for educational purposes.
+
         #region Refresh Token
         public async Task<Result<ReadTokenDTO>> RefreshTokenAsync(RefreshTokenDto model) {
             var refreshToken = await _context.RefreshTokens.SingleOrDefaultAsync(rt => rt.Token == model.Token);
