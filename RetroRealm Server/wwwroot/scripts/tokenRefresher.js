@@ -1,5 +1,5 @@
 async function refreshToken() {
-  const refreshToken = localStorage.getItem("RefreshToken");
+  const refreshToken = sessionStorage.getItem("RefreshToken");
 
   if (!refreshToken) {
     return false;
@@ -20,11 +20,10 @@ async function refreshToken() {
   }
 
   const data = await response.json();
-
-  localStorage.setItem("Token", data.token);
-  localStorage.setItem("RefreshToken", data.refreshToken.token);
+  sessionStorage.setItem("Token", data.token);
+  sessionStorage.setItem("RefreshToken", data.refreshToken);
 
   return true;
 }
 
-export default TokenRefresher;
+export default refreshToken;
