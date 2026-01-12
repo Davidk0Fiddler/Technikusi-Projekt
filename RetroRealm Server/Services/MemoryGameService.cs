@@ -89,8 +89,10 @@ namespace RetroRealm_Server.Services
                 return Result<bool>.Fail("Status not found");
             }
 
-            currentStatus.MinFlipping = updatedStatus.MinFlipping;
-            currentStatus.MinTime = updatedStatus.MinTime;
+            if (currentStatus.MinFlipping > updatedStatus.MinFlipping) currentStatus.MinFlipping = updatedStatus.MinFlipping;
+            
+            if ((currentStatus.MinTime[0]*60*60 + currentStatus.MinTime[0] * 60 + currentStatus.MinTime[0]) > (updatedStatus.MinTime[0] * 60 * 60 + updatedStatus.MinTime[0] * 60 + updatedStatus.MinTime[0])) currentStatus.MinTime = updatedStatus.MinTime;
+            
             try
             {
                 await _context.SaveChangesAsync();

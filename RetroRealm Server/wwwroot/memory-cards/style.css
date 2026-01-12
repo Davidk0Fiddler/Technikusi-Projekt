@@ -1,0 +1,1030 @@
+@media screen and (min-width: 1020px) {
+  @font-face {
+    font-family: fruitFont;
+    src: url("./assets/fonts/MomoTrustDisplay.ttf");
+  }
+
+  * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: fruitFont;
+  user-select: none;
+  }
+
+  body {
+  background: url("./assets/bodybg.png");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  }
+
+  .game-container {
+  margin: auto;
+  flex-wrap: wrap;
+  justify-content: space-evenly;    
+  gap: 10px;
+  display: none;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  border-radius: 15px;
+  }
+
+  .eight {
+  width: 530px;
+  height: 530px;
+  margin-top: 60px;
+  }
+
+  .six {
+  width: 490px;
+  height: 490px;
+  margin-top: 80px;
+  }
+
+  .four {
+  gap: 10px;
+  width: 530px;
+  height: 530px;
+  margin-top: 60px;
+  }
+
+  .two {
+  gap: 10px;
+  width: 419px;
+  height: 419px;
+  margin-top: 100px;
+  }
+
+  .card8 {
+  width: 55px;
+  height: 55px;
+  background: linear-gradient(to right, darkgray,lightslategray);
+  background-size: cover;
+  border: 2px solid black;
+  box-shadow: 4px 4px 7px gray;
+  font-size: 9px;
+  }
+
+  .card6 {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(to right, darkgray,lightslategray);
+  border: 2px solid black;
+  background-size: cover;
+  box-shadow: 4px 4px 7px gray;
+  font-size: 12px;
+  }
+
+  .card4 {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(to right, darkgray,lightslategray);
+  border: 2px solid black;
+  background-size: cover;
+  box-shadow: 4px 4px 7px gray
+  }
+
+  .card2 {
+  width: 192px;
+  height: 192px;
+  background: linear-gradient(to right, darkgray,lightslategray);
+  border: 2px solid black;
+  background-size: cover;
+  box-shadow: 4px 4px 7px gray
+  }
+
+  .name {
+  width: 100%;
+  font-size: 100%;
+  margin-top: auto;
+  display: none;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  font-weight: bolder;
+  font-variant: small-caps;
+  transform: rotateY(180deg);
+  background-color: rgba(255, 255, 255, 0.6);
+  }
+
+  @keyframes rotation {
+  0% {
+  transform: rotateY(0deg); 
+  background-image: none;
+  background: linear-gradient(to right, darkgray,lightslategray);
+  }
+  100% {
+  transform: rotateY(180deg); 
+  }
+  }
+
+  @keyframes rotation-back {
+  0% {
+  transform: rotateY(180deg); 
+  }
+  100% {
+  transform: rotateY(0deg); 
+  background-image: none;
+  background: linear-gradient(to right, darkgray,lightslategray);
+
+  }
+  }
+
+  @keyframes shake {
+  0%, 100% { transform: translate(0, 0) rotate(0deg) rotateY(180deg); }
+  10%, 90% { transform: translate(-2px, 0) rotate(-1deg) rotateY(180deg); }
+  20%, 80% { transform: translate(2px, 0) rotate(1deg) rotateY(180deg); }
+  30%, 50%, 70% { transform: translate(-2px, 0) rotate(0deg) rotateY(180deg); }
+  40%, 60% { transform: translate(2px, 0) rotate(0deg) rotateY(180deg); }
+  }
+
+  @keyframes scaling {
+  0% {
+  transform: scale(0);
+  }
+  100% {
+  transform: scale(1);
+  }
+  }
+
+  .menu {
+  width: 40vw;
+  height: 60vh;
+  border: 1px solid black;
+  box-shadow: 10px 10px 10px black;
+  border-radius: 15px;
+  margin: auto;
+  margin-top: 20vh;
+  background-color: white;
+  }
+
+  .menu>h1 {
+  text-align: center;
+  padding-top: 5vh;
+  font-size: 50px;
+  }
+
+  .menu>h5 {
+  text-align: center;
+  font-size: 20px;
+  font-weight: lighter;
+  font-style: italic;
+  }
+
+  .buttons {
+  width: 100%;
+  height: 20vh;
+  margin-top: 5vh;
+  display: flex;
+  justify-content: space-around;
+  }
+
+  .button {
+  width: 30%;
+  height: 15vh;
+  border-radius: 15px;
+  border: 1px solid black;
+  box-shadow: 5px 5px 10px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  }
+
+  .button:hover{
+  cursor: pointer ;
+  animation: button-scaling 1s forwards;
+  }
+
+  @keyframes button-scaling{
+  0% {
+  transform: scale(1);
+  box-shadow: 5px 5px 10px black;
+  }
+  100%{
+  transform: scale(1.05);
+  box-shadow: 10px 10px 20px black;
+  }
+  }
+
+  .bottom-buttons{
+  width: 100%;
+  height: 10vh;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  display: flex;
+  justify-content: space-evenly;
+  }
+
+  .bottom-button {
+  width: 8vh;
+  height: 8vh;  
+  background-size: cover;
+  }
+
+  .bottom-button:hover {
+  cursor: pointer;
+  }
+
+  #main-menu {
+  background-image: url("./assets/button-icons/mainmenu-btn.png");
+  }
+
+  #leaderboard {
+  background-image: url("./assets/button-icons/leaderboard-btn.png");
+  }
+
+  #help {
+  background-image: url("./assets/button-icons/help-btn.png");
+  }
+
+  #language {
+  background-image: url("./assets/button-icons/language-btn.png");
+  }
+
+  .language-buttons {
+  position: relative;
+  /* background-color: red; */
+  width: 30vh;
+  height: 10vh;
+  top: 55%;
+  left: 50%;
+  transform: translate(40%, 0%);
+  border-radius: 15px;
+  border: 2px solid black;
+  background-color: white;
+  display: none;
+  justify-content: space-evenly;
+  align-items: center;
+  }
+
+  .language-button {
+  border: 1px solid black;
+  width: 8vh;
+  height: 8vh;
+  border-radius: 15px;
+  background-size: cover;
+  background-position: center;
+  }
+
+  #eng {
+  background-image: url("./assets/button-icons/eng.jpg");
+  }
+
+  #hun {
+  background-image: url("./assets/button-icons/hun.jpg");
+  }
+
+  #esp {
+  background-image: url("./assets/button-icons/esp.jpg");
+  }
+
+  .language-button:hover {
+  cursor: pointer;
+  }
+
+  @keyframes gameFadeOut{
+  0% {
+  transform: scale(1);
+  opacity: 1;
+  }
+  100% {
+  transform: scale(0);
+  opacity: 0;
+  }
+  }
+
+  .end-screen {
+  width: 60vw;
+  height: 40vh;
+  position: absolute;
+  inset: 0px;
+  margin: auto;
+  border:  2px solid black;
+  box-shadow: 10px 10px 10px black;
+  display: none;
+  border-radius: 15px;
+  background-color: white;
+  }
+
+  .end-screen>h1 {
+  font-size: 50px;
+  text-align: center;
+  margin-top: 2.5vh;
+  }
+
+  .data {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 25px;
+  margin-top: 4vh;
+  }
+
+  .end-screen-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 5vh;
+  }
+
+  .end-screen-button {
+  width: 40%;
+  text-align: center;
+  border-radius: 15px;
+  border: 2px solid black;
+  height: 10vh;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 5px 5px black;
+  }
+
+
+  .end-screen-button:hover{
+  cursor: pointer ;
+  animation: button-scaling 1s forwards;
+  }
+
+  .info-panel {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: 2px solid black;
+  width: 20vw;
+  height: 35vh;
+  font-size: 15px;
+  margin-left: 0.5vw;
+  margin-top: 1vh;
+  border-radius: 15px;
+  padding: 5px;
+  background-color: white;
+  }
+
+  .backdrop-element {
+  width: 100vw;
+  height: 200vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  display: none;
+  } 
+
+  .help-panel {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  display: none;
+  width: 50vw;
+  height:  70vh;
+  border-radius: 15px;
+  background-color: white;
+  border: 2px solid black;
+  }
+
+  .left-side {
+  height: 100%;
+  width: 30%;
+  }
+
+  .help-button {
+  height: 25%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  width: 100%;
+  font-size: 20px;
+
+  }
+
+  .help-button:hover {
+  cursor: pointer;
+  }
+
+  .right-side {
+  width: 70%;
+  padding: 20px;
+  font-size: 17px
+  }
+
+  .game-size-image {
+  width: 100%;
+  height: 55%;
+  margin: auto;
+  }
+
+  .language-image {
+  width: 50%;
+  display: block;
+  margin: auto;
+  }
+
+  #restart-button {
+  border: 2px solid black;
+  width: 60%;
+  margin: auto;
+  border-radius: 15px;
+  text-align: center;
+  }
+
+  #restart-button:hover {
+  cursor: pointer;
+  }
+
+  #menu-button {
+  border: 2px solid black;
+  width: 60%;
+  margin: auto;
+  border-radius: 15px;
+  text-align: center;
+  }
+
+  #menu-button:hover {
+  cursor: pointer;
+  }
+
+  .welcome-div {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    height: 50px;
+    border: 2px solid black;
+    background-color: white;
+    width: 20vw;
+    top: -20%;
+    border-radius: 25px;
+  }
+
+  @keyframes rollingDown {
+     0% {
+        top: -10%;
+     }
+     100% {
+        top: 2%;
+     }
+  }
+
+  @keyframes rollingUp {
+     0% {
+        top: 2%;
+     }
+     100% {
+        top: -10%;
+     }
+  }
+
+   @keyframes newRecordBlockAnimation {
+      0% {
+         transform: scale(1);
+         color: red;
+         text-shadow: 2px 2px  yellow;
+      }
+      50% {
+         transform: scale(1.2);
+         color: red;
+         text-shadow: 2px 2px  yellow;
+      }
+      100% {
+         transform: scale(1);
+         color: red;
+         text-shadow: 2px 2px  yellow;
+      }
+   }
+
+  .newRecordBlock {
+      position: absolute;
+      z-index: 2;
+      margin: auto;
+      right: 15%;
+      top: 30%;
+      rotate: 20deg;
+      font-size: 30px;
+      width: 200px;
+      /* background-color: rgba(0, 0, 0, 0.6); */
+      border-radius: 25px;
+      display: none;
+      color: red;
+      text-shadow: 2px 2px  yellow;
+   }
+
+   
+}
+
+@media screen and (min-width: 1600px){
+  @font-face {
+    font-family: fruitFont;
+    src: url("./assets/fonts/MomoTrustDisplay.ttf");
+  }
+
+  * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: fruitFont;
+  user-select: none;
+  }
+
+  body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: url("./assets/bodybg.png");
+  }
+
+  .game-container {
+  margin: auto;
+  flex-wrap: wrap;
+  justify-content: space-evenly;    
+  gap: 10px;
+  display: none;
+  }
+
+  .eight {
+  width: 900px;
+  height: 900px;
+  margin-top: 5px;
+  }
+
+  .six {
+  width: 850px;
+  height: 850px;
+  margin-top: 40px;
+  }
+
+  .four {
+  gap: 10px;
+  width: 700px;
+  height: 700px;
+  margin-top: 120px;
+  }
+
+  .two {
+  gap: 10px;
+  width: 420px;
+  height: 420px;
+  margin-top: 200px;
+  }
+
+  .card8 {
+  width: 96px;
+  height: 96px;
+  background: linear-gradient(to right, darkgray,lightslategray);
+  background-size: cover;
+  border: 2px solid black;
+  box-shadow: 4px 4px 7px gray
+  }
+
+  .card6 {
+  width: 128px;
+  height: 128px;
+  background: linear-gradient(to right, darkgray,lightslategray);
+  border: 2px solid black;
+  background-size: cover;
+  box-shadow: 4px 4px 7px gray
+  }
+
+  .card4 {
+  width: 160px;
+  height: 160px;
+  background: linear-gradient(to right, darkgray,lightslategray);
+  border: 2px solid black;
+  background-size: cover;
+  box-shadow: 4px 4px 7px gray
+  }
+
+  .card2 {
+  width: 192px;
+  height: 192px;
+  background: linear-gradient(to right, darkgray,lightslategray);
+  border: 2px solid black;
+  background-size: cover;
+  box-shadow: 4px 4px 7px gray
+  }
+
+  @keyframes newRecordBlockAnimation {
+      0% {
+         transform: scale(1);
+         color: red;
+         text-shadow: 2px 2px  yellow;
+      }
+      50% {
+         transform: scale(1.2);
+         color: red;
+         text-shadow: 2px 2px  yellow;
+      }
+      100% {
+         transform: scale(1);
+         color: red;
+         text-shadow: 2px 2px  yellow;
+      }
+   }
+
+  .newRecordBlock {
+      position: absolute;
+      z-index: 2;
+      margin: auto;
+      right: 25%;
+      top: 30%;
+      rotate: 20deg;
+      font-size: 30px;
+      width: 200px;
+      /* background-color: rgba(0, 0, 0, 0.6); */
+      border-radius: 25px;
+      display: none;
+      color: red;
+      text-shadow: 2px 2px  yellow;
+   }
+
+  .name {
+  width: 100%;
+  font-size: 100%;
+  margin-top: auto;
+  display: none;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  font-weight: bolder;
+  font-variant: small-caps;
+  transform: rotateY(180deg);
+  background-color: rgba(255, 255, 255, 0.6);
+  }
+
+  @keyframes rotation {
+  0% {
+  transform: rotateY(0deg); 
+  background-image: none;
+  background: linear-gradient(to right, darkgray,lightslategray);
+  }
+  100% {
+  transform: rotateY(180deg); 
+  }
+  }
+
+  @keyframes rotation-back {
+  0% {
+  transform: rotateY(180deg); 
+  }
+  100% {
+  transform: rotateY(0deg); 
+  background-image: none;
+  background: linear-gradient(to right, darkgray,lightslategray);
+
+  }
+  }
+
+  @keyframes shake {
+  0%, 100% { transform: translate(0, 0) rotate(0deg) rotateY(180deg); }
+  10%, 90% { transform: translate(-2px, 0) rotate(-1deg) rotateY(180deg); }
+  20%, 80% { transform: translate(2px, 0) rotate(1deg) rotateY(180deg); }
+  30%, 50%, 70% { transform: translate(-2px, 0) rotate(0deg) rotateY(180deg); }
+  40%, 60% { transform: translate(2px, 0) rotate(0deg) rotateY(180deg); }
+  }
+
+  @keyframes scaling {
+  0% {
+  transform: scale(0);
+  }
+  100% {
+  transform: scale(1);
+  }
+  }
+
+  .menu {
+  width: 40vw;
+  height: 50vh;
+  border: 1px solid black;
+  box-shadow: 10px 10px 10px black;
+  border-radius: 15px;
+  margin: auto;
+  margin-top: 20vh;
+  background-color: white;
+  }
+
+  .menu>h1 {
+  text-align: center;
+  padding-top: 5vh;
+  font-size: 50px;
+  }
+
+  .menu>h5 {
+  text-align: center;
+  font-size: 20px;
+  font-weight: lighter;
+  font-style: italic;
+  }
+
+  .buttons {
+  width: 100%;
+  height: 20vh;
+  margin-top: 5vh;
+  display: flex;
+  justify-content: space-around;
+  }
+
+  .button {
+  width: 30%;
+  height: 15vh;
+  border-radius: 15px;
+  border: 1px solid black;
+  box-shadow: 5px 5px 10px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  }
+
+  .button:hover{
+  cursor: pointer ;
+  animation: button-scaling 1s forwards;
+  }
+
+  @keyframes button-scaling{
+  0% {
+  transform: scale(1);
+  box-shadow: 5px 5px 10px black;
+  }
+  100%{
+  transform: scale(1.05);
+  box-shadow: 10px 10px 20px black;
+  }
+  }
+
+  .bottom-buttons{
+  width: 100%;
+  height: 10vh;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  display: flex;
+  justify-content: space-evenly;
+  }
+
+  .bottom-button {
+  width: 8vh;
+  height: 8vh;  
+  background-size: cover;
+  }
+
+  .bottom-button:hover {
+  cursor: pointer;
+  }
+
+  #main-menu {
+  background-image: url("./assets/button-icons/mainmenu-btn.png");
+  }
+
+  #leaderboard {
+  background-image: url("./assets/button-icons/leaderboard-btn.png");
+  }
+
+  #help {
+  background-image: url("./assets/button-icons/help-btn.png");
+  }
+
+  #language {
+  background-image: url("./assets/button-icons/language-btn.png");
+  }
+
+  .language-buttons {
+  position: relative;
+  /* background-color: red; */
+  width: 30vh;
+  height: 10vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(40%, 0%);
+  border-radius: 15px;
+  border: 2px solid black;
+  background-color: white;
+  display: none;
+  justify-content: space-evenly;
+  align-items: center;
+  }
+
+  .language-button {
+  border: 1px solid black;
+  width: 8vh;
+  height: 8vh;
+  border-radius: 15px;
+  background-size: cover;
+  background-position: center;
+  }
+
+  #eng {
+  background-image: url("./assets/button-icons/eng.jpg");
+  }
+
+  #hun {
+  background-image: url("./assets/button-icons/hun.jpg");
+  }
+
+  #esp {
+  background-image: url("./assets/button-icons/esp.jpg");
+  }
+
+  .language-button:hover {
+  cursor: pointer;
+  }
+
+  @keyframes gameFadeOut{
+  0% {
+  transform: scale(1);
+  opacity: 1;
+  }
+  100% {
+  transform: scale(0);
+  opacity: 0;
+  }
+  }
+
+  .end-screen {
+  width: 40vw;
+  height: 40vh;
+  position: absolute;
+  inset: 0px;
+  margin: auto;
+  border:  2px solid black;
+  box-shadow: 10px 10px 10px black;
+  display: none;
+  border-radius: 15px;
+  background-color: white;
+  }
+
+  .end-screen>h1 {
+  font-size: 50px;
+  text-align: center;
+  margin-top: 2.5vh;
+  }
+
+  .data {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 25px;
+  margin-top: 4vh;
+  }
+
+  .end-screen-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 5vh;
+  }
+
+  .end-screen-button {
+  width: 40%;
+  text-align: center;
+  border-radius: 15px;
+  border: 2px solid black;
+  height: 10vh;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 5px 5px black;
+  }
+
+
+  .end-screen-button:hover{
+  cursor: pointer ;
+  animation: button-scaling 1s forwards;
+  }
+
+  .info-panel {
+  display: none;
+  position: absolute;   
+  left: 0;
+  top: 0;
+  border: 2px solid black;
+  width: 15vw;
+  height: 30vh;
+  font-size: 18px;
+  margin-left: 0.5vw;
+  margin-top: 1vh;
+  border-radius: 15px;
+  padding: 5px;
+  background-color: white;
+  }
+
+  .backdrop-element {
+  width: 100vw;
+  height: 200vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  display: none;
+  } 
+
+  .help-panel {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  display: none;
+  width: 50vw;
+  height:  70vh;
+  border-radius: 15px;
+  background-color: white;
+  border: 2px solid black;
+  }
+
+  .left-side {
+  height: 100%;
+  width: 30%;
+  }
+
+  .help-button {
+  height: 25%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  width: 100%;
+  font-size: 30px;
+
+  }
+
+  .help-button:hover {
+  cursor: pointer;
+  }
+
+  .right-side {
+  width: 70%;
+  padding: 20px;
+  font-size: 30px
+  }
+
+  .game-size-image {
+  width: 100%;
+  height: 55%;
+  margin: auto;
+  }
+
+  .language-image {
+  width: 50%;
+  display: block;
+  margin: auto;
+  }
+
+  #restart-button {
+  border: 2px solid black;
+  width: 60%;
+  margin: auto;
+  border-radius: 15px;
+  text-align: center;
+  }
+
+  #restart-button:hover {
+  cursor: pointer;
+  }
+
+  #menu-button {
+  border: 2px solid black;
+  width: 60%;
+  margin: auto;
+  border-radius: 15px;
+  text-align: center;
+  }
+
+  #menu-button:hover {
+  cursor: pointer;
+  }
+
+  .welcome-div {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    height: 50px;
+    top: -5%;
+  }
+
+  @keyframes rollingDown {
+     0% {
+        top: -5%;
+     }
+     100% {
+        top: 0%;
+     }
+  }
+
+  @keyframes rollingUp {
+     0% {
+        top: 0%;
+     }
+     100% {
+        top: -5%;
+     }
+  }
+}

@@ -3,8 +3,8 @@ import logout from "./logout.js";
 const loginBtn = document.getElementById("loginBtn");
 loginBtn.addEventListener("click", () => {window.location.href = "../htmls/login.html"});
 
-// const memoryGame = document.getElementById("memoryGame");
-// memoryGame.addEventListener("click", () => {window.location.href = "memoryGame"});
+const memoryGame = document.getElementById("memoryGame");
+memoryGame.addEventListener("click", () => {window.location.href = "../memory-cards/index.html"});
 
 const logoutBtn = document.getElementById("logoutBtn");
 logoutBtn.addEventListener("click", () => {

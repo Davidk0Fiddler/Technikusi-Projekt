@@ -8,6 +8,6 @@ namespace RetroRealm_Server.Services.Interfaces
     {
         Task<Result<User>> CreateNewUserAsync(RegisterDTO usermodel);
         Task<Result<bool>> AddStatusesToUserAsync(string username);
-        Task<Result<ReadUserDTO>> GetUserData(string username);
+        Task<Result<ReadUserDTO>> GetUserData(RefreshTokenDto model);
     }
 }

@@ -128,14 +128,16 @@ namespace RetroRealm_Server.Services
 
         }
 
-        public async Task<Result<ReadUserDTO>> GetUserData(string username)
+        public async Task<Result<ReadUserDTO>> GetUserData(RefreshTokenDto model)
         {
+            var refreshToken = await _context.RefreshTokens.FirstOrDefaultAsync(x => x.Token == model.Token);
+
             var user = await _context.Users.Include(x => x.Role)
                                            .Include(x => x.BunnyRunStatus)
                                            .Include(x => x.FlappyBirdStatus)
                                            .Include(x => x.WorldeStatus)
                                            .Include(x => x.MemoryGameStatus)
-                                           .SingleOrDefaultAsync(x => x.Username == username);
+                                           .SingleOrDefaultAsync(x => x.Id == refreshToken.UserId);
 
             if (user == null)
             {

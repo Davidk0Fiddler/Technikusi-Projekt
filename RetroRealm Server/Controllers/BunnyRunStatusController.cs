@@ -34,7 +34,7 @@ namespace RetroRealm_Server.Controllers
 
 
         // GET: api/BunnyRunStatus/5
-        [HttpGet("{id}")]
+        [HttpGet]
         public async Task<ActionResult<ReadBunnyRunStatusDTO>> GetBunnyRunStatus()
         {
             var result = await _bunnyRunStatusService.GetBunnyRunStatusAsync(User.Claims.FirstOrDefault(c => c.Type == "unique_name")?.Value);

@@ -28,7 +28,7 @@ namespace RetroRealm_Server.Controllers
         }
 
         // GET: api/WordleStatus/5
-        [HttpGet("{id}")]
+        [HttpGet]
         public async Task<ActionResult<ReadWordleStatusDTO>> GetWordleStatus()
         {
             var result = await _wordleStatusService.GetWordleStatusAsync(User.Claims.FirstOrDefault(c => c.Type == "unique_name")?.Value);

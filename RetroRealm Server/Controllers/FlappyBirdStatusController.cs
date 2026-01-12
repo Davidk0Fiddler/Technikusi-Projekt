@@ -29,7 +29,7 @@ namespace RetroRealm_Server.Controllers
         }
 
         // GET: api/FlappyBirdStatus/5
-        [HttpGet("{id}")]
+        [HttpGet]
         public async Task<ActionResult<Result<ReadFlappyBirdStatusDTO>>> GetFlappyBirdStatus()
         {
             var result = await _flappyBirdStatusService.GetFlappyBirdStatusAsync(User.Claims.FirstOrDefault(c => c.Type == "unique_name")?.Value);
