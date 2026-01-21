@@ -6,6 +6,9 @@ loginBtn.addEventListener("click", () => {window.location.href = "../htmls/login
 const memoryGame = document.getElementById("memoryGame");
 memoryGame.addEventListener("click", () => {window.location.href = "../memory-cards/index.html"});
 
+const wordleGame = document.getElementById("wordle");
+wordleGame.addEventListener("click", () => {window.location.href = "../wordle/index.html"}); 
+
 const logoutBtn = document.getElementById("logoutBtn");
 logoutBtn.addEventListener("click", () => {
     logout();

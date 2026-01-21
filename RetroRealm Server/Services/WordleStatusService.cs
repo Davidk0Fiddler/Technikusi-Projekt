@@ -88,7 +88,7 @@ namespace RetroRealm_Server.Services
                 return Result<bool>.Fail("Status not found");
             }
 
-            currentStatus.CompletedWords = updatedStatus.CompletedWords;
+            currentStatus.CompletedWords = currentStatus.CompletedWords + 1;
             try
             {
                 await _context.SaveChangesAsync();

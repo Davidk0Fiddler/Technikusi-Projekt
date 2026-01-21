@@ -1,455 +1,447 @@
+/* Apply styles only on screens wider than 1020px */
 @media screen and (min-width: 1020px) {
+
+  /* Custom font declaration */
   @font-face {
     font-family: fruitFont;
     src: url("./assets/fonts/MomoTrustDisplay.ttf");
   }
 
+  /* Global reset and default font */
   * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: fruitFont;
-  user-select: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: fruitFont;
+    user-select: none;
   }
 
+  /* Page background and centering */
   body {
-  background: url("./assets/bodybg.png");
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+    background: url("./assets/bodybg.png");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
   }
 
+  /* Main game container */
   .game-container {
-  margin: auto;
-  flex-wrap: wrap;
-  justify-content: space-evenly;    
-  gap: 10px;
-  display: none;
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 10px;
-  border-radius: 15px;
+    margin: auto;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 10px;
+    display: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 15px;
   }
 
+  /* Game board sizes */
   .eight {
-  width: 530px;
-  height: 530px;
-  margin-top: 60px;
+    width: 530px;
+    height: 530px;
+    margin-top: 60px;
   }
 
   .six {
-  width: 490px;
-  height: 490px;
-  margin-top: 80px;
+    width: 490px;
+    height: 490px;
+    margin-top: 80px;
   }
 
   .four {
-  gap: 10px;
-  width: 530px;
-  height: 530px;
-  margin-top: 60px;
+    gap: 10px;
+    width: 530px;
+    height: 530px;
+    margin-top: 60px;
   }
 
   .two {
-  gap: 10px;
-  width: 419px;
-  height: 419px;
-  margin-top: 100px;
+    gap: 10px;
+    width: 419px;
+    height: 419px;
+    margin-top: 100px;
   }
 
+  /* Card styles for different board sizes */
   .card8 {
-  width: 55px;
-  height: 55px;
-  background: linear-gradient(to right, darkgray,lightslategray);
-  background-size: cover;
-  border: 2px solid black;
-  box-shadow: 4px 4px 7px gray;
-  font-size: 9px;
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(to right, darkgray, lightslategray);
+    background-size: cover;
+    border: 2px solid black;
+    box-shadow: 4px 4px 7px gray;
+    font-size: 9px;
   }
 
   .card6 {
-  width: 70px;
-  height: 70px;
-  background: linear-gradient(to right, darkgray,lightslategray);
-  border: 2px solid black;
-  background-size: cover;
-  box-shadow: 4px 4px 7px gray;
-  font-size: 12px;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(to right, darkgray, lightslategray);
+    border: 2px solid black;
+    background-size: cover;
+    box-shadow: 4px 4px 7px gray;
+    font-size: 12px;
   }
 
   .card4 {
-  width: 120px;
-  height: 120px;
-  background: linear-gradient(to right, darkgray,lightslategray);
-  border: 2px solid black;
-  background-size: cover;
-  box-shadow: 4px 4px 7px gray
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(to right, darkgray, lightslategray);
+    border: 2px solid black;
+    background-size: cover;
+    box-shadow: 4px 4px 7px gray;
   }
 
   .card2 {
-  width: 192px;
-  height: 192px;
-  background: linear-gradient(to right, darkgray,lightslategray);
-  border: 2px solid black;
-  background-size: cover;
-  box-shadow: 4px 4px 7px gray
+    width: 192px;
+    height: 192px;
+    background: linear-gradient(to right, darkgray, lightslategray);
+    border: 2px solid black;
+    background-size: cover;
+    box-shadow: 4px 4px 7px gray;
   }
 
+  /* Card name shown on the back side */
   .name {
-  width: 100%;
-  font-size: 100%;
-  margin-top: auto;
-  display: none;
-  position: absolute;
-  bottom: 0;
-  text-align: center;
-  font-weight: bolder;
-  font-variant: small-caps;
-  transform: rotateY(180deg);
-  background-color: rgba(255, 255, 255, 0.6);
+    width: 100%;
+    font-size: 100%;
+    margin-top: auto;
+    display: none;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    font-weight: bolder;
+    font-variant: small-caps;
+    transform: rotateY(180deg);
+    background-color: rgba(255, 255, 255, 0.6);
   }
 
+  /* Card flip animation */
   @keyframes rotation {
-  0% {
-  transform: rotateY(0deg); 
-  background-image: none;
-  background: linear-gradient(to right, darkgray,lightslategray);
-  }
-  100% {
-  transform: rotateY(180deg); 
-  }
+    0% {
+      transform: rotateY(0deg);
+      background-image: none;
+      background: linear-gradient(to right, darkgray, lightslategray);
+    }
+    100% {
+      transform: rotateY(180deg);
+    }
   }
 
+  /* Reverse card flip animation */
   @keyframes rotation-back {
-  0% {
-  transform: rotateY(180deg); 
+    0% {
+      transform: rotateY(180deg);
+    }
+    100% {
+      transform: rotateY(0deg);
+      background-image: none;
+      background: linear-gradient(to right, darkgray, lightslategray);
+    }
   }
-  100% {
-  transform: rotateY(0deg); 
-  background-image: none;
-  background: linear-gradient(to right, darkgray,lightslategray);
 
-  }
-  }
-
+  /* Shake animation for incorrect cards */
   @keyframes shake {
-  0%, 100% { transform: translate(0, 0) rotate(0deg) rotateY(180deg); }
-  10%, 90% { transform: translate(-2px, 0) rotate(-1deg) rotateY(180deg); }
-  20%, 80% { transform: translate(2px, 0) rotate(1deg) rotateY(180deg); }
-  30%, 50%, 70% { transform: translate(-2px, 0) rotate(0deg) rotateY(180deg); }
-  40%, 60% { transform: translate(2px, 0) rotate(0deg) rotateY(180deg); }
+    0%, 100% { transform: translate(0, 0) rotate(0deg) rotateY(180deg); }
+    10%, 90% { transform: translate(-2px, 0) rotate(-1deg) rotateY(180deg); }
+    20%, 80% { transform: translate(2px, 0) rotate(1deg) rotateY(180deg); }
+    30%, 50%, 70% { transform: translate(-2px, 0) rotate(0deg) rotateY(180deg); }
+    40%, 60% { transform: translate(2px, 0) rotate(0deg) rotateY(180deg); }
   }
 
+  /* Scaling animation for appearing elements */
   @keyframes scaling {
-  0% {
-  transform: scale(0);
-  }
-  100% {
-  transform: scale(1);
-  }
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
   }
 
+  /* Main menu container */
   .menu {
-  width: 40vw;
-  height: 60vh;
-  border: 1px solid black;
-  box-shadow: 10px 10px 10px black;
-  border-radius: 15px;
-  margin: auto;
-  margin-top: 20vh;
-  background-color: white;
+    width: 40vw;
+    height: 60vh;
+    border: 1px solid black;
+    box-shadow: 10px 10px 10px black;
+    border-radius: 15px;
+    margin: auto;
+    margin-top: 20vh;
+    background-color: white;
   }
 
-  .menu>h1 {
-  text-align: center;
-  padding-top: 5vh;
-  font-size: 50px;
+  /* Menu title */
+  .menu > h1 {
+    text-align: center;
+    padding-top: 5vh;
+    font-size: 50px;
   }
 
-  .menu>h5 {
-  text-align: center;
-  font-size: 20px;
-  font-weight: lighter;
-  font-style: italic;
+  /* Menu subtitle */
+  .menu > h5 {
+    text-align: center;
+    font-size: 20px;
+    font-weight: lighter;
+    font-style: italic;
   }
 
+  /* Menu button container */
   .buttons {
-  width: 100%;
-  height: 20vh;
-  margin-top: 5vh;
-  display: flex;
-  justify-content: space-around;
+    width: 100%;
+    height: 20vh;
+    margin-top: 5vh;
+    display: flex;
+    justify-content: space-around;
   }
 
+  /* Menu button style */
   .button {
-  width: 30%;
-  height: 15vh;
-  border-radius: 15px;
-  border: 1px solid black;
-  box-shadow: 5px 5px 10px black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 30px;
+    width: 30%;
+    height: 15vh;
+    border-radius: 15px;
+    border: 1px solid black;
+    box-shadow: 5px 5px 10px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
   }
 
-  .button:hover{
-  cursor: pointer ;
-  animation: button-scaling 1s forwards;
+  /* Hover effect for buttons */
+  .button:hover {
+    cursor: pointer;
+    animation: button-scaling 1s forwards;
   }
 
-  @keyframes button-scaling{
-  0% {
-  transform: scale(1);
-  box-shadow: 5px 5px 10px black;
-  }
-  100%{
-  transform: scale(1.05);
-  box-shadow: 10px 10px 20px black;
-  }
+  /* Button hover scaling animation */
+  @keyframes button-scaling {
+    0% {
+      transform: scale(1);
+      box-shadow: 5px 5px 10px black;
+    }
+    100% {
+      transform: scale(1.05);
+      box-shadow: 10px 10px 20px black;
+    }
   }
 
-  .bottom-buttons{
-  width: 100%;
-  height: 10vh;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  display: flex;
-  justify-content: space-evenly;
+  /* Bottom icon buttons */
+  .bottom-buttons {
+    width: 100%;
+    height: 10vh;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    display: flex;
+    justify-content: space-evenly;
   }
 
   .bottom-button {
-  width: 8vh;
-  height: 8vh;  
-  background-size: cover;
+    width: 8vh;
+    height: 8vh;
+    background-size: cover;
   }
 
   .bottom-button:hover {
-  cursor: pointer;
+    cursor: pointer;
   }
 
-  #main-menu {
-  background-image: url("./assets/button-icons/mainmenu-btn.png");
-  }
+  /* Bottom button icons */
+  #main-menu { background-image: url("./assets/button-icons/mainmenu-btn.png"); }
+  #leaderboard { background-image: url("./assets/button-icons/leaderboard-btn.png"); }
+  #help { background-image: url("./assets/button-icons/help-btn.png"); }
+  #language { background-image: url("./assets/button-icons/language-btn.png"); }
 
-  #leaderboard {
-  background-image: url("./assets/button-icons/leaderboard-btn.png");
-  }
-
-  #help {
-  background-image: url("./assets/button-icons/help-btn.png");
-  }
-
-  #language {
-  background-image: url("./assets/button-icons/language-btn.png");
-  }
-
+  /* Language selector panel */
   .language-buttons {
-  position: relative;
-  /* background-color: red; */
-  width: 30vh;
-  height: 10vh;
-  top: 55%;
-  left: 50%;
-  transform: translate(40%, 0%);
-  border-radius: 15px;
-  border: 2px solid black;
-  background-color: white;
-  display: none;
-  justify-content: space-evenly;
-  align-items: center;
+    position: relative;
+    width: 30vh;
+    height: 10vh;
+    top: 55%;
+    left: 50%;
+    transform: translate(40%, 0%);
+    border-radius: 15px;
+    border: 2px solid black;
+    background-color: white;
+    display: none;
+    justify-content: space-evenly;
+    align-items: center;
   }
 
+  /* Individual language buttons */
   .language-button {
-  border: 1px solid black;
-  width: 8vh;
-  height: 8vh;
-  border-radius: 15px;
-  background-size: cover;
-  background-position: center;
+    border: 1px solid black;
+    width: 8vh;
+    height: 8vh;
+    border-radius: 15px;
+    background-size: cover;
+    background-position: center;
   }
 
-  #eng {
-  background-image: url("./assets/button-icons/eng.jpg");
-  }
-
-  #hun {
-  background-image: url("./assets/button-icons/hun.jpg");
-  }
-
-  #esp {
-  background-image: url("./assets/button-icons/esp.jpg");
-  }
+  #eng { background-image: url("./assets/button-icons/eng.jpg"); }
+  #hun { background-image: url("./assets/button-icons/hun.jpg"); }
+  #esp { background-image: url("./assets/button-icons/esp.jpg"); }
 
   .language-button:hover {
-  cursor: pointer;
+    cursor: pointer;
   }
 
-  @keyframes gameFadeOut{
-  0% {
-  transform: scale(1);
-  opacity: 1;
-  }
-  100% {
-  transform: scale(0);
-  opacity: 0;
-  }
+  /* Game fade-out animation */
+  @keyframes gameFadeOut {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(0); opacity: 0; }
   }
 
+  /* End screen container */
   .end-screen {
-  width: 60vw;
-  height: 40vh;
-  position: absolute;
-  inset: 0px;
-  margin: auto;
-  border:  2px solid black;
-  box-shadow: 10px 10px 10px black;
-  display: none;
-  border-radius: 15px;
-  background-color: white;
+    width: 60vw;
+    height: 40vh;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    border: 2px solid black;
+    box-shadow: 10px 10px 10px black;
+    display: none;
+    border-radius: 15px;
+    background-color: white;
   }
 
-  .end-screen>h1 {
-  font-size: 50px;
-  text-align: center;
-  margin-top: 2.5vh;
+  /* End screen title */
+  .end-screen > h1 {
+    font-size: 50px;
+    text-align: center;
+    margin-top: 2.5vh;
   }
 
+  /* End screen statistics */
   .data {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  font-size: 25px;
-  margin-top: 4vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 25px;
+    margin-top: 4vh;
   }
 
+  /* End screen buttons */
   .end-screen-buttons {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 5vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 5vh;
   }
 
   .end-screen-button {
-  width: 40%;
-  text-align: center;
-  border-radius: 15px;
-  border: 2px solid black;
-  height: 10vh;
-  font-size: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 5px 5px 5px black;
+    width: 40%;
+    text-align: center;
+    border-radius: 15px;
+    border: 2px solid black;
+    height: 10vh;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 5px black;
   }
 
-
-  .end-screen-button:hover{
-  cursor: pointer ;
-  animation: button-scaling 1s forwards;
+  .end-screen-button:hover {
+    cursor: pointer;
+    animation: button-scaling 1s forwards;
   }
 
+  /* Info panel (top-left) */
   .info-panel {
-  display: none;
-  position: absolute;
-  left: 0;
-  top: 0;
-  border: 2px solid black;
-  width: 20vw;
-  height: 35vh;
-  font-size: 15px;
-  margin-left: 0.5vw;
-  margin-top: 1vh;
-  border-radius: 15px;
-  padding: 5px;
-  background-color: white;
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 2px solid black;
+    width: 20vw;
+    height: 35vh;
+    font-size: 15px;
+    margin-left: 0.5vw;
+    margin-top: 1vh;
+    border-radius: 15px;
+    padding: 5px;
+    background-color: white;
   }
 
+  /* Dark background overlay */
   .backdrop-element {
-  width: 100vw;
-  height: 200vh;
-  background-color: rgba(0, 0, 0, 0.6);
-  position: absolute;
-  display: none;
-  } 
-
-  .help-panel {
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  display: none;
-  width: 50vw;
-  height:  70vh;
-  border-radius: 15px;
-  background-color: white;
-  border: 2px solid black;
+    width: 100vw;
+    height: 200vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    display: none;
   }
 
+  /* Help panel container */
+  .help-panel {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    display: none;
+    width: 50vw;
+    height: 70vh;
+    border-radius: 15px;
+    background-color: white;
+    border: 2px solid black;
+  }
+
+  /* Help panel layout */
   .left-side {
-  height: 100%;
-  width: 30%;
+    height: 100%;
+    width: 30%;
   }
 
   .help-button {
-  height: 25%;
-  display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  padding: 1em;
-  border-bottom: 2px solid black;
-  border-right: 2px solid black;
-  width: 100%;
-  font-size: 20px;
-
+    height: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    width: 100%;
+    font-size: 20px;
   }
 
   .help-button:hover {
-  cursor: pointer;
+    cursor: pointer;
   }
 
   .right-side {
-  width: 70%;
-  padding: 20px;
-  font-size: 17px
+    width: 70%;
+    padding: 20px;
+    font-size: 17px;
   }
 
+  /* Images used in help panel */
   .game-size-image {
-  width: 100%;
-  height: 55%;
-  margin: auto;
+    width: 100%;
+    height: 55%;
+    margin: auto;
   }
 
   .language-image {
-  width: 50%;
-  display: block;
-  margin: auto;
+    width: 50%;
+    display: block;
+    margin: auto;
   }
 
-  #restart-button {
-  border: 2px solid black;
-  width: 60%;
-  margin: auto;
-  border-radius: 15px;
-  text-align: center;
-  }
-
-  #restart-button:hover {
-  cursor: pointer;
-  }
-
+  /* Restart and menu buttons */
+  #restart-button,
   #menu-button {
-  border: 2px solid black;
-  width: 60%;
-  margin: auto;
-  border-radius: 15px;
-  text-align: center;
+    border: 2px solid black;
+    width: 60%;
+    margin: auto;
+    border-radius: 15px;
+    text-align: center;
   }
 
+  #restart-button:hover,
   #menu-button:hover {
-  cursor: pointer;
+    cursor: pointer;
   }
 
+  /* Welcome notification bar */
   .welcome-div {
     position: absolute;
     display: flex;
@@ -464,542 +456,515 @@
     border-radius: 25px;
   }
 
+  /* Welcome animation */
   @keyframes rollingDown {
-     0% {
-        top: -10%;
-     }
-     100% {
-        top: 2%;
-     }
+    0% { top: -10%; }
+    100% { top: 2%; }
   }
 
   @keyframes rollingUp {
-     0% {
-        top: 2%;
-     }
-     100% {
-        top: -10%;
-     }
+    0% { top: 2%; }
+    100% { top: -10%; }
   }
 
-   @keyframes newRecordBlockAnimation {
-      0% {
-         transform: scale(1);
-         color: red;
-         text-shadow: 2px 2px  yellow;
-      }
-      50% {
-         transform: scale(1.2);
-         color: red;
-         text-shadow: 2px 2px  yellow;
-      }
-      100% {
-         transform: scale(1);
-         color: red;
-         text-shadow: 2px 2px  yellow;
-      }
-   }
+  /* New record animation */
+  @keyframes newRecordBlockAnimation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
 
+  /* New record label */
   .newRecordBlock {
-      position: absolute;
-      z-index: 2;
-      margin: auto;
-      right: 15%;
-      top: 30%;
-      rotate: 20deg;
-      font-size: 30px;
-      width: 200px;
-      /* background-color: rgba(0, 0, 0, 0.6); */
-      border-radius: 25px;
-      display: none;
-      color: red;
-      text-shadow: 2px 2px  yellow;
-   }
-
-   
+    position: absolute;
+    z-index: 2;
+    right: 15%;
+    top: 30%;
+    rotate: 20deg;
+    font-size: 30px;
+    width: 200px;
+    border-radius: 25px;
+    display: none;
+    color: red;
+    text-shadow: 2px 2px yellow;
+  }
 }
 
-@media screen and (min-width: 1600px){
+/* Styles applied only on very large screens (1600px and above) */
+@media screen and (min-width: 1600px) {
+
+  /* Custom font definition */
   @font-face {
     font-family: fruitFont;
     src: url("./assets/fonts/MomoTrustDisplay.ttf");
   }
 
+  /* Global reset and default font setup */
   * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: fruitFont;
-  user-select: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: fruitFont;
+    user-select: none;
   }
 
+  /* Center the application and apply background */
   body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  background: url("./assets/bodybg.png");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: url("./assets/bodybg.png");
   }
 
+  /* Main game container */
   .game-container {
-  margin: auto;
-  flex-wrap: wrap;
-  justify-content: space-evenly;    
-  gap: 10px;
-  display: none;
+    margin: auto;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 10px;
+    display: none;
   }
 
+  /* Board size layouts */
   .eight {
-  width: 900px;
-  height: 900px;
-  margin-top: 5px;
+    width: 900px;
+    height: 900px;
+    margin-top: 5px;
   }
 
   .six {
-  width: 850px;
-  height: 850px;
-  margin-top: 40px;
+    width: 850px;
+    height: 850px;
+    margin-top: 40px;
   }
 
   .four {
-  gap: 10px;
-  width: 700px;
-  height: 700px;
-  margin-top: 120px;
+    gap: 10px;
+    width: 700px;
+    height: 700px;
+    margin-top: 120px;
   }
 
   .two {
-  gap: 10px;
-  width: 420px;
-  height: 420px;
-  margin-top: 200px;
+    gap: 10px;
+    width: 420px;
+    height: 420px;
+    margin-top: 200px;
   }
 
+  /* Card styles based on board size */
   .card8 {
-  width: 96px;
-  height: 96px;
-  background: linear-gradient(to right, darkgray,lightslategray);
-  background-size: cover;
-  border: 2px solid black;
-  box-shadow: 4px 4px 7px gray
+    width: 96px;
+    height: 96px;
+    background: linear-gradient(to right, darkgray, lightslategray);
+    background-size: cover;
+    border: 2px solid black;
+    box-shadow: 4px 4px 7px gray;
   }
 
   .card6 {
-  width: 128px;
-  height: 128px;
-  background: linear-gradient(to right, darkgray,lightslategray);
-  border: 2px solid black;
-  background-size: cover;
-  box-shadow: 4px 4px 7px gray
+    width: 128px;
+    height: 128px;
+    background: linear-gradient(to right, darkgray, lightslategray);
+    border: 2px solid black;
+    background-size: cover;
+    box-shadow: 4px 4px 7px gray;
   }
 
   .card4 {
-  width: 160px;
-  height: 160px;
-  background: linear-gradient(to right, darkgray,lightslategray);
-  border: 2px solid black;
-  background-size: cover;
-  box-shadow: 4px 4px 7px gray
+    width: 160px;
+    height: 160px;
+    background: linear-gradient(to right, darkgray, lightslategray);
+    border: 2px solid black;
+    background-size: cover;
+    box-shadow: 4px 4px 7px gray;
   }
 
   .card2 {
-  width: 192px;
-  height: 192px;
-  background: linear-gradient(to right, darkgray,lightslategray);
-  border: 2px solid black;
-  background-size: cover;
-  box-shadow: 4px 4px 7px gray
+    width: 192px;
+    height: 192px;
+    background: linear-gradient(to right, darkgray, lightslategray);
+    border: 2px solid black;
+    background-size: cover;
+    box-shadow: 4px 4px 7px gray;
   }
 
+  /* Animation for highlighting a new record */
   @keyframes newRecordBlockAnimation {
-      0% {
-         transform: scale(1);
-         color: red;
-         text-shadow: 2px 2px  yellow;
-      }
-      50% {
-         transform: scale(1.2);
-         color: red;
-         text-shadow: 2px 2px  yellow;
-      }
-      100% {
-         transform: scale(1);
-         color: red;
-         text-shadow: 2px 2px  yellow;
-      }
-   }
-
-  .newRecordBlock {
-      position: absolute;
-      z-index: 2;
-      margin: auto;
-      right: 25%;
-      top: 30%;
-      rotate: 20deg;
-      font-size: 30px;
-      width: 200px;
-      /* background-color: rgba(0, 0, 0, 0.6); */
-      border-radius: 25px;
-      display: none;
+    0% {
+      transform: scale(1);
       color: red;
-      text-shadow: 2px 2px  yellow;
-   }
+      text-shadow: 2px 2px yellow;
+    }
+    50% {
+      transform: scale(1.2);
+      color: red;
+      text-shadow: 2px 2px yellow;
+    }
+    100% {
+      transform: scale(1);
+      color: red;
+      text-shadow: 2px 2px yellow;
+    }
+  }
 
+  /* New record visual indicator */
+  .newRecordBlock {
+    position: absolute;
+    z-index: 2;
+    margin: auto;
+    right: 25%;
+    top: 30%;
+    rotate: 20deg;
+    font-size: 30px;
+    width: 200px;
+    border-radius: 25px;
+    display: none;
+    color: red;
+    text-shadow: 2px 2px yellow;
+  }
+
+  /* Card name displayed on the back side */
   .name {
-  width: 100%;
-  font-size: 100%;
-  margin-top: auto;
-  display: none;
-  position: absolute;
-  bottom: 0;
-  text-align: center;
-  font-weight: bolder;
-  font-variant: small-caps;
-  transform: rotateY(180deg);
-  background-color: rgba(255, 255, 255, 0.6);
+    width: 100%;
+    font-size: 100%;
+    margin-top: auto;
+    display: none;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    font-weight: bolder;
+    font-variant: small-caps;
+    transform: rotateY(180deg);
+    background-color: rgba(255, 255, 255, 0.6);
   }
 
+  /* Card flip animation */
   @keyframes rotation {
-  0% {
-  transform: rotateY(0deg); 
-  background-image: none;
-  background: linear-gradient(to right, darkgray,lightslategray);
-  }
-  100% {
-  transform: rotateY(180deg); 
-  }
+    0% {
+      transform: rotateY(0deg);
+      background-image: none;
+      background: linear-gradient(to right, darkgray, lightslategray);
+    }
+    100% {
+      transform: rotateY(180deg);
+    }
   }
 
+  /* Reverse card flip animation */
   @keyframes rotation-back {
-  0% {
-  transform: rotateY(180deg); 
+    0% {
+      transform: rotateY(180deg);
+    }
+    100% {
+      transform: rotateY(0deg);
+      background-image: none;
+      background: linear-gradient(to right, darkgray, lightslategray);
+    }
   }
-  100% {
-  transform: rotateY(0deg); 
-  background-image: none;
-  background: linear-gradient(to right, darkgray,lightslategray);
 
-  }
-  }
-
+  /* Shake animation for incorrect matches */
   @keyframes shake {
-  0%, 100% { transform: translate(0, 0) rotate(0deg) rotateY(180deg); }
-  10%, 90% { transform: translate(-2px, 0) rotate(-1deg) rotateY(180deg); }
-  20%, 80% { transform: translate(2px, 0) rotate(1deg) rotateY(180deg); }
-  30%, 50%, 70% { transform: translate(-2px, 0) rotate(0deg) rotateY(180deg); }
-  40%, 60% { transform: translate(2px, 0) rotate(0deg) rotateY(180deg); }
+    0%, 100% { transform: translate(0, 0) rotate(0deg) rotateY(180deg); }
+    10%, 90% { transform: translate(-2px, 0) rotate(-1deg) rotateY(180deg); }
+    20%, 80% { transform: translate(2px, 0) rotate(1deg) rotateY(180deg); }
+    30%, 50%, 70% { transform: translate(-2px, 0) rotate(0deg) rotateY(180deg); }
+    40%, 60% { transform: translate(2px, 0) rotate(0deg) rotateY(180deg); }
   }
 
+  /* Scale-in animation for appearing elements */
   @keyframes scaling {
-  0% {
-  transform: scale(0);
-  }
-  100% {
-  transform: scale(1);
-  }
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
   }
 
+  /* Main menu container */
   .menu {
-  width: 40vw;
-  height: 50vh;
-  border: 1px solid black;
-  box-shadow: 10px 10px 10px black;
-  border-radius: 15px;
-  margin: auto;
-  margin-top: 20vh;
-  background-color: white;
+    width: 40vw;
+    height: 50vh;
+    border: 1px solid black;
+    box-shadow: 10px 10px 10px black;
+    border-radius: 15px;
+    margin: auto;
+    margin-top: 20vh;
+    background-color: white;
   }
 
-  .menu>h1 {
-  text-align: center;
-  padding-top: 5vh;
-  font-size: 50px;
+  /* Menu title */
+  .menu > h1 {
+    text-align: center;
+    padding-top: 5vh;
+    font-size: 50px;
   }
 
-  .menu>h5 {
-  text-align: center;
-  font-size: 20px;
-  font-weight: lighter;
-  font-style: italic;
+  /* Menu subtitle */
+  .menu > h5 {
+    text-align: center;
+    font-size: 20px;
+    font-weight: lighter;
+    font-style: italic;
   }
 
+  /* Menu button container */
   .buttons {
-  width: 100%;
-  height: 20vh;
-  margin-top: 5vh;
-  display: flex;
-  justify-content: space-around;
+    width: 100%;
+    height: 20vh;
+    margin-top: 5vh;
+    display: flex;
+    justify-content: space-around;
   }
 
+  /* Menu buttons */
   .button {
-  width: 30%;
-  height: 15vh;
-  border-radius: 15px;
-  border: 1px solid black;
-  box-shadow: 5px 5px 10px black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 40px;
+    width: 30%;
+    height: 15vh;
+    border-radius: 15px;
+    border: 1px solid black;
+    box-shadow: 5px 5px 10px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
   }
 
-  .button:hover{
-  cursor: pointer ;
-  animation: button-scaling 1s forwards;
+  /* Button hover effect */
+  .button:hover {
+    cursor: pointer;
+    animation: button-scaling 1s forwards;
   }
 
-  @keyframes button-scaling{
-  0% {
-  transform: scale(1);
-  box-shadow: 5px 5px 10px black;
-  }
-  100%{
-  transform: scale(1.05);
-  box-shadow: 10px 10px 20px black;
-  }
-  }
-
-  .bottom-buttons{
-  width: 100%;
-  height: 10vh;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  display: flex;
-  justify-content: space-evenly;
+  /* Button scaling animation */
+  @keyframes button-scaling {
+    0% {
+      transform: scale(1);
+      box-shadow: 5px 5px 10px black;
+    }
+    100% {
+      transform: scale(1.05);
+      box-shadow: 10px 10px 20px black;
+    }
   }
 
+  /* Bottom icon button container */
+  .bottom-buttons {
+    width: 100%;
+    height: 10vh;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  /* Bottom icon buttons */
   .bottom-button {
-  width: 8vh;
-  height: 8vh;  
-  background-size: cover;
+    width: 8vh;
+    height: 8vh;
+    background-size: cover;
   }
 
   .bottom-button:hover {
-  cursor: pointer;
+    cursor: pointer;
   }
 
-  #main-menu {
-  background-image: url("./assets/button-icons/mainmenu-btn.png");
-  }
+  /* Bottom button icons */
+  #main-menu { background-image: url("./assets/button-icons/mainmenu-btn.png"); }
+  #leaderboard { background-image: url("./assets/button-icons/leaderboard-btn.png"); }
+  #help { background-image: url("./assets/button-icons/help-btn.png"); }
+  #language { background-image: url("./assets/button-icons/language-btn.png"); }
 
-  #leaderboard {
-  background-image: url("./assets/button-icons/leaderboard-btn.png");
-  }
-
-  #help {
-  background-image: url("./assets/button-icons/help-btn.png");
-  }
-
-  #language {
-  background-image: url("./assets/button-icons/language-btn.png");
-  }
-
+  /* Language selection panel */
   .language-buttons {
-  position: relative;
-  /* background-color: red; */
-  width: 30vh;
-  height: 10vh;
-  top: 50%;
-  left: 50%;
-  transform: translate(40%, 0%);
-  border-radius: 15px;
-  border: 2px solid black;
-  background-color: white;
-  display: none;
-  justify-content: space-evenly;
-  align-items: center;
+    position: relative;
+    width: 30vh;
+    height: 10vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(40%, 0%);
+    border-radius: 15px;
+    border: 2px solid black;
+    background-color: white;
+    display: none;
+    justify-content: space-evenly;
+    align-items: center;
   }
 
+  /* Individual language buttons */
   .language-button {
-  border: 1px solid black;
-  width: 8vh;
-  height: 8vh;
-  border-radius: 15px;
-  background-size: cover;
-  background-position: center;
+    border: 1px solid black;
+    width: 8vh;
+    height: 8vh;
+    border-radius: 15px;
+    background-size: cover;
+    background-position: center;
   }
 
-  #eng {
-  background-image: url("./assets/button-icons/eng.jpg");
-  }
-
-  #hun {
-  background-image: url("./assets/button-icons/hun.jpg");
-  }
-
-  #esp {
-  background-image: url("./assets/button-icons/esp.jpg");
-  }
+  #eng { background-image: url("./assets/button-icons/eng.jpg"); }
+  #hun { background-image: url("./assets/button-icons/hun.jpg"); }
+  #esp { background-image: url("./assets/button-icons/esp.jpg"); }
 
   .language-button:hover {
-  cursor: pointer;
+    cursor: pointer;
   }
 
-  @keyframes gameFadeOut{
-  0% {
-  transform: scale(1);
-  opacity: 1;
-  }
-  100% {
-  transform: scale(0);
-  opacity: 0;
-  }
+  /* Fade-out animation when game ends */
+  @keyframes gameFadeOut {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(0); opacity: 0; }
   }
 
+  /* End screen container */
   .end-screen {
-  width: 40vw;
-  height: 40vh;
-  position: absolute;
-  inset: 0px;
-  margin: auto;
-  border:  2px solid black;
-  box-shadow: 10px 10px 10px black;
-  display: none;
-  border-radius: 15px;
-  background-color: white;
+    width: 40vw;
+    height: 40vh;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    border: 2px solid black;
+    box-shadow: 10px 10px 10px black;
+    display: none;
+    border-radius: 15px;
+    background-color: white;
   }
 
-  .end-screen>h1 {
-  font-size: 50px;
-  text-align: center;
-  margin-top: 2.5vh;
+  /* End screen title */
+  .end-screen > h1 {
+    font-size: 50px;
+    text-align: center;
+    margin-top: 2.5vh;
   }
 
+  /* End screen statistics */
   .data {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  font-size: 25px;
-  margin-top: 4vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 25px;
+    margin-top: 4vh;
   }
 
+  /* End screen action buttons */
   .end-screen-buttons {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 5vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 5vh;
   }
 
   .end-screen-button {
-  width: 40%;
-  text-align: center;
-  border-radius: 15px;
-  border: 2px solid black;
-  height: 10vh;
-  font-size: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 5px 5px 5px black;
+    width: 40%;
+    text-align: center;
+    border-radius: 15px;
+    border: 2px solid black;
+    height: 10vh;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 5px black;
   }
 
-
-  .end-screen-button:hover{
-  cursor: pointer ;
-  animation: button-scaling 1s forwards;
+  .end-screen-button:hover {
+    cursor: pointer;
+    animation: button-scaling 1s forwards;
   }
 
+  /* Info panel shown during gameplay */
   .info-panel {
-  display: none;
-  position: absolute;   
-  left: 0;
-  top: 0;
-  border: 2px solid black;
-  width: 15vw;
-  height: 30vh;
-  font-size: 18px;
-  margin-left: 0.5vw;
-  margin-top: 1vh;
-  border-radius: 15px;
-  padding: 5px;
-  background-color: white;
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 2px solid black;
+    width: 15vw;
+    height: 30vh;
+    font-size: 18px;
+    margin-left: 0.5vw;
+    margin-top: 1vh;
+    border-radius: 15px;
+    padding: 5px;
+    background-color: white;
   }
 
+  /* Dark overlay background */
   .backdrop-element {
-  width: 100vw;
-  height: 200vh;
-  background-color: rgba(0, 0, 0, 0.6);
-  position: absolute;
-  display: none;
-  } 
-
-  .help-panel {
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  display: none;
-  width: 50vw;
-  height:  70vh;
-  border-radius: 15px;
-  background-color: white;
-  border: 2px solid black;
+    width: 100vw;
+    height: 200vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    display: none;
   }
 
+  /* Help panel container */
+  .help-panel {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    display: none;
+    width: 50vw;
+    height: 70vh;
+    border-radius: 15px;
+    background-color: white;
+    border: 2px solid black;
+  }
+
+  /* Help panel layout */
   .left-side {
-  height: 100%;
-  width: 30%;
+    height: 100%;
+    width: 30%;
   }
 
   .help-button {
-  height: 25%;
-  display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  padding: 1em;
-  border-bottom: 2px solid black;
-  border-right: 2px solid black;
-  width: 100%;
-  font-size: 30px;
-
+    height: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    width: 100%;
+    font-size: 30px;
   }
 
   .help-button:hover {
-  cursor: pointer;
+    cursor: pointer;
   }
 
   .right-side {
-  width: 70%;
-  padding: 20px;
-  font-size: 30px
+    width: 70%;
+    padding: 20px;
+    font-size: 30px;
   }
 
+  /* Images inside help panel */
   .game-size-image {
-  width: 100%;
-  height: 55%;
-  margin: auto;
+    width: 100%;
+    height: 55%;
+    margin: auto;
   }
 
   .language-image {
-  width: 50%;
-  display: block;
-  margin: auto;
+    width: 50%;
+    display: block;
+    margin: auto;
   }
 
-  #restart-button {
-  border: 2px solid black;
-  width: 60%;
-  margin: auto;
-  border-radius: 15px;
-  text-align: center;
-  }
-
-  #restart-button:hover {
-  cursor: pointer;
-  }
-
+  /* Restart and menu buttons */
+  #restart-button,
   #menu-button {
-  border: 2px solid black;
-  width: 60%;
-  margin: auto;
-  border-radius: 15px;
-  text-align: center;
+    border: 2px solid black;
+    width: 60%;
+    margin: auto;
+    border-radius: 15px;
+    text-align: center;
   }
 
+  #restart-button:hover,
   #menu-button:hover {
-  cursor: pointer;
+    cursor: pointer;
   }
 
+  /* Welcome message container */
   .welcome-div {
     position: absolute;
     display: flex;
@@ -1010,21 +975,14 @@
     top: -5%;
   }
 
+  /* Welcome message animations */
   @keyframes rollingDown {
-     0% {
-        top: -5%;
-     }
-     100% {
-        top: 0%;
-     }
+    0% { top: -5%; }
+    100% { top: 0%; }
   }
 
   @keyframes rollingUp {
-     0% {
-        top: 0%;
-     }
-     100% {
-        top: -5%;
-     }
+    0% { top: 0%; }
+    100% { top: -5%; }
   }
 }

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="menu" id="menu">
+        <h1>Wordle</h1>
+        <div class="buttons">
+            <div class="button" id="play-button">START</div>
+        </div>
+        <div class="bottom-buttons">
+            <div class="bottom-button" id="main-menu"></div>
+            <div class="bottom-button" id="leaderboard"></div>
+            <div class="bottom-button" id="help"></div>
+            <div class="bottom-button" id="language"></div>
+        </div>
+        <div class="language-buttons" id="language-buttons">
+            <div class="language-button" id="eng"></div>
+            <div class="language-button" id="hun"></div>
+            <div class="language-button" id="esp"></div>
+        </div>
+    </div>
+
+    <div class="game-container" id="game-container">
+        <div class="nav-bar">
+            <h1 onclick="clickKey('asd')">wordle</h1>
+        </div>
+
+        <!-- A játéktér -->
+        <div class="game-board" id="game-board">
+            <div class="row" id="first-row">
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+            </div>
+            <div class="row" id="second-row">
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+            </div>
+            <div class="row" id="third-row">
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+            </div>
+            <div class="row" id="fourth-row">
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+            </div>
+            <div class="row" id="fifth-row">
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+            </div>
+            <div class="row" id="sixth-row">
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+            </div>
+        </div>
+        <div class="keyboard" id="keys">
+        </div>
+    </div>  
+    
+    <div class="back-to-menu-btn" id="back-to-menu-btn">
+    </div>
+
+    <div class="end-screen" id="end-screen">
+        <h1 id="end-screen-h1">Better luck next time!</h1>
+        <h3 id="end-screen-word">The word was <span style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-weight: bold;">APPLE</span></h3>
+        <h5 id="end-screen-h5"></h5>
+        <div class="end-screen-buttons">
+            <div class="end-screen-button" id="play-again-button">Play again</div>
+            <div class="end-screen-button" id="back-to-menu-button">Back to menu</div>
+        </div>
+    </div>
+    
+    <div class="backdrop-element" id="backdrop-element"></div>
+    <div class="help-panel" id="help-panel">
+        <div class="left-side">
+            <div class="help-button" id="help-about-button" style="border-top-left-radius: 10px;">About the game</div>
+            <div class="help-button" id="help-change-language-button">Change language</div>
+            <div class="help-button" id="help-how-to-play-button" style="border-bottom-left-radius: 10px; border-bottom: 0px solid black;">How to play the game</div>
+        </div>
+        <div class="right-side" id="help-right-side">
+        </div>
+    </div>
+    <script type="module" src="scripts.js"></script>
+</body>
+</html>

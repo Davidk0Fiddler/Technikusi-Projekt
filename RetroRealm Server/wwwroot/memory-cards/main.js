@@ -1,116 +1,13 @@
-async function getUserData() {
-    const refreshToken = sessionStorage.getItem("RefreshToken");
-    const token = sessionStorage.getItem("Token");
-    let userData;
-    if(refreshToken != undefined && token != undefined){
-        for (let i = 0; i < 5; i++) {
-            const response = await fetch("https://localhost:7234/api/Users/getuserdata", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`
-                },
-                body: JSON.stringify({
-                    Token: refreshToken
-                })
-            });
+// Importing the token refresh helper used for authentication renewal
+import refreshToken from "../scripts/tokenRefresher.js";
 
-            if (response.ok) {
-                userData = await response.json();
-            }
-        }
-        return userData;
-    }
-}
+/*
+    ---------------------------------------------
+    DATA DEFINITIONS
+    ---------------------------------------------
+*/
 
-async function changeStat() {
-    
-    function isNewTimeLesser(newTime, oldTime)
-    {
-        let newTimeSecs = newTime[2] + newTime[1]*60 + newTime[0]*60*60;
-        let oldTimeSecs = oldTime[2] + oldTime[1]*60 + oldTime[0]*60*60;
-        if(oldTimeSecs > newTimeSecs) return true;
-        else return false;
-    }
-
-    function isNewFlipsLesser (newSlips, oldSlips) {
-        if(oldSlips > newSlips) return true;
-        else return false;
-    }
-
-    async function getUserStatusData(token) {
-        const response =  await fetch("https://localhost:7234/api/MemoryGameStatus", {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}` 
-            }, 
-        });
-
-        if (response.ok){
-            let data = await response.json();
-            return data;
-        }
-    }
-    
-     function uploadNewStatus(newStatus) {
-        fetch("https://localhost:7234/api/MemoryGameStatus", {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`
-        },
-        body: JSON.stringify(newStatus)
-    });
-}
-
-    
-    const refreshToken = sessionStorage.getItem("RefreshToken");
-    const token = sessionStorage.getItem("Token");
-    let userBestGameStatus;
-    if (refreshToken != undefined && token != undefined)
-    {
-        userBestGameStatus = await getUserStatusData(token);
-        userBestGameStatus = userBestGameStatus.data;
-        console.log(userBestGameStatus);
-        let newTimeRecord = false;
-        let newFlipRecord = false;
-        let newStatus = {
-            minTime: [0,0,0],
-            minFlipping: 0
-        };
-
-        endScreenTimeArea.style.animation = " ";
-        endScreenTotalFlipsArea.style.animation = " ";
-
-        if (isNewTimeLesser([hours, minutes, seconds], userBestGameStatus.minTime))
-        { 
-            newStatus.minTime = [hours, minutes, seconds];
-            endScreenTimeArea.style.animation = "newRecordBlockAnimation 1s infinite";  
-            newTimeRecord = true;
-            console.log("newTimeRecord");
-        }
-
-        if (isNewFlipsLesser(flipping, userBestGameStatus.minFlipping)) {
-            newStatus.minFlipping = flipping;
-            endScreenTotalFlipsArea.style.animation = "newRecordBlockAnimation 1s infinite";
-            newFlipRecord = true;
-        }
-        
-        if (newFlipRecord || newTimeRecord)
-        {
-            uploadNewStatus(newStatus);
-            newRecordBlock.textContent = Texts[19][lang];
-            newRecordBlock.style.animation = "newRecordBlockAnimation 1s infinite";
-            setTimeout(() => {
-                newRecordBlock.style.display = "block";
-            },1000);
-
-        }
-    }
-}
-
-console.log(window.innerWidth);
+// List of fruits and vegetables with translations and image references
 
 let fruits = [
     {"eng": "apple",            "hun": "alma",                  "esp": "manzana",           "img": "apple.jpg"},
@@ -146,6 +43,11 @@ let fruits = [
     {"eng": "turnip",           "hun": "fehérrépa",             "esp": "nabo",              "img": "turnip.jpg"},
     {"eng": "watermelon",       "hun": "görögdinnye",           "esp": "sandía",            "img": "watermelon.jpg"}
 ];
+
+/*
+    Text resources used throughout the UI
+    Indexed access is used for language switching
+*/
 
 const Texts = [
     {"eng": "fruits and vegetables", "hun": "gyümölcsök és zöldségek", "esp": "frutas y verduras"},
@@ -185,20 +87,40 @@ const Texts = [
     {"eng": "New Record!", "hun": "Új Rekord!", "esp": "¡Nuevo récord!"}
 ];
 
-// Language settings
+/*
+    ---------------------------------------------
+    LANGUAGE HANDLING
+    ---------------------------------------------
+*/
+
+// Default language
 let lang = "eng";
+
+// Switches language and updates static menu texts
 function switchLang(newLang) {
     lang = newLang;
     document.getElementById("h5").textContent = Texts[0][lang];
     document.getElementById("play-button").textContent = Texts[1][lang];
 }
 
-// Getting the user data
-const userData = await getUserData();
+/*
+    ---------------------------------------------
+    USER DATA HANDLING
+    ---------------------------------------------
+*/
 
+// Load user data from backend (if authenticated)
+const userData = await getUserData();
 let user;
 if (userData != undefined) user = userData;
-// Game elements
+
+/*
+    ---------------------------------------------
+    DOM ELEMENT REFERENCES
+    ---------------------------------------------
+*/
+
+// Main containers and controls
 const gameContainer = document.getElementById("game-container");
 const menuContainer = document.getElementById("menu");
 const gameModeBtn = document.getElementById("gamemode-button");
@@ -207,16 +129,26 @@ const leaderboardBtn = document.getElementById("leaderboard");
 const helpBtn = document.getElementById("help");
 const languageBtn = document.getElementById("language");
 const languageButtonsContainer = document.getElementById("language-buttons");
+
+// End screen elements
 const endScreen = document.getElementById("end-screen");
 const endScreenTimeArea = document.getElementById("end-screen-time");
 const endScreenTotalFlipsArea = document.getElementById("end-screen-total-flips");
 const endScreenDifficultyArea = document.getElementById("end-screen-difficulty");
+
+// Info panel during gameplay
 const infoPanel = document.getElementById("info-panel");
 const infoTimeArea = document.getElementById("info-panel-time");
 const infoFlippingArea = document.getElementById("info-panel-total-flips");
 const infoDifficultyArea = document.getElementById("info-panel-difficulty");
+
+// Buttons
 const playAgainBtn = document.getElementById("end-screen-play-again");
 const menuBtn = document.getElementById("end-screen-menu");
+const restartBtn = document.getElementById("restart-button");
+const infoMenuBtn = document.getElementById("menu-button");
+
+// Help panel elements
 const helpPanel = document.getElementById("help-panel");
 const helpAboutBtn = document.getElementById("help-about-button");
 const helpGameSizeBtn = document.getElementById("help-game-size-button");
@@ -224,15 +156,21 @@ const helpChangeLanguageBtn = document.getElementById("help-change-language-butt
 const helpHowToPlayBtn = document.getElementById("help-how-to-play-button");
 const backdropElement = document.getElementById("backdrop-element");
 const helpRightSide = document.getElementById("help-right-side");
-const restartBtn = document.getElementById("restart-button");
-const infoMenuBtn = document.getElementById("menu-button");
+
+// New record indicator
 const newRecordBlock = document.getElementById("newRecordBlock");
 
-// Game variables
+/*
+    ---------------------------------------------
+    GAME STATE VARIABLES
+    ---------------------------------------------
+*/
 
-let gameSize = 2
-// Can be 2, 4, 6, 8
-let gameCards = []; 
+// Game size (board dimension)
+let gameSize = 2;
+
+// Runtime state
+let gameCards = [];
 let cardTypes = [];
 let selectedCards = [];
 let seconds = 0;
@@ -242,64 +180,84 @@ let playing = false;
 let flipping = 0;
 let timerId = null;
 
+/*
+    ---------------------------------------------
+    GAME LOGIC
+    ---------------------------------------------
+*/
 
-// Reseting game variables
+// Resets all runtime variables for starting a new game
 function reset() {
-    playing = true;
-    flipping = 0;
-    seconds = 0;
+    playing = true;        // Enables the game loop
+    flipping = 0;          // Reset flip counter
+    seconds = 0;           // Reset time
     minutes = 0;
     hours = 0;
-    selectedCards = [];  
+    selectedCards = [];    // Clear currently selected cards
 }
 
-// Getting the cardtypes for game
+// Selects random unique card types for the board
 function getCardTypes() {
-    cardTypes = []
-    let cardNumber = (gameSize ** 2) / 2 // The number of types needed
+    cardTypes = [];
+    let cardNumber = (gameSize ** 2) / 2; // Number of unique pairs needed
+
     for (let i = 0; i < cardNumber; i++) {
-        let newCard = fruits[Math.floor(Math.random()*fruits.length)];
+        // Pick a random fruit
+        let newCard = fruits[Math.floor(Math.random() * fruits.length)];
+
+        // Ensure uniqueness (no duplicate card types)
         while (cardTypes.includes(newCard)) {
-            newCard = fruits[Math.floor(Math.random()*fruits.length)];
+            newCard = fruits[Math.floor(Math.random() * fruits.length)];
         }
+
         cardTypes.push(newCard);
     }
 }
 
-// Filling the game array
+// Creates the gameCards array by duplicating each card type (pairing)
 function fillGameArray() {
     gameCards = [];
     selectedCards = [];
-    for (let i in cardTypes) { // Making pairs
-        gameCards.push(cardTypes[i]),
-        gameCards.push(cardTypes[i])
+
+    // Each card type is added twice to form a pair
+    for (let i in cardTypes) {
+        gameCards.push(cardTypes[i]);
+        gameCards.push(cardTypes[i]);
     }
 }
 
-// Shuffles the game array
+// Shuffles the cards using the Fisher–Yates algorithm
 function shuffleArray() {
-  for (let i = gameCards.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [gameCards[i], gameCards[j]] = [gameCards[j], gameCards[i]];   
-  }
+    for (let i = gameCards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [gameCards[i], gameCards[j]] = [gameCards[j], gameCards[i]];
+    }
 }
 
-// This activates if the two choosed cards are not the same
+// Triggered when the selected cards do NOT match
 function badPairing() {
     setTimeout(() => {
+        // Get DOM elements of the selected cards
         let firstelement = document.getElementById(`${selectedCards[0][1]}`);
         let secondelement = document.getElementById(`${selectedCards[1][1]}`);
         let firstname = document.getElementById(`n${selectedCards[0][1]}`);
         let secondname = document.getElementById(`n${selectedCards[1][1]}`);
+
+        // Shake animation + red overlay
         firstelement.style.animation = "shake 0.5s forwards";
         secondelement.style.animation = "shake 0.5s forwards";
-        firstelement.style.backgroundImage = `linear-gradient(rgba(255, 0, 0, 0.4), rgba(255, 0, 0, 0.5)), url(./assets/fruit-images/${selectedCards[0][0].img})`;
-        secondelement.style.backgroundImage = `linear-gradient(rgba(255, 0, 0, 0.4), rgba(255, 0, 0, 0.5)), url(./assets/fruit-images/${selectedCards[1][0].img})`;
+        firstelement.style.backgroundImage =
+            `linear-gradient(rgba(255, 0, 0, 0.4), rgba(255, 0, 0, 0.5)), url(./assets/fruit-images/${selectedCards[0][0].img})`;
+        secondelement.style.backgroundImage =
+            `linear-gradient(rgba(255, 0, 0, 0.4), rgba(255, 0, 0, 0.5)), url(./assets/fruit-images/${selectedCards[1][0].img})`;
+
         setTimeout(() => {
+            // Flip cards back
             firstelement.style.animation = "rotation-back 0.5s forwards";
             secondelement.style.animation = "rotation-back 0.5s forwards";
-            
+
             setTimeout(() => {
+                // Reset visuals
                 firstelement.style.backgroundImage = "none";
                 secondelement.style.backgroundImage = "none";
                 firstname.style.display = "none";
@@ -307,270 +265,290 @@ function badPairing() {
                 firstelement.style.background = "linear-gradient(to right, darkgray,lightslategray);";
                 secondelement.style.background = "linear-gradient(to right, darkgray,lightslategray);";
             }, 150);
-            // Clearing the selected cards
+
+            // Remove both selected cards
             selectedCards.pop();
-            selectedCards.pop(); 
+            selectedCards.pop();
         }, 300);
-    }, 500);  
-    
-    flipping = flipping + 1
+    }, 500);
+
+    // Increase flip counter
+    flipping += 1;
 }
 
-// This activates if the two choosed cards are the same
+// Triggered when the selected cards DO match
 function goodPairing() {
     if (gameCards.length == 0) playing = false;
-    setTimeout(() =>{
-        document.getElementById(`${selectedCards[0][1]}`).style.backgroundImage = `linear-gradient(rgba(0, 255, 0, 0.4), rgba(0, 255, 0, 0.5)), url(./assets/fruit-images/${selectedCards[0][0].img})`;
-        document.getElementById(`${selectedCards[1][1]}`).style.backgroundImage = `linear-gradient(rgba(0, 255, 0, 0.4), rgba(0, 255, 0, 0.5)), url(./assets/fruit-images/${selectedCards[1][0].img})`;
-        // Clearing the cards from the game array in order to disable choosing them.
+
+    setTimeout(() => {
+        // Green overlay for correct match
+        document.getElementById(`${selectedCards[0][1]}`).style.backgroundImage =
+            `linear-gradient(rgba(0, 255, 0, 0.4), rgba(0, 255, 0, 0.5)), url(./assets/fruit-images/${selectedCards[0][0].img})`;
+        document.getElementById(`${selectedCards[1][1]}`).style.backgroundImage =
+            `linear-gradient(rgba(0, 255, 0, 0.4), rgba(0, 255, 0, 0.5)), url(./assets/fruit-images/${selectedCards[1][0].img})`;
+
+        // Remove matched cards from gameCards to disable further selection
         gameCards = gameCards.filter(obj => obj !== selectedCards[0][0]);
         gameCards = gameCards.filter(obj => obj !== selectedCards[1][0]);
-        // Clearing the selected cards
-        selectedCards.pop();
-        selectedCards.pop(); 
 
+        // Clear selected cards
+        selectedCards.pop();
+        selectedCards.pop();
+
+        // End game if no cards remain
         if (gameCards.length == 0) {
             playing = false;
             infoPanel.style.animation = "gameFadeOut 2s forwards";
             gameContainer.style.animation = "gameFadeOut 2s forwards";
             setTimeout(displayEndScreen, 1500);
         }
-    }, 300); 
+    }, 300);
 
-    flipping = flipping + 1;
+    flipping += 1;
 }
 
-// Checking whether the cards are the same or not 
+// Compares the two selected cards
 function checkCards() {
-    console.log()
-    if (selectedCards[0][0].eng ==  selectedCards[1][0].eng) {
+    if (selectedCards[0][0].eng == selectedCards[1][0].eng) {
         goodPairing();
-    }
-
-    else {
+    } else {
         badPairing();
     }
 }
 
-// Setting the size of the game board and the cards
+// Sets CSS classes based on the selected board size
 function setBoardStyles() {
     switch (gameSize) {
         case 4:
-            gameContainer.classList.remove("two");
-            gameContainer.classList.remove("six");
-            gameContainer.classList.remove("eight");
+            gameContainer.classList.remove("two", "six", "eight");
             gameContainer.classList.add("four");
             break;
         case 2:
-            gameContainer.classList.remove("eight");
-            gameContainer.classList.remove("six");
-            gameContainer.classList.remove("four");
+            gameContainer.classList.remove("four", "six", "eight");
             gameContainer.classList.add("two");
             break;
-        case 6: 
-            gameContainer.classList.remove("two");
-            gameContainer.classList.remove("four");
-            gameContainer.classList.remove("eight");
+        case 6:
+            gameContainer.classList.remove("two", "four", "eight");
             gameContainer.classList.add("six");
-            break
-        case 8:
-            gameContainer.classList.remove("two");
-            gameContainer.classList.remove("four");
-            gameContainer.classList.remove("six");
-            gameContainer.classList.add("eight");
             break;
-        default:
+        case 8:
+            gameContainer.classList.remove("two", "four", "six");
+            gameContainer.classList.add("eight");
             break;
     }
 }
-// Displaying the board and creating it's item's card
-function displayBoard() {   
+
+// Renders the game board and creates all card elements
+function displayBoard() {
     setBoardStyles();
     infoPanel.style.display = "block";
-    gameContainer.innerHTML = ` `;
+    gameContainer.innerHTML = "";
     gameContainer.style.display = "flex";
-    // Creating the cards and adding to the main container
+
+    // Create card DOM elements
     gameCards.forEach((element, index) => {
         const newCard = document.createElement("div");
-        switch (gameSize) {
-            case 2:
-                newCard.className = "card2";        
-                break;
-            case 4:
-                newCard.className = "card4";        
-                break;
-            case 6:
-                newCard.className = "card6";        
-                break;
-            case 8:
-                newCard.className = "card8";        
-                break;
-            default:
-                break;
-        }
+
+        // Assign card size class
+        newCard.className = `card${gameSize}`;
         newCard.id = index;
 
+        // Name label for the card
         let newName = document.createElement("div");
         newName.className = "name";
-        newName.id = `n${index}`
+        newName.id = `n${index}`;
         newName.textContent = element[lang];
 
-        // Adding the choosing event when clicking on the card
+        // Card click handler
         newCard.addEventListener("click", () => {
             function choosingCard() {
-                if(selectedCards.length<2 && gameCards.includes(element) && !selectedCards.some(([el, idx]) => el === element && idx === index)) {
+                // Only allow valid selections
+                if (
+                    selectedCards.length < 2 &&
+                    gameCards.includes(element) &&
+                    !selectedCards.some(([el, idx]) => el === element && idx === index)
+                ) {
                     selectedCards.push([element, index]);
                     newCard.style.animation = "rotation 0.5s forwards";
                     newCard.style.background = "linear-gradient(to right, darkgray,lightslategray);";
+
                     setTimeout(() => {
-                        newCard.style.backgroundImage = `url(./assets/fruit-images/${element.img})`
-                        newName.style.display = 'block';
+                        newCard.style.backgroundImage = `url(./assets/fruit-images/${element.img})`;
+                        newName.style.display = "block";
                     }, 100);
 
-                    // If there are two cards selected, run the checkCards method
-                    if(selectedCards.length == 2) setTimeout(checkCards(), 3000);
-                }}
-            // Running the method || I couldn't do it in an other way so sry.
+                    // When two cards are selected, check for match
+                    if (selectedCards.length == 2)
+                        setTimeout(checkCards(), 3000);
+                }
+            }
+
             choosingCard();
         });
+
         newCard.appendChild(newName);
         gameContainer.appendChild(newCard);
     });
 }
 
-// Updating the info panel
+// Updates the information panel during gameplay (time, flips, buttons text)
 function updateInfo() {
+
+    // Display full time format if hours, minutes and seconds are present
     if (hours > 0 && minutes > 0 && seconds > 0) {
         infoTimeArea.textContent = `${Texts[3][lang]}: ${hours}:${minutes}:${seconds}`;
     }
-    else if (hours == 0 && minutes > 0 && seconds > 0){
+    // Display minutes and seconds if hours are zero
+    else if (hours == 0 && minutes > 0 && seconds > 0) {
         infoTimeArea.textContent = `${Texts[3][lang]}: ${minutes}:${seconds}`;
     }
+    // Display only seconds if minutes and hours are zero
     else {
-         infoTimeArea.textContent = `${Texts[3][lang]}: ${seconds}`;
+        infoTimeArea.textContent = `${Texts[3][lang]}: ${seconds}`;
     }
 
+    // Update flip counter
     infoFlippingArea.textContent = `${Texts[4][lang]}: ${flipping}`;
+
+    // Update button texts based on current language
     restartBtn.textContent = Texts[12][lang];
     infoMenuBtn.textContent = Texts[13][lang];
-
 }
 
-// Game generating method
+// Generates a new game and initializes all required systems
 function makeGame() {
-    // Stoping the infinite updater (ofc it is only necesarry when I start a new game)
+
+    // Stop the existing game updater loop if it exists
     if (timerId !== null) {
         clearTimeout(timerId);
     }
 
+    // Reset animations to prevent conflicts
     gameContainer.style.animation = "none";
     infoPanel.style.animation = "none";
-    // Running all the methods required for generating
-    getCardTypes();
-    fillGameArray();
-    shuffleArray();
-    displayBoard();    
-    reset();
-    updateInfo();
-    
-    // Starting the infinite game updater
+
+    // Generate the game structure
+    getCardTypes();     // Select random card types
+    fillGameArray();    // Create card pairs
+    shuffleArray();     // Shuffle cards
+    displayBoard();     // Render cards on screen
+    reset();            // Reset runtime values
+    updateInfo();       // Update UI
+
+    // Start the game loop updater
     timerId = setTimeout(updateGame, 1000);
 }
 
-
-// Infinite updater which updates the time, flipping count, game type (2x2, 4x4 .... ) and ofc the language
+// Infinite game updater responsible for time, UI updates and difficulty display
 function updateGame() {
-    if (gameCards.length != 0) seconds += 1
 
+    // Increase time only if there are still cards remaining
+    if (gameCards.length != 0) seconds += 1;
+
+    // Convert seconds to minutes
     if (seconds % 60 == 0 && seconds != 0) {
         seconds = 0;
-        minutes = minutes + 1;
+        minutes += 1;
     }
 
+    // Convert minutes to hours
     if (minutes % 60 == 0 && minutes != 0) {
         minutes = 0;
-        hours = hours + 1 ;
+        hours += 1;
     }
 
+    // Refresh info panel
     updateInfo();
+
+    // Display current difficulty
     switch (gameSize) {
         case 2:
-            infoDifficultyArea.textContent = `${Texts[5][lang]}: 2x2`
+            infoDifficultyArea.textContent = `${Texts[5][lang]}: 2x2`;
             break;
         case 4:
-            infoDifficultyArea.textContent = `${Texts[5][lang]}: 4x4`
+            infoDifficultyArea.textContent = `${Texts[5][lang]}: 4x4`;
             break;
         case 6:
-            infoDifficultyArea.textContent = `${Texts[5][lang]}: 6x6`
+            infoDifficultyArea.textContent = `${Texts[5][lang]}: 6x6`;
             break;
         case 8:
-            infoDifficultyArea.textContent = `${Texts[5][lang]}: 8x8`
+            infoDifficultyArea.textContent = `${Texts[5][lang]}: 8x8`;
             break;
     }
 
-    // If we are playing restart this method
+    // Continue updating if the game is still active
     if (playing) {
         timerId = setTimeout(updateGame, 1000);
     }
 }
 
-// Displaying the end screen 
+// Displays the end screen after finishing the game
 function displayEndScreen() {
+
+    // Hide game UI
     infoPanel.style.display = "none";
     infoPanel.style.animation = " ";
     gameContainer.style.display = "none";
     gameContainer.style.animation = " ";
-    
+
+    // Show end screen
     endScreen.style.display = "block";
     endScreen.style.animation = "scaling 1s forwards";
     endScreenTimeArea.style.animation = " ";
 
-    // Displaying the game ending variables
+    // Display final time
     if (hours > 0 && minutes > 0 && seconds > 0) {
         endScreenTimeArea.textContent = `${Texts[3][lang]}: ${hours}:${minutes}:${seconds}`;
     }
-    else if (hours == 0 && minutes > 0 && seconds > 0){
+    else if (hours == 0 && minutes > 0 && seconds > 0) {
         endScreenTimeArea.textContent = `${Texts[3][lang]}: ${minutes}:${seconds}`;
     }
     else {
-         endScreenTimeArea.textContent = `${Texts[3][lang]}: ${seconds}`;
+        endScreenTimeArea.textContent = `${Texts[3][lang]}: ${seconds}`;
     }
 
+    // Display localized end screen texts
     document.getElementById("end-screen-h1").textContent = `${Texts[2][lang]}`;
     endScreenTotalFlipsArea.style.animation = " ";
     endScreenTotalFlipsArea.textContent = `${Texts[4][lang]}: ${flipping}`;
     playAgainBtn.textContent = `${Texts[6][lang]}!`;
     menuBtn.textContent = `${Texts[7][lang]}!`;
 
+    // Display difficulty on end screen
     switch (gameSize) {
         case 2:
-            endScreenDifficultyArea.textContent = `${Texts[5][lang]}: 2x2`
+            endScreenDifficultyArea.textContent = `${Texts[5][lang]}: 2x2`;
             break;
         case 4:
-            endScreenDifficultyArea.textContent = `${Texts[5][lang]}: 4x4`
+            endScreenDifficultyArea.textContent = `${Texts[5][lang]}: 4x4`;
             break;
         case 6:
-            endScreenDifficultyArea.textContent = `${Texts[5][lang]}: 6x6`
+            endScreenDifficultyArea.textContent = `${Texts[5][lang]}: 6x6`;
             break;
         case 8:
-            endScreenDifficultyArea.textContent = `${Texts[5][lang]}: 8x8`
+            endScreenDifficultyArea.textContent = `${Texts[5][lang]}: 8x8`;
             break;
     }
 
-    if(gameSize == 2){
+    // Update statistics only for the hardest difficulty
+    if (gameSize == 8) {
         changeStat();
     }
 }
 
-// Updating the help page when switching between help pages
+// Updates the help panel content based on the selected page
 function updateHelp(page) {
+
+    // Update help menu button labels
     helpAboutBtn.textContent = `${Texts[14][lang]}`;
     helpGameSizeBtn.textContent = `${Texts[15][lang]}`;
     helpChangeLanguageBtn.textContent = `${Texts[16][lang]}`;
     helpHowToPlayBtn.textContent = `${Texts[17][lang]}`;
+
+    // Switch between help pages
     switch (page) {
         case 0:
-            helpRightSide.innerHTML = `${Texts[8][lang]}`; 
+            helpRightSide.innerHTML = `${Texts[8][lang]}`;
             helpAboutBtn.style.borderRight = "0px solid black";
             helpGameSizeBtn.style.borderRight = "2px solid black";
             helpChangeLanguageBtn.style.borderRight = "2px solid black";
@@ -597,45 +575,54 @@ function updateHelp(page) {
             helpAboutBtn.style.borderRight = "2px solid black";
             helpChangeLanguageBtn.style.borderRight = "2px solid black";
             break;
-    }    
+    }
 }
 
-// Displaying the help page
+// Displays the help panel and initializes page navigation
 function displayHelp(){
+
+    // Show the dark background and the help panel
     backdropElement.style.display = "block";
     helpPanel.style.display = "flex";
+
+    // Default help page index
     let page = 0;
 
+    // Load the initial help page
     updateHelp(page);
-    // Page switching section
+
+    // Switch to the "About" help page
     helpAboutBtn.addEventListener("click", () => {
         page = 0;
         updateHelp(page);
     });
 
+    // Switch to the "Game Size" help page
     helpGameSizeBtn.addEventListener("click", () => {
         page = 1;
         updateHelp(page);
     });
 
+    // Switch to the "Change Language" help page
     helpChangeLanguageBtn.addEventListener("click", () => {
         page = 2;
         updateHelp(page);
     });
 
+    // Switch to the "How To Play" help page
     helpHowToPlayBtn.addEventListener("click", () => {
         page = 3;
         updateHelp(page);
     });
 
-    // Exiting the help panel if the user click on the background 
+    // Close the help panel when clicking on the background
     backdropElement.addEventListener("click", () => {
         backdropElement.style.display = "none";
         helpPanel.style.display = "none";
     })
 }
 
-// Starting the game when clicking on the play button
+// Start the game when the Play button is clicked
 document.getElementById("play-button").addEventListener("click", () => {
     makeGame();
     menuContainer.style.display = "none";
@@ -643,15 +630,18 @@ document.getElementById("play-button").addEventListener("click", () => {
     gameContainer.style.animation = "scaling 1s forwards";
 });
 
+// Available game modes (grid sizes)
 let gameModes = [2,4,6,8];
 let index = 0;
-// Switching the game modes
+
+// Cycle through game modes when clicking the game mode button
 gameModeBtn.addEventListener("click", () => {
     index = index + 1;
-    if (index > 3) index = 0
+    if (index > 3) index = 0;
 
     gameSize = gameModes[index];
 
+    // Update button text based on selected mode
     switch (index) {
         case 0:
             gameModeBtn.textContent = "2x2";
@@ -670,105 +660,260 @@ gameModeBtn.addEventListener("click", () => {
     }
 });
 
-// displaying the language selections
+// Show language selection buttons when hovering the language button
 languageBtn.addEventListener("mouseover", () => {
     languageButtonsContainer.style.display = "flex";
     languageButtonsContainer.style.position = "absolute";
 
+    // Keep the language menu visible while hovering it
     languageButtonsContainer.addEventListener("mouseover", ()=> {
         languageButtonsContainer.style.display = "flex";
         languageButtonsContainer.style.position = "absolute";
     });
 
+    // Hide language menu when mouse leaves it
     languageButtonsContainer.addEventListener("mouseout", () => {
-    languageButtonsContainer.style.display = "none";
-    languageButtonsContainer.style.position = "relative";
-});
+        languageButtonsContainer.style.display = "none";
+        languageButtonsContainer.style.position = "relative";
+    });
 });
 
+// Hide language selection when mouse leaves the language button
 languageBtn.addEventListener("mouseout", () => {
     languageButtonsContainer.style.display = "none";
     languageButtonsContainer.style.position = "relative";
 });
 
-// Selecting English
+// Select English language
 document.getElementById("eng").addEventListener("click", () => {
     switchLang("eng");
 });
 
-// Selecting Hungarian
+// Select Hungarian language
 document.getElementById("hun").addEventListener("click", () => {
     switchLang("hun");
 });
 
-// Selecting Espanol
+// Select Spanish language
 document.getElementById("esp").addEventListener("click", () => {
     switchLang("esp");
 });
 
-// Go to the menu from the end screen
+// Return to the main menu from the end screen
 menuBtn.addEventListener("click", () => {
     endScreen.style.animation = "gameFadeOut 2s forwards";
     newRecordBlock.style.display = "none";
+
     setTimeout(() => {
         endScreen.style.display = "none";
         menuContainer.style.display = "block";
-        menuContainer.style.animation = "scaling 1s forwards"
+        menuContainer.style.animation = "scaling 1s forwards";
     }, 1500);  
 });
 
-// Starts a new game from the end screen
+// Start a new game from the end screen
 playAgainBtn.addEventListener("click", ()=>{
     endScreen.style.animation = "gameFadeOut 2s forwards";
     newRecordBlock.style.display = "none";
+
     setTimeout(() => {
         endScreen.style.display = "none";
         makeGame();
     }, 1500);
 });
 
-// Opening the help panel
+// Open the help panel
 helpBtn.addEventListener("click", displayHelp);
 
-// Starts a new game from the game (aka restarting)
+// Restart the game during gameplay
 restartBtn.addEventListener("click", makeGame);
 
-// Go to the menu from the game
+// Return to the main menu from the game
 infoMenuBtn.addEventListener("click", () => {
     playing = false;
     gameContainer.style.animation = "gameFadeOut 2s forwards";
     infoPanel.style.animation = "gameFadeOut 2s forwards";
+
     setTimeout(() => {
         gameContainer.style.display = "none";
         infoPanel.style.display = "none";
         menuContainer.style.display = "block";
-        menuContainer.style.animation = "scaling 1s forwards"
+        menuContainer.style.animation = "scaling 1s forwards";
     }, 1500); 
 });
 
-// Displaying the welcome text at the opening of the game
+// Displays a welcome message for logged-in users
 function DisplayWelcomeBox() {
     if (user != undefined) {
         const welcomeDiv = document.getElementById("welcome-div");
         const welcomeP = document.getElementById("welcome-p");
+
         let displayText;
         var userLanguage = sessionStorage.getItem("user-language");
-        if (userLanguage == "eng" || userLanguage == "hun" || userLanguage == "esp") displayText = `${Texts[18][userLanguage]} ${user.userName}!`;
-        else displayText = `${Texts[18][lang]} ${user.userName}!`;
-        
+
+        // Choose welcome text language
+        if (userLanguage == "eng" || userLanguage == "hun" || userLanguage == "esp")
+            displayText = `${Texts[18][userLanguage]} ${user.userName}!`;
+        else
+            displayText = `${Texts[18][lang]} ${user.userName}!`;
+
         welcomeP.textContent = displayText;
+
+        // Play welcome animation
         welcomeDiv.style.animation = "rollingDown 1s forwards";
-        setTimeout(() => {welcomeDiv.style.animation = "rollingUp 1s forwards";}, 1500)
+        setTimeout(() => {
+            welcomeDiv.style.animation = "rollingUp 1s forwards";
+        }, 1500);
     }
 }
+
+// Show welcome message on page load
 DisplayWelcomeBox(); 
-// Go to main menu
+
+// Navigate to main menu page
 mainMenuBtn.addEventListener("click", () => {
-    console.log("click");
     window.location.href = "https://localhost:7234"; 
 });
 
-// Go to the leaderboard
+// Navigate to leaderboard page
 leaderboardBtn.addEventListener("click", () => {
-    // window.URL  = 
+    // Leaderboard navigation placeholder
 });
+
+// Fetch logged-in user's data from the backend
+async function getUserData() {
+
+    var sessionRefreshToken = sessionStorage.getItem("RefreshToken");
+    var token = sessionStorage.getItem("Token");
+    let userData;
+
+    // Only attempt request if tokens exist
+    if(sessionRefreshToken != undefined && token != undefined){
+
+        // Retry up to 5 times
+        for (let i = 0; i < 5; i++) {
+            const response = await fetch("https://localhost:7234/api/Users/getuserdata", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    Token: sessionRefreshToken
+                })
+            });
+
+            if (response.ok) {
+                userData = await response.json();
+            }
+        }
+        return userData;
+    }
+}
+
+// Updates the user's best game statistics
+async function changeStat() {
+
+    // Checks if the new time is better (lower) than the stored time
+    function isNewTimeLesser(newTime, oldTime) {
+        let newTimeSecs = newTime[2] + newTime[1]*60 + newTime[0]*60*60;
+        let oldTimeSecs = oldTime[2] + oldTime[1]*60 + oldTime[0]*60*60;
+        return oldTimeSecs > newTimeSecs;
+    }
+
+    // Checks if the new flip count is better (lower)
+    function isNewFlipsLesser (newSlips, oldSlips) {
+        return oldSlips > newSlips;
+    }
+
+    // Fetch user's best game statistics
+    async function getUserStatusData(token) {
+        const response =  await fetch("https://localhost:7234/api/MemoryGameStatus", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}` 
+            }
+        });
+
+        if (response.ok){
+            let data = await response.json();
+            return data;
+        }
+    }
+
+    // Upload updated statistics to the backend
+    function uploadNewStatus(newStatus) {
+        var response = fetch("https://localhost:7234/api/MemoryGameStatus", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify(newStatus)
+        });
+
+        // Retry after refreshing token if request fails
+        if(!response.ok) {
+            refreshToken(sessionRefreshToken);
+            fetch("https://localhost:7234/api/MemoryGameStatus", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}` 
+                },
+                body: JSON.stringify(newStatus)
+            });
+        }
+    }
+
+    var sessionRefreshToken = sessionStorage.getItem("RefreshToken");
+    var token = sessionStorage.getItem("Token");
+
+    let userBestGameStatus;
+
+    // Only proceed if authentication tokens exist
+    if (sessionRefreshToken != undefined && token != undefined) {
+
+        // Get stored best results
+        userBestGameStatus = await getUserStatusData(token);
+        userBestGameStatus = userBestGameStatus.data;
+
+        let newTimeRecord = false;
+        let newFlipRecord = false;
+
+        // Default new status object
+        let newStatus = {
+            minTime: [0,0,0],
+            minFlipping: 0
+        };
+
+        endScreenTimeArea.style.animation = " ";
+        endScreenTotalFlipsArea.style.animation = " ";
+
+        // Check for new time record
+        if (isNewTimeLesser([hours, minutes, seconds], userBestGameStatus.minTime)) { 
+            newStatus.minTime = [hours, minutes, seconds];
+            endScreenTimeArea.style.animation = "newRecordBlockAnimation 1s infinite";  
+            newTimeRecord = true;
+        }
+
+        // Check for new flip record
+        if (isNewFlipsLesser(flipping, userBestGameStatus.minFlipping)) {
+            newStatus.minFlipping = flipping;
+            endScreenTotalFlipsArea.style.animation = "newRecordBlockAnimation 1s infinite";
+            newFlipRecord = true;
+        }
+
+        // Upload new records if any were beaten
+        if (newFlipRecord || newTimeRecord) {
+            uploadNewStatus(newStatus);
+            newRecordBlock.textContent = Texts[19][lang];
+            newRecordBlock.style.animation = "newRecordBlockAnimation 1s infinite";
+
+            setTimeout(() => {
+                newRecordBlock.style.display = "block";
+            },1000);
+        }
+    }
+}
