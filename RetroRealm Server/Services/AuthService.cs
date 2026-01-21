@@ -154,5 +154,13 @@ namespace RetroRealm_Server.Services
         }
         #endregion
 
+        #region delete all refresh tokens
+        public async Task<Result<bool>> DeleteAllRefreshTokenns() {
+            _context.RefreshTokens.RemoveRange(_context.RefreshTokens);
+            await _context.SaveChangesAsync();
+
+            return Result<bool>.Ok(true);
+        }
+        #endregion
     }
 };

@@ -2,7 +2,7 @@
 {
     public class MemoryGameStatus : Status
     {
-        public int[] MinTime { get; set; } = [0, 0, 0];
+        public int[] MinTime { get; set; } = [999, 0, 0];
         public int MinFlipping { get; set; } = 0;
     }
 }

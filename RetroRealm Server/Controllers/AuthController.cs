@@ -75,4 +75,10 @@ public class AuthController : ControllerBase
         var result = _authService.LogoutAsync(model);
         return Ok(new { message = "Logged out successfully." });
     }
-}
+
+    [HttpDelete("allRefreshTokens")]
+    public async Task<IActionResult> DeleteAllRefreshTokens() {
+        _authService.DeleteAllRefreshTokenns();
+        return NoContent();
+    }
+}   

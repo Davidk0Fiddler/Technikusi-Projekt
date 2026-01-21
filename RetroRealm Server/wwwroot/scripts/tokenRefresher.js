@@ -1,7 +1,7 @@
-async function refreshToken() {
-  const refreshToken = sessionStorage.getItem("RefreshToken");
+async function refreshToken(refreshToken) {
 
   if (!refreshToken) {
+    // console.error("No refresh token");
     return false;
   }
 
@@ -11,11 +11,21 @@ async function refreshToken() {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      model: refreshToken.token
+      Token: refreshToken
     })
   });
 
   if (!response.ok) {
+    const errorData = await response.json();
+
+    if (errorData.errors) {
+      const firstKey = Object.keys(errorData.errors)[0];
+      const message = errorData.errors[firstKey][0];
+      // console.error("Refresh token error:", message);
+    } else {
+      // console.error("Refresh token error:", errorData.title);
+    }
+
     return false;
   }
 

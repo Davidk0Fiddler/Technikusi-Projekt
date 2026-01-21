@@ -28,7 +28,7 @@ namespace RetroRealm_Server.Controllers
         }
 
         // GET: api/MemoryGameStatus/5
-        [HttpGet("{id}")]
+        [HttpGet]
         public async Task<ActionResult<ReadMemoryGameStatusDTO>> GetMemoryGameStatus()
         {
             var result = await _memoryGameStatusService.GetMemoryGameStatusAsync(User.Claims.FirstOrDefault(c => c.Type == "unique_name")?.Value);
