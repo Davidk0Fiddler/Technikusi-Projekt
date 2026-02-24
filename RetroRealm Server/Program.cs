@@ -6,10 +6,27 @@ using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using RetroRealm_Server.Models;
-using RetroRealm_Server.Services;
-using RetroRealm_Server.Services.Interfaces;
+using RetroRealm_Server.Services._NotUserServices;
+using RetroRealm_Server.Services._NotUserServices.Interfaces;
+using RetroRealm_Server.Services.AvatarService;
+using RetroRealm_Server.Services.BunnyRunService;
+using RetroRealm_Server.Services.CheckAchievementsService;
+using RetroRealm_Server.Services.DeleteAllRefreshTokenService;
+using RetroRealm_Server.Services.FlappyBirdService;
+using RetroRealm_Server.Services.GetAchievementsByUserService;
+using RetroRealm_Server.Services.GetAvatarsForUserService;
+using RetroRealm_Server.Services.Jwt_Service;
+using RetroRealm_Server.Services.LeaderboardService;
+using RetroRealm_Server.Services.LeaderBoardService;
+using RetroRealm_Server.Services.Login_Service;
+using RetroRealm_Server.Services.LogoutService;
+using RetroRealm_Server.Services.LogService;
+using RetroRealm_Server.Services.MemoryGameService;
+using RetroRealm_Server.Services.RefreshTokenService;
+using RetroRealm_Server.Services.Register_Service;
+using RetroRealm_Server.Services.UserService;
+using RetroRealm_Server.Services.WorldeStatusService;
 using Serilog;
-using System.Data;
 using System.Security.Claims;
 using System.Text;
 
@@ -50,15 +67,28 @@ builder.Services.AddAuthorization(options =>
 
 
 // Add services to the container.
-builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<IAuthService, AuthService>();
-builder.Services.AddScoped<IRoleService, RoleService>();
-builder.Services.AddScoped<IAvatarService, AvatarService>();
 builder.Services.AddScoped<ILogService, LogService>();
+builder.Services.AddScoped<ILoginService, LoginService>();
+builder.Services.AddScoped<IJwtService, JwtService>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IRegisterService, RegisterService>();
+builder.Services.AddScoped<IRefreshTokenService, RefreshTokenService>();
+builder.Services.AddScoped<ILogOutService, LogoutService>();
+builder.Services.AddScoped<IDeleteAllRefreshTokenService, DeleteAllRefreshTokenService>();
+builder.Services.AddScoped<IGetAchievementsByUserService, GetAchievementsByUserService>();
+builder.Services.AddScoped<IGetAvatarsForUserService, GetAvatarsForUserService>();
 builder.Services.AddScoped<IBunnyRunStatusService, BunnyRunService>();
 builder.Services.AddScoped<IFlappyBirdStatusService, FlappyBirdService>();
 builder.Services.AddScoped<IMemoryGameStatusService, MemoryGameService>();
 builder.Services.AddScoped<IWordleStatusService, WordleStatusService>();
+builder.Services.AddScoped<ILeaderboardService, LeaderboardService>();
+builder.Services.AddScoped<ICheckAchievementService, CheckAchievementService>();
+
+
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IRoleService, RoleService>();
+builder.Services.AddScoped<IAvatarService, AvatarService>();
+
 builder.Services.AddScoped<IAchievementsService, AchievementService>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -125,6 +155,18 @@ db => db.UseSqlite(builder.Configuration.GetConnectionString("RetroRealmLogDatab
 
 
 var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    using var scope = app.Services.CreateScope();
+    var db = scope.ServiceProvider.GetRequiredService<RetroRealmDatabaseContext>();
+
+    // RefreshTokens tábla kiürítése
+    db.Database.ExecuteSqlRaw("DELETE FROM RefreshTokens;");
+
+    // AUTOINCREMENT nullázása (ha van)
+    db.Database.ExecuteSqlRaw("DELETE FROM sqlite_sequence WHERE name='RefreshTokens';");
+}
 
 
 app.UseDefaultFiles();

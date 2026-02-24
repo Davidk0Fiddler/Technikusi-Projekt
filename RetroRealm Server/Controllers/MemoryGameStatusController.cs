@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using RetroRealm_Server.DTOs;
+using RetroRealm_Server.DTOs.MemoryGameDTOs;
 using RetroRealm_Server.Models;
-using RetroRealm_Server.Services.Interfaces;
+using RetroRealm_Server.Services.MemoryGameService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,12 +18,10 @@ namespace RetroRealm_Server.Controllers
     [Authorize]
     public class MemoryGameStatusController : ControllerBase
     {
-        private readonly RetroRealmDatabaseContext _context;
         private readonly IMemoryGameStatusService _memoryGameStatusService;
 
         public MemoryGameStatusController(RetroRealmDatabaseContext context, IMemoryGameStatusService memoryGameStatusService)
         {
-            _context = context;
             _memoryGameStatusService = memoryGameStatusService;
         }
 

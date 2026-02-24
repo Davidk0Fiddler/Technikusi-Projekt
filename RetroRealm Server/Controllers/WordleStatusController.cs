@@ -1,15 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using RetroRealm_Server.DTOs;
+using RetroRealm_Server.DTOs.WorldeStatusDTOs;
 using RetroRealm_Server.Models;
-using RetroRealm_Server.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
+using RetroRealm_Server.Services.WorldeStatusService;
 
 namespace RetroRealm_Server.Controllers
 {
@@ -18,12 +11,10 @@ namespace RetroRealm_Server.Controllers
     [Authorize]
     public class WordleStatusController : ControllerBase
     {
-        private readonly RetroRealmDatabaseContext _context;
         private readonly IWordleStatusService _wordleStatusService;
 
-        public WordleStatusController(RetroRealmDatabaseContext context, IWordleStatusService wordleStatusService)
+        public WordleStatusController(IWordleStatusService wordleStatusService)
         {
-            _context = context;
             _wordleStatusService = wordleStatusService;
         }
 
@@ -34,8 +25,6 @@ namespace RetroRealm_Server.Controllers
             var result = await _wordleStatusService.GetWordleStatusAsync(User.Claims.FirstOrDefault(c => c.Type == "unique_name")?.Value);
 
             if (result.Error == "Status not found!") return NotFound();
-
-            //if (result.Error == "RefreshToken expired or does not exists!") return Unauthorized();
 
             return Ok(result.Data);
         }
@@ -50,8 +39,6 @@ namespace RetroRealm_Server.Controllers
             if (result.Success) return NoContent();
 
             if (result.Error == "Status not found") return NotFound();
-
-            //if (result.Error == "RefreshToken expired or does not exists!") return Unauthorized();
 
             return BadRequest();
         }

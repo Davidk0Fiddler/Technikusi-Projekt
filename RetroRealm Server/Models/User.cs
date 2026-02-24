@@ -19,8 +19,6 @@ namespace RetroRealm_Server.Models
         public int CurrentAvatarId { get; set; } = 0;
         public List<int> OwnedAvatarsId { get; set; } = new List<int>{ 0 };
         public List<int> CompletedChallangesId { get; set; } = new List<int>();
-        public bool IsOnline { get; set; }
-
         [JsonIgnore]
         public int? MemoryCardStatusId { get; set; }
         [ForeignKey("MemoryCardStatusId")]

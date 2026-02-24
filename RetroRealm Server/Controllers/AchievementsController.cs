@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using RetroRealm_Server.DTOs;
 using RetroRealm_Server.Models;
 using RetroRealm_Server.Services;
-using RetroRealm_Server.Services.Interfaces;
+using RetroRealm_Server.Services._NotUserServices.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,47 +24,47 @@ namespace RetroRealm_Server.Controllers
             _achievementsService = achievementsService;
         }
 
-        // GET: api/Achievements
-        [HttpGet]
-        public async Task<ActionResult<List<ReadAchievementDTO>>> GetAchievements()
-        {
-            var result = await _achievementsService.GetAllAchievementsAsync();
+        //// GET: api/Achievements
+        //[HttpGet]
+        //public async Task<ActionResult<List<ReadAchievementDTO>>> GetAchievements()
+        //{
+        //    var result = await _achievementsService.GetAllAchievementsAsync();
 
-            if (!result.Success)
-                return NotFound(new { error = result.Error });
+        //    if (!result.Success)
+        //        return NotFound(new { error = result.Error });
 
-            return Ok(result.Data);
-        }
+        //    return Ok(result.Data);
+        //}
 
-        // GET: api/Achievements/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<IEnumerable<ReadAchievementDTO>>> GetAchievement(int id)
-        {
-            var result = await _achievementsService.GetAchievementAsync(id);
+        //// GET: api/Achievements/5
+        //[HttpGet("{id}")]
+        //public async Task<ActionResult<IEnumerable<ReadAchievementDTO>>> GetAchievement(int id)
+        //{
+        //    var result = await _achievementsService.GetAchievementAsync(id);
 
-            if (!result.Success) return NotFound();
+        //    if (!result.Success) return NotFound();
 
-            return Ok(result.Data);
-        }
+        //    return Ok(result.Data);
+        //}
 
-        // PUT: api/Achievements/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutAchievement(int id, UpdateAchievementDTO updatedAchievement)
-        {
-            if (id != updatedAchievement.Id)
-            {
-                return BadRequest();
-            }
+        //// PUT: api/Achievements/5
+        //// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        //[HttpPut("{id}")]
+        //public async Task<IActionResult> PutAchievement(int id, UpdateAchievementDTO updatedAchievement)
+        //{
+        //    if (id != updatedAchievement.Id)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            var result = await _achievementsService.UpdateAchievementAsync(id, updatedAchievement);
+        //    var result = await _achievementsService.UpdateAchievementAsync(id, updatedAchievement);
 
-            if (result.Success) return NoContent();
+        //    if (result.Success) return NoContent();
 
-            if (result.Error == "Achievement not found!") return NotFound();
+        //    if (result.Error == "Achievement not found!") return NotFound();
 
-            return BadRequest();
-        }
+        //    return BadRequest();
+        //}
 
         // POST: api/Achievements
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

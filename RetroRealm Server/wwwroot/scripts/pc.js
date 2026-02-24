@@ -7,7 +7,13 @@ const memoryGame = document.getElementById("memoryGame");
 memoryGame.addEventListener("click", () => {window.location.href = "../memory-cards/index.html"});
 
 const wordleGame = document.getElementById("wordle");
-wordleGame.addEventListener("click", () => {window.location.href = "../wordle/index.html"}); 
+wordleGame.addEventListener("click", () => { window.location.href = "../wordle/index.html" }); 
+
+const flappyBird = document.getElementById("flappyBird");
+flappyBird.addEventListener("click", () => { window.location.href = "../flappyBird/index.html" });
+
+const bunnyRun = document.getElementById("bunnyRun");
+bunnyRun.addEventListener("click", () => { window.location.href = "../bunnyRun/index.html" });
 
 const logoutBtn = document.getElementById("logoutBtn");
 logoutBtn.addEventListener("click", () => {
