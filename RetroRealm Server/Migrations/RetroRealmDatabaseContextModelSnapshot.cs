@@ -23,11 +23,30 @@ namespace RetroRealm_Server.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Description")
+                    b.Property<string>("DescriptionEng")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("DescriptionEsp")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DescriptionHun")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("GameId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("NameEng")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("NameEsp")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("NameHun")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -182,9 +201,6 @@ namespace RetroRealm_Server.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("FlappyBirdStatusId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<bool>("IsOnline")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("MemoryCardStatusId")

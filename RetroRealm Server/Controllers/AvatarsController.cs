@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using RetroRealm_Server.DTOs;
-using RetroRealm_Server.Models;
-using RetroRealm_Server.Services.Interfaces;
+﻿using Microsoft.AspNetCore.Mvc;
+using RetroRealm_Server.DTOs._NotUserDTOS;
+using RetroRealm_Server.Services.AvatarService;
 
 namespace RetroRealm_Server.Controllers
 {
@@ -15,12 +8,10 @@ namespace RetroRealm_Server.Controllers
     [ApiController]
     public class AvatarsController : ControllerBase
     {
-        private readonly RetroRealmDatabaseContext _context;
         private readonly IAvatarService _avatarService;
 
-        public AvatarsController(RetroRealmDatabaseContext context, IAvatarService avatarService)
+        public AvatarsController(IAvatarService avatarService)
         {
-            _context = context;
             _avatarService = avatarService;
         }
 
@@ -35,59 +26,60 @@ namespace RetroRealm_Server.Controllers
             return BadRequest();
         }
 
-        // GET: api/Avatars/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<IEnumerable<ReadAvatarDTO>>> GetAvatar(int id)
-        {
-            var result = await _avatarService.GetAvatarAsync(id);
+        //        // GET: api/Avatars/5
+        //        [HttpGet("{id}")]
+        //        public async Task<ActionResult<IEnumerable<ReadAvatarDTO>>> GetAvatar(int id)
+        //        {
+        //            var result = await _avatarService.GetAvatarAsync(id);
 
-            if (result.Success) return Ok(result.Data);
+        //            if (result.Success) return Ok(result.Data);
 
-            return NotFound();
-        }
+        //            return NotFound();
+        //        }
 
-        // PUT: api/Avatars/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutAvatar(int id, UpdateAvatarDTO avatar)
-        {
-            if (id != avatar.Id)
-            {
-                return BadRequest();
-            }
+        //        // PUT: api/Avatars/5
+        //        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        //        [HttpPut("{id}")]
+        //        public async Task<IActionResult> PutAvatar(int id, UpdateAvatarDTO avatar)
+        //        {
+        //            if (id != avatar.Id)
+        //            {
+        //                return BadRequest();
+        //            }
 
-            var result = await _avatarService.UpdateAvatarAsync(id, avatar);
+        //            var result = await _avatarService.UpdateAvatarAsync(id, avatar);
 
-            if (result.Success) return NoContent();
+        //            if (result.Success) return NoContent();
 
-            if (result.Error == "Avatar not found!") return NotFound();
+        //            if (result.Error == "Avatar not found!") return NotFound();
 
-            return BadRequest();
-        }
+        //            return BadRequest();
+        //        }
 
-        //POST: api/Avatars
-        //To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Avatar>> PostAvatar(CreateAvatarDTO avatar)
-        {
-            var result = await _avatarService.CreateAvatarAsync(avatar);
+        //        //POST: api/Avatars
+        //        //To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        //        [HttpPost]
+        //        public async Task<ActionResult<Avatar>> PostAvatar(CreateAvatarDTO avatar)
+        //        {
+        //            var result = await _avatarService.CreateAvatarAsync(avatar);
 
-            if (result.Success) return CreatedAtAction("GetAvatar", new { id = avatar }, avatar);
+        //            if (result.Success) return CreatedAtAction("GetAvatar", new { id = avatar }, avatar);
 
-            return BadRequest();
-        }
+        //            return BadRequest();
+        //        }
 
-        //DELETE: api/Avatars/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAvatar(int id)
-        {
-            var result = await _avatarService.DeleteAvatarByIdAsync(id);
+        //        //DELETE: api/Avatars/5
+        //        [HttpDelete("{id}")]
+        //        public async Task<IActionResult> DeleteAvatar(int id)
+        //        {
+        //            var result = await _avatarService.DeleteAvatarByIdAsync(id);
 
-            if(result.Success) return NoContent();
+        //            if(result.Success) return NoContent();
 
-            if (result.Error == "Avatar not found!") return NotFound();
+        //            if (result.Error == "Avatar not found!") return NotFound();
 
-            return BadRequest();
-        }
+        //            return BadRequest();
+        //        }
+        //    }
     }
 }

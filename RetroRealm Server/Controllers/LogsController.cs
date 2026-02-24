@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RetroRealm_Server.Models;
 using RetroRealm_Server.Services;
-using RetroRealm_Server.Services.Interfaces;
+using RetroRealm_Server.Services.LogService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,12 +15,10 @@ namespace RetroRealm_Server.Controllers
     [ApiController]
     public class LogsController : ControllerBase
     {
-        private readonly RetroRealmDatabaseContext _context;
         private readonly ILogService _logService;
 
-        public LogsController(RetroRealmDatabaseContext context, ILogService logService)
+        public LogsController(ILogService logService)
         {
-            _context = context;
             _logService = logService;
         }
 
@@ -34,15 +32,15 @@ namespace RetroRealm_Server.Controllers
             return Ok(result.Data);
         }
 
-        // GET: api/Logs/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Result<Log>>> GetLog(int id)
-        {
-            var result = await _logService.GetLogAsync(id);
+        //// GET: api/Logs/5
+        //[HttpGet("{id}")]
+        //public async Task<ActionResult<Result<Log>>> GetLog(int id)
+        //{
+        //    var result = await _logService.GetLogAsync(id);
 
-            if (!result.Success) return NotFound();
+        //    if (!result.Success) return NotFound();
 
-            return Ok(result.Data);
-        }
+        //    return Ok(result.Data);
+        //}
     }
 }

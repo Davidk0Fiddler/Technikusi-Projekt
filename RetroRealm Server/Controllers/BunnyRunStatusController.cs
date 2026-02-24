@@ -1,16 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using RetroRealm_Server.DTOs;
+using RetroRealm_Server.DTOs.BunnyRunDTOs;
 using RetroRealm_Server.Models;
-using RetroRealm_Server.Services;
-using RetroRealm_Server.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
+using RetroRealm_Server.Services.BunnyRunService;
 
 namespace RetroRealm_Server.Controllers
 {
@@ -23,12 +15,10 @@ namespace RetroRealm_Server.Controllers
     {
 
 
-        private readonly RetroRealmDatabaseContext _context;
         private readonly IBunnyRunStatusService _bunnyRunStatusService;
 
-        public BunnyRunStatusController(RetroRealmDatabaseContext context, IBunnyRunStatusService bunnyRunStatusService)
+        public BunnyRunStatusController(IBunnyRunStatusService bunnyRunStatusService)
         {
-            _context = context;
             _bunnyRunStatusService = bunnyRunStatusService;
         }
 
@@ -57,8 +47,6 @@ namespace RetroRealm_Server.Controllers
             var result = await _bunnyRunStatusService.UpdateBunnyRunStatusAsync(updatedStatus, User.Claims.FirstOrDefault(c => c.Type == "unique_name")?.Value);
 
             if (result.Success) return NoContent();
-
-            //if (result.Error == "RefreshToken expired or does not exists!") return Unauthorized();
 
             if (result.Error == "Status not found") return NotFound();
 

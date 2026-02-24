@@ -401,12 +401,24 @@ let languageButtonsContainer = document.getElementById("language-buttons");
 languageBtn.addEventListener("mouseover", () => {
     languageButtonsContainer.style.display = "flex";
     languageButtonsContainer.style.position = "absolute";
+
+    languageButtonsContainer.addEventListener("mouseover", () => {
+        languageButtonsContainer.style.display = "flex";
+        languageButtonsContainer.style.position = "absolute";
+    });
+
+    languageButtonsContainer.addEventListener("mouseout", () => {
+        languageButtonsContainer.style.display = "none";
+        languageButtonsContainer.style.position = "relative";
+    });
+
+    languageBtn.addEventListener("mouseout", () => {
+        languageButtonsContainer.style.display = "none";
+        languageButtonsContainer.style.position = "relative";
+    });
 });
 
-languageBtn.addEventListener("mouseout", () => {
-    languageButtonsContainer.style.display = "none";
-    languageButtonsContainer.style.position = "relative";
-});
+
 
 document.getElementById("eng").addEventListener("click", () => lang = "eng");
 document.getElementById("hun").addEventListener("click", () => lang = "hun");
