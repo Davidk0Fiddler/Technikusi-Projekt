@@ -753,9 +753,9 @@ function DisplayWelcomeBox() {
 
         // Choose welcome text language
         if (userLanguage == "eng" || userLanguage == "hun" || userLanguage == "esp")
-            displayText = `${Texts[18][userLanguage]} ${user.userName}!`;
+            displayText = `${Texts[18][userLanguage]} ${user}!`;
         else
-            displayText = `${Texts[18][lang]} ${user.userName}!`;
+            displayText = `${Texts[18][lang]} ${user}!`;
 
         welcomeP.textContent = displayText;
 
@@ -792,19 +792,16 @@ async function getUserData() {
 
         // Retry up to 5 times
         for (let i = 0; i < 5; i++) {
-            const response = await fetch("https://localhost:7234/api/Users/getuserdata", {
-                method: "POST",
+            const response = await fetch("https://localhost:7234/api/GetUserName", {
+                method: "GET",
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": `Bearer ${token}`
-                },
-                body: JSON.stringify({
-                    Token: sessionRefreshToken
-                })
+                }
             });
 
             if (response.ok) {
-                userData = await response.json();
+                userData = await response.data;
             }
         }
         return userData;

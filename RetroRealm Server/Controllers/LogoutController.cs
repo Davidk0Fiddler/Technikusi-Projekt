@@ -15,11 +15,11 @@ namespace RetroRealm_Server.Controllers
             _logOutService = logOutService;
         }
 
-        [HttpPost("logout")]
+        [HttpPost()]
         [Authorize]
         public async Task<IActionResult> Logout([FromBody] RefreshTokenDto model)
         {
-            var result = _logOutService.LogoutAsync(model);
+            var result = await _logOutService.LogoutAsync(model);
             return Ok(new { message = "Logged out successfully." });
         }
     }

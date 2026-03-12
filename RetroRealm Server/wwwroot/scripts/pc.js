@@ -15,6 +15,9 @@ flappyBird.addEventListener("click", () => { window.location.href = "../flappyBi
 const bunnyRun = document.getElementById("bunnyRun");
 bunnyRun.addEventListener("click", () => { window.location.href = "../bunnyRun/index.html" });
 
+const retroRealm = document.getElementById("retroRealm");
+retroRealm.addEventListener("click", () => { window.location.href = "../RetroRealm/index.html"});
+
 const logoutBtn = document.getElementById("logoutBtn");
 logoutBtn.addEventListener("click", () => {
     logout();

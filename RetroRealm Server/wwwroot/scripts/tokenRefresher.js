@@ -5,7 +5,7 @@ async function refreshToken(refreshToken) {
     return false;
   }
 
-  const response = await fetch("https://localhost:7234/api/Auth/refreshToken", {
+  const response = await fetch("https://localhost:7234/api/Refreshtoken", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"

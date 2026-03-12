@@ -24,7 +24,7 @@ namespace RetroRealm_Server.Services.Jwt_Service
                 Subject = new ClaimsIdentity(new[]
                 {
                     new Claim(ClaimTypes.Name, user.Username),
-                    new Claim(ClaimTypes.Role, user.Role.Name)
+                    new Claim("role", user.Role.Name)
                 }),
                 // Setting the expireMinutes
                 Expires = DateTime.UtcNow.AddMinutes(_configuration.GetValue<int>("Jwt:ExpireMinutes")),

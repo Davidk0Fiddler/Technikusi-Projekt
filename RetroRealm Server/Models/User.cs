@@ -16,8 +16,12 @@ namespace RetroRealm_Server.Models
         [ForeignKey("RoleId")]
         [JsonIgnore]
         public Role? Role { get; set; }
-        public int CurrentAvatarId { get; set; } = 0;
-        public List<int> OwnedAvatarsId { get; set; } = new List<int>{ 0 };
+        public int CurrentAvatarId { get; set; } = 1;
+        [ForeignKey("CurrentAvatarId")]
+        [JsonIgnore]
+        public Avatar CurrentAvatar { get; set; }
+
+        public List<int> OwnedAvatarsId { get; set; } = new List<int>{ 1 };
         public List<int> CompletedChallangesId { get; set; } = new List<int>();
         [JsonIgnore]
         public int? MemoryCardStatusId { get; set; }

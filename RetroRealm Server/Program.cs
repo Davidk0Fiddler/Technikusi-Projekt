@@ -8,6 +8,7 @@ using Microsoft.OpenApi.Models;
 using RetroRealm_Server.Models;
 using RetroRealm_Server.Services._NotUserServices;
 using RetroRealm_Server.Services._NotUserServices.Interfaces;
+using RetroRealm_Server.Services.AdminService;
 using RetroRealm_Server.Services.AvatarService;
 using RetroRealm_Server.Services.BunnyRunService;
 using RetroRealm_Server.Services.CheckAchievementsService;
@@ -24,6 +25,7 @@ using RetroRealm_Server.Services.LogService;
 using RetroRealm_Server.Services.MemoryGameService;
 using RetroRealm_Server.Services.RefreshTokenService;
 using RetroRealm_Server.Services.Register_Service;
+using RetroRealm_Server.Services.SetCharacterService;
 using RetroRealm_Server.Services.UserService;
 using RetroRealm_Server.Services.WorldeStatusService;
 using Serilog;
@@ -49,7 +51,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])),
             ClockSkew = TimeSpan.FromMinutes(2),
             NameClaimType = ClaimTypes.Name,
-            RoleClaimType = ClaimTypes.Role
+            RoleClaimType = "role"
         };
     });
 
@@ -83,13 +85,15 @@ builder.Services.AddScoped<IMemoryGameStatusService, MemoryGameService>();
 builder.Services.AddScoped<IWordleStatusService, WordleStatusService>();
 builder.Services.AddScoped<ILeaderboardService, LeaderboardService>();
 builder.Services.AddScoped<ICheckAchievementService, CheckAchievementService>();
+builder.Services.AddScoped<IAdminService, AdminService>();
+builder.Services.AddScoped<ISetCharacterService, SetCharacterService>();
+builder.Services.AddScoped<WebSocketLoopClass>();
 
 
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IRoleService, RoleService>();
 builder.Services.AddScoped<IAvatarService, AvatarService>();
 
-builder.Services.AddScoped<IAchievementsService, AchievementService>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -189,5 +193,25 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseWebSockets();
+
+app.Map("/ws", async context =>
+{
+    if (!context.WebSockets.IsWebSocketRequest)
+    {
+        context.Response.StatusCode = 400;
+        return;
+    }
+
+    using var scope = app.Services.CreateScope();
+    var db = scope.ServiceProvider.GetRequiredService<RetroRealmDatabaseContext>();
+
+    var socket = await context.WebSockets.AcceptWebSocketAsync();
+
+    var handler = new WebSocketLoopClass(db);
+
+    await handler.WebSocketLoop(socket);
+});
 
 app.Run();

@@ -23,18 +23,6 @@ namespace RetroRealm_Server.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("DescriptionEng")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("DescriptionEsp")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("DescriptionHun")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<int>("GameId")
                         .HasColumnType("INTEGER");
 
@@ -228,6 +216,8 @@ namespace RetroRealm_Server.Migrations
 
                     b.HasIndex("BunnyRunStatusId");
 
+                    b.HasIndex("CurrentAvatarId");
+
                     b.HasIndex("FlappyBirdStatusId");
 
                     b.HasIndex("MemoryCardStatusId")
@@ -312,6 +302,12 @@ namespace RetroRealm_Server.Migrations
                         .WithMany()
                         .HasForeignKey("BunnyRunStatusId");
 
+                    b.HasOne("RetroRealm_Server.Models.Avatar", "CurrentAvatar")
+                        .WithMany()
+                        .HasForeignKey("CurrentAvatarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("RetroRealm_Server.Models.FlappyBirdStatus", "FlappyBirdStatus")
                         .WithMany()
                         .HasForeignKey("FlappyBirdStatusId");
@@ -329,6 +325,8 @@ namespace RetroRealm_Server.Migrations
                         .HasForeignKey("WordleStatusId");
 
                     b.Navigation("BunnyRunStatus");
+
+                    b.Navigation("CurrentAvatar");
 
                     b.Navigation("FlappyBirdStatus");
 

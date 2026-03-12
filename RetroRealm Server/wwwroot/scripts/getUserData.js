@@ -3,7 +3,7 @@ async function getUserData() {
     const token = sessionStorage.getItem("Token")
     let userData;
     for (let i = 0; i < 5; i++) {
-        const response = await fetch("https://localhost:7234/api/Users/getusersdata", {
+        const response = await fetch("https://localhost:7234/api/GetUserData", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

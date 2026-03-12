@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RetroRealm_Server.Models;
@@ -24,6 +25,7 @@ namespace RetroRealm_Server.Controllers
 
         // GET: api/Logs
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<IEnumerable<Result<List<Log>>>>> GetLogs()
         {
             var result = await _logService.GetAllLogsAsync();

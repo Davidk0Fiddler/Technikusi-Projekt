@@ -8,7 +8,7 @@ namespace RetroRealm_Server.Services._NotUserServices.Interfaces
     {
         Task<Result<List<ReadAchievementDTO>>> GetAllAchievementsAsync();
         Task<Result<ReadAchievementDTO>> GetAchievementAsync(int id);
-        Task<Result<Achievement>> CreateAchievementAsync(CreateAchievementDTO newAchivement);
+        //Task<Result<Achievement>> CreateAchievementAsync(CreateAchievementDTO newAchivement);
         Task<Result<UpdateAchievementDTO>> UpdateAchievementAsync(int id, UpdateAchievementDTO updatedAchivement);
         Task<Result<int>> DeleteAchievementByIdAsync(int id);
     }

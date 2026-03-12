@@ -16,7 +16,8 @@ namespace RetroRealm_Server.Controllers
         [Authorize]
         public ActionResult<string> GetUserName()
         {
-            var userName = User.Claims.FirstOrDefault(c => c.Type == "unique_name")?.Value;
+            var userName = User.Claims.FirstOrDefault(c => c.Type == "unique_name" || c.Type.EndsWith("/name"))?.Value;
+
             if (string.IsNullOrEmpty(userName))
             {
                 return NotFound("User name not found.");

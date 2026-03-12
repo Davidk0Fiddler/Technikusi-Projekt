@@ -2,7 +2,7 @@ async function checkForm() {
     const username = document.getElementById("usernameInput").value;
     const password = document.getElementById("passwordInput").value;
 
-    const response = await fetch("https://localhost:7234/api/Auth/login", {
+    const response = await fetch("https://localhost:7234/api/Login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
