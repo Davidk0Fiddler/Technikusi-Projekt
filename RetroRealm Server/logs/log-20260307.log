@@ -1,0 +1,29 @@
+2026-03-07 18:16:59.157 +01:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-07 18:16:59.323 +01:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-07 18:16:59.344 +01:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-07 18:16:59.398 +01:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-07 18:18:30.294 +01:00 [INF] Logged in! User:Test
+2026-03-07 18:32:44.257 +01:00 [INF] WordleStatus has been updated for User-1!
+2026-03-07 18:32:44.408 +01:00 [INF] WordleStatus has been updated for User-1!
+2026-03-07 18:33:54.003 +01:00 [INF] FlappyBirdStatus has been requested by user-1!
+2026-03-07 18:33:54.047 +01:00 [INF] FlappyBirdStatus has been requested by user-1!
+2026-03-07 18:33:54.086 +01:00 [INF] FlappyBirdStatus has been requested by user-1!
+2026-03-07 18:33:54.117 +01:00 [INF] FlappyBirdStatus has been requested by user-1!
+2026-03-07 18:33:54.141 +01:00 [INF] FlappyBirdStatus has been requested by user-1!
+2026-03-07 18:33:54.167 +01:00 [INF] FlappyBirdStatus has been requested by user-1!
+2026-03-07 18:33:54.189 +01:00 [INF] FlappyBirdStatus has been requested by user-1!
+2026-03-07 18:33:54.211 +01:00 [INF] FlappyBirdStatus has been requested by user-1!
+2026-03-07 18:33:54.232 +01:00 [INF] FlappyBirdStatus has been requested by user-1!
+2026-03-07 18:33:54.257 +01:00 [INF] FlappyBirdStatus has been requested by user-1!
+2026-03-07 18:33:54.297 +01:00 [INF] FlappyBirdStatus has been requested by user-1!
+2026-03-07 18:33:54.323 +01:00 [INF] FlappyBirdStatus has been requested by user-1!
+2026-03-07 18:33:54.347 +01:00 [INF] FlappyBirdStatus has been requested by user-1!
+2026-03-07 18:34:13.862 +01:00 [INF] FlappyBirdStatus has been requested by user-1!
+2026-03-07 18:34:41.280 +01:00 [INF] BunnyRunStatus has been requested by user-1!
+2026-03-07 18:34:47.850 +01:00 [INF] BunnyRunStatus has been requested by user-1!
+2026-03-07 18:34:59.633 +01:00 [INF] BunnyRunStatus has been requested by user-1!
+2026-03-07 18:34:59.755 +01:00 [INF] BunnyRunStatus has been updated for User-1!
+2026-03-07 18:35:57.949 +01:00 [INF] BunnyRunStatus has been requested by user-1!
+2026-03-07 18:35:58.003 +01:00 [INF] BunnyRunStatus has been updated for User-1!
+2026-03-07 18:43:10.632 +01:00 [INF] MemoryGameStatus has been requested by user-1!
+2026-03-07 18:43:10.821 +01:00 [INF] MemoryGameStatus has been updated for User-1!

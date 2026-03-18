@@ -17,7 +17,7 @@ namespace RetroRealm_Server.Services.DeleteAllRefreshTokenService
             _context.RefreshTokens.RemoveRange(_context.RefreshTokens);
             await _context.SaveChangesAsync();
 
-            await _logService.CreateLogAsync(LogType.Succes.ToString(), null, $"All refresh tokens have been deleted!", DateTime.Now, null);
+            await _logService.CreateLogAsync(LogType.Success.ToString(), null, $"All refresh tokens have been deleted!", DateTime.Now, null);
             return Result<bool>.Ok(true);
         }
     }

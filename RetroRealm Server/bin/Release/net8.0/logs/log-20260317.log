@@ -1,0 +1,12 @@
+2026-03-17 13:41:35.750 +01:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-17 13:41:35.799 +01:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-17 13:41:35.805 +01:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-17 13:41:35.820 +01:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-17 13:41:45.962 +01:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-17 13:41:46.011 +01:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-17 13:41:46.017 +01:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-17 13:41:46.032 +01:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-17 13:44:46.653 +01:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-17 13:44:46.699 +01:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-17 13:44:46.705 +01:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-17 13:44:46.720 +01:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.

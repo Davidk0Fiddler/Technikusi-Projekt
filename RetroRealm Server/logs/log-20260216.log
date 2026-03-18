@@ -1,0 +1,24 @@
+2026-02-16 17:21:53.013 +01:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-02-16 17:21:53.072 +01:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-02-16 17:21:53.080 +01:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-02-16 17:21:53.097 +01:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-02-16 17:21:54.188 +01:00 [ERR] Invalid credentials
+2026-02-16 17:22:01.946 +01:00 [INF] Logged in! User:Test
+2026-02-16 17:22:14.616 +01:00 [INF] BunnyRunStatus has been requested by user-1!
+2026-02-16 17:23:12.817 +01:00 [INF] Logged in! User:Test
+2026-02-16 17:23:33.748 +01:00 [INF] BunnyRunStatus has been updated for User-1!
+2026-02-16 17:23:45.633 +01:00 [INF] BunnyRunStatus has been requested by user-1!
+2026-02-16 17:25:34.305 +01:00 [INF] BunnyRunStatus has been requested by user-1!
+2026-02-16 17:27:18.892 +01:00 [INF] BunnyRunStatus has been requested by user-1!
+2026-02-16 17:27:45.189 +01:00 [INF] BunnyRunStatus has been requested by user-1!
+2026-02-16 17:29:11.105 +01:00 [INF] Token refreshed! UserId - 1
+2026-02-16 17:29:11.114 +01:00 [INF] BunnyRunStatus has been requested by user-1!
+2026-02-16 17:29:33.225 +01:00 [INF] BunnyRunStatus has been requested by user-1!
+2026-02-16 17:30:58.549 +01:00 [INF] BunnyRunStatus has been requested by user-1!
+2026-02-16 17:31:12.711 +01:00 [INF] BunnyRunStatus has been requested by user-1!
+2026-02-16 17:31:12.729 +01:00 [INF] BunnyRunStatus has been updated for User-1!
+2026-02-16 17:31:38.371 +01:00 [INF] BunnyRunStatus has been requested by user-1!
+2026-02-16 17:31:45.948 +01:00 [INF] BunnyRunStatus has been requested by user-1!
+2026-02-16 17:31:45.962 +01:00 [INF] BunnyRunStatus has been updated for User-1!
+2026-02-16 17:32:02.747 +01:00 [INF] BunnyRunStatus has been requested by user-1!
+2026-02-16 17:32:02.770 +01:00 [INF] BunnyRunStatus has been updated for User-1!

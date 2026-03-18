@@ -18,7 +18,7 @@ namespace RetroRealm_Server.Controllers
 
         [HttpGet("/getName")]
         [Authorize(Roles = "Admin")]
-        public ActionResult<string> GetUserName()
+        public ActionResult<object> GetUserName()
         {
             var userName = User.Claims.FirstOrDefault(c => c.Type == "unique_name" || c.Type.EndsWith("/name"))?.Value;
 
@@ -26,7 +26,13 @@ namespace RetroRealm_Server.Controllers
             {
                 return NotFound("User name not found.");
             }
-            return Ok(userName);
+
+            var returnObj = new
+            {
+                userName = userName,
+            };
+
+            return Ok(returnObj);
         }
 
         [HttpGet("/users")]

@@ -50,7 +50,7 @@ namespace RetroRealm_Server.Services.RefreshTokenService
             await _context.SaveChangesAsync();
 
             // Returing the new refresh token
-            await _logService.CreateLogAsync(LogType.Succes.ToString(), null, $"Token refreshed! UserId - {newRefreshToken.UserId}", DateTime.Now, newRefreshToken.UserId);
+            await _logService.CreateLogAsync(LogType.Success.ToString(), null, $"Token refreshed! UserId - {newRefreshToken.UserId}", DateTime.Now, newRefreshToken.UserId);
             return Result<OutputTokenDTO>.Ok(new OutputTokenDTO { Token = newToken, RefreshToken = newRefreshToken });
         }
     }

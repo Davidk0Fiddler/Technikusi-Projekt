@@ -24,7 +24,7 @@ namespace RetroRealm_Server.Services.LogoutService
             // Deleting the refreshToken if exists
             if (refreshToken != null)
             {
-                await _logService.CreateLogAsync(LogType.Succes.ToString(), null, $"User {refreshToken.UserId} has logged out!", DateTime.Now, refreshToken.UserId);
+                await _logService.CreateLogAsync(LogType.Success.ToString(), null, $"User {refreshToken.UserId} has logged out!", DateTime.Now, refreshToken.UserId);
                 _context.RefreshTokens.Remove(refreshToken);
                 await _context.SaveChangesAsync();
             }

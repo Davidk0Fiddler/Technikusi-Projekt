@@ -37,7 +37,7 @@ namespace RetroRealm_Server.Services.Login_Service
             await _context.SaveChangesAsync();
 
             // Succesfull login
-            await _logService.CreateLogAsync(LogType.Succes.ToString(), null, $"Logged in! User:{model.Username}", DateTime.Now, null);
+            await _logService.CreateLogAsync(LogType.Success.ToString(), null, $"Logged in! User:{model.Username}", DateTime.Now, null);
             return Result<OutputTokenDTO>.Ok(new OutputTokenDTO { Token = token, RefreshToken = refreshToken });
         }
     }

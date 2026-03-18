@@ -139,13 +139,7 @@ namespace RetroRealm_Server.Services.AvatarService
         #endregion
 
         #region Purchase Avatar
-
         public async Task<Result<bool>> PurchaseAvatarAsync(string username, string avatarName) {
-            //var result = await _refreshTokenService.CheckExpireDateAsync(model);
-
-            //if (!result) return Result<bool>.Fail("Refreshtoken expired or does not exists");
-
-            //var userId = await _refreshTokenService.GetUserIdFromRefreshTokenAsync(model);
 		    var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
 		    if (user == null) 
             {
@@ -155,19 +149,24 @@ namespace RetroRealm_Server.Services.AvatarService
 		    var avatar = await _context.Avatars.FirstOrDefaultAsync(a => a.Name == avatarName);
 		    if (avatar == null) 
 		    {
-		    	return Result<bool>.Fail("Not valid avatarId");	
+		    	return Result<bool>.Fail("Not valid avatarId!");	
 		    }
 		    
 		    if (user.Coins < avatar.Price) {
 		    	return Result<bool>.Fail("User does not have enough coins!");
 		    }
 
+            if (user.OwnedAvatarsId.Contains(avatar.Id)) {
+                return Result<bool>.Fail("User already has this avatar!");
+            }
+
 		    user.OwnedAvatarsId.Add(avatar.Id);
+            user.Coins = user.Coins - avatar.Price;
 
             try
             {
                 await _context.SaveChangesAsync();
-                await _logService.CreateLogAsync(LogType.Succes.ToString(), null, $"Avatar ({avatarName}) has been succesfully purchased by User-{user.Id}!", DateTime.Now, user.Id);
+                await _logService.CreateLogAsync(LogType.Success.ToString(), null, $"Avatar ({avatarName}) has been succesfully purchased by User-{user.Id}!", DateTime.Now, user.Id);
                 return Result<bool>.Ok(true);
             }
             catch (DbUpdateException ex)

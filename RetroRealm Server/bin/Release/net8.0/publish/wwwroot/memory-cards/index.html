@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Memory Game</title>
+</head>
+<body>
+    <div class="menu" id="menu">
+        <h1>Memory Game</h1>
+        <h5 id="h5">fruits and vegetables</h5>
+        <div class="buttons">
+            <div class="button" id="play-button">START</div>
+            <div class="button" id="gamemode-button">2x2</div>
+        </div>
+        <div class="bottom-buttons">
+            <div class="bottom-button" id="main-menu"></div>
+            <div class="bottom-button" id="leaderboard"></div>
+            <div class="bottom-button" id="help"></div>
+            <div class="bottom-button" id="language"></div>
+        </div>
+        <div class="language-buttons" id="language-buttons">
+            <div class="language-button" id="eng"></div>
+            <div class="language-button" id="hun"></div>
+            <div class="language-button" id="esp"></div>
+        </div>
+    </div>
+
+    <div class="welcome-div" id="welcome-div">
+        <p id="welcome-p"></p>
+    </div>
+
+    <div class="info-panel" id="info-panel">
+        <div id="info-panel-time">Time: 0</div>
+        <br><div id="info-panel-total-flips">Total flips: 0</div>
+        <br><div id="info-panel-difficulty">Difficulty: 2x2</div>
+        <br><div id="restart-button"></div>
+        <br><div id="menu-button"></div>
+    </div>
+    <div class="game-container eight" id="game-container"></div>
+    
+    
+    <div class="end-screen" id="end-screen">
+        <h1 id="end-screen-h1">Game finished!</h1>
+        <div class="data">
+            <div id="end-screen-time">Time: 0</div>
+            <div id="end-screen-total-flips">Total flips: 0</div>
+            <div id="end-screen-difficulty">Difficulty: 2x2</div>
+        </div>    
+        <div class="end-screen-buttons">
+            <div class="end-screen-button" id="end-screen-play-again">Play again</div>
+            <div class="end-screen-button" id="end-screen-menu">Menu</div>
+        </div>
+    </div>
+
+    <div class="newRecordBlock" id="newRecordBlock">
+        New Record!
+    </div>
+
+    <div class="backdrop-element" id="backdrop-element"></div>
+    <div class="help-panel" id="help-panel">
+        <div class="left-side">
+            <div class="help-button" id="help-about-button" style="border-top-left-radius: 10px;">About the game</div>
+            <div class="help-button" id="help-game-size-button">Set game size</div>
+            <div class="help-button" id="help-change-language-button">Change language</div>
+            <div class="help-button" id="help-how-to-play-button" style="border-bottom-left-radius: 10px; border-bottom: 0px solid black;">How to play the game</div>
+        </div>
+        <div class="right-side" id="help-right-side">
+        </div>
+    </div>
+    <script type="module" src="main.js"></script>
+</body>
+</html>

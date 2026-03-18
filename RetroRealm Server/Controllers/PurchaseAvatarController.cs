@@ -21,9 +21,15 @@ namespace RetroRealm_Server.Controllers
         {
             var result = await _avatarService.PurchaseAvatarAsync(User.Claims.FirstOrDefault(c => c.Type == "unique_name")?.Value, avatar.AvatarName);
             if (result.Success) return Ok(result.Data);
-            if (result.Error == "Avatar not found!") return NotFound();
-            if (result.Error == "User not found!") return NotFound();
-            if (result.Error == "Not enough coins!") return BadRequest("Not enough coins!");
+
+            switch (result.Error)
+            {
+                case "Avatar not found!": return NotFound();
+                case "User not found!": return NotFound();
+                case "Not enough coins!": return BadRequest("Not enough coins!");
+                case "User already has this avatar!": return BadRequest("User already has this avatar!");
+            }
+
             return BadRequest();
         }
     }

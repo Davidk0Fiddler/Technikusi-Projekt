@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RetroRealm_Server.DTOs.BunnyRunDTOs;
 using RetroRealm_Server.DTOs.FlappyBirdDTOs;
+using RetroRealm_Server.DTOs.GetAchievementsByUser;
 using RetroRealm_Server.DTOs.GetUserDataDTOs;
 using RetroRealm_Server.DTOs.MemoryGameDTOs;
 using RetroRealm_Server.DTOs.Register;
@@ -137,6 +138,7 @@ namespace RetroRealm_Server.Services.UserService
         public async Task<Result<ReadUserDTO>> GetUserDataAsync(string userName)
         {
             var user = await _context.Users.Include(u => u.Role)
+                                           .Include(u => u.CurrentAvatar)
                                            .Include(u => u.BunnyRunStatus)
                                            .Include(u => u.FlappyBirdStatus)
                                            .Include(u => u.WorldeStatus)
@@ -149,23 +151,39 @@ namespace RetroRealm_Server.Services.UserService
                 return Result<ReadUserDTO>.Fail("User not found!");
             }
 
-            await _logService.CreateLogAsync(LogType.Get.ToString(), null, $"User (id-{user.Id}) data has been requested!", DateTime.Now, user.Id);
-            return Result<ReadUserDTO>.Ok(ToReadUserDTO(user));
-        }
-
-        private ReadUserDTO ToReadUserDTO(User user) 
-        { 
-            return new ReadUserDTO {
+            var response = new ReadUserDTO
+            {
                 UserName = user.Username,
                 Coins = user.Coins,
                 RoleName = user.Role.Name,
-                CurrentAvatarId = user.CurrentAvatarId,
+                CurrentAvatarName = user.CurrentAvatar.Name,
+                OwnedAvatars = await _context.Avatars.Where(a => user.OwnedAvatarsId.Contains(a.Id)).Select(a => a.Name).ToListAsync(),
                 BunnyRunStatus = ToReadBunnyRunStatusDTO(user.BunnyRunStatus),
                 FlappyBirdStatus = ToReadFlappyBirdStatusDTO(user.FlappyBirdStatus),
                 MemoryGameStatus = ToReadMemoryGameStatusDTO(user.MemoryGameStatus),
                 WordleStatus = ToReadWordleStatusDTO(user.WorldeStatus),
-            }; 
+                CompletedAchievements = await _context.Achievements.Where(a => user.CompletedChallangesId.Contains(a.Id)).Select(a => new GetAchievementsByUserDTO { NameEng = a.NameEng, NameEsp = a.NameEsp, NameHun = a.NameHun }).ToListAsync()
+            };
+
+            await _logService.CreateLogAsync(LogType.Get.ToString(), null, $"User (id-{user.Id}) data has been requested!", DateTime.Now, user.Id);
+            
+            
+            return Result<ReadUserDTO>.Ok(response);
         }
+
+        //private ReadUserDTO ToReadUserDTO(User user, List<Avatar>) 
+        //{ 
+        //    return new ReadUserDTO {
+        //        UserName = user.Username,
+        //        Coins = user.Coins,
+        //        RoleName = user.Role.Name,
+        //        CurrentAvatarId = user.CurrentAvatarId,
+        //        BunnyRunStatus = ToReadBunnyRunStatusDTO(user.BunnyRunStatus),
+        //        FlappyBirdStatus = ToReadFlappyBirdStatusDTO(user.FlappyBirdStatus),
+        //        MemoryGameStatus = ToReadMemoryGameStatusDTO(user.MemoryGameStatus),
+        //        WordleStatus = ToReadWordleStatusDTO(user.WorldeStatus),
+        //    }; 
+        //}
 
         private ReadBunnyRunStatusDTO ToReadBunnyRunStatusDTO(BunnyRunStatus status) { 
             return new ReadBunnyRunStatusDTO { 
@@ -234,7 +252,7 @@ namespace RetroRealm_Server.Services.UserService
                     }
                     else
                     {
-                        await _logService.CreateLogAsync(LogType.Succes.ToString(), null, $"Error  during creating statuses FIXED in the Error Handling! (Tryings: {statusCreationErrorHandlingIds.SingleOrDefault(x => x.UserId == user.Id).Tryings})", DateTime.Now, user.Id);
+                        await _logService.CreateLogAsync(LogType.Success.ToString(), null, $"Error  during creating statuses FIXED in the Error Handling! (Tryings: {statusCreationErrorHandlingIds.SingleOrDefault(x => x.UserId == user.Id).Tryings})", DateTime.Now, user.Id);
                         IsFixed = true;
                         statusCreationErrorHandlingIds.Remove(statusCreationErrorHandlingIds.SingleOrDefault(x => x.UserId == user.Id));
                     }
@@ -242,7 +260,7 @@ namespace RetroRealm_Server.Services.UserService
             }
             else
             {
-                await _logService.CreateLogAsync(LogType.Succes.ToString(), null, $"Error  during creating statuses FIXED in the Error Handling! (Tryings: {statusCreationErrorHandlingIds.SingleOrDefault(x => x.UserId == user.Id).Tryings})", DateTime.Now, user.Id);
+                await _logService.CreateLogAsync(LogType.Success.ToString(), null, $"Error  during creating statuses FIXED in the Error Handling! (Tryings: {statusCreationErrorHandlingIds.SingleOrDefault(x => x.UserId == user.Id).Tryings})", DateTime.Now, user.Id);
                 IsFixed = true;
                 statusCreationErrorHandlingIds.Remove(statusCreationErrorHandlingIds.SingleOrDefault(x => x.UserId == user.Id));
             }

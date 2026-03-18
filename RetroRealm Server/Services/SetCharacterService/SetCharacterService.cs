@@ -40,7 +40,7 @@ namespace RetroRealm_Server.Services.SetCharacterService
             try
             {
                 await _context.SaveChangesAsync();
-                await _logService.CreateLogAsync(LogType.Succes.ToString(), $"User ({userName}) set character ({characterName}) successfully.", $"User ({userName}) set character ({characterName}) successfully.", DateTime.Now, null);
+                await _logService.CreateLogAsync(LogType.Success.ToString(), $"User ({userName}) set character ({characterName}) successfully.", $"User ({userName}) set character ({characterName}) successfully.", DateTime.Now, null);
                 return Result<bool>.Ok(true);
             }
             catch { 

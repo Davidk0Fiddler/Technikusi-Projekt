@@ -1,0 +1,15 @@
+2026-03-15 08:37:21.277 +01:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-15 08:37:21.346 +01:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-15 08:37:21.351 +01:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-15 08:37:21.367 +01:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-15 08:37:52.672 +01:00 [INF] Logged in! User:admin1
+2026-03-15 08:37:53.050 +01:00 [INF] All users have been requested for the admin panel
+2026-03-15 08:37:53.090 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-15 08:38:45.657 +01:00 [INF] All users have been requested for the admin panel
+2026-03-15 08:38:45.671 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-15 08:39:21.379 +01:00 [INF] All users have been requested for the admin panel
+2026-03-15 08:39:21.389 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-15 08:45:55.370 +01:00 [INF] All users have been requested for the admin panel
+2026-03-15 08:45:55.385 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-15 08:45:57.198 +01:00 [INF] All users have been requested for the admin panel
+2026-03-15 08:45:57.212 +01:00 [INF] All logs have been requested for the admin panel

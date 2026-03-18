@@ -7,6 +7,6 @@
         Update,
         Delete,
         Error,
-	Succes
+	    Success
     }
 }

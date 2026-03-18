@@ -65,7 +65,7 @@ namespace RetroRealm_Server.Services.AdminService
                     MaxPassedPipes = u.FlappyBirdStatus.MaxPassedPipes
                 },
 
-                WorldeStatus = new ReadWordleStatusDTO
+                WordleStatus = new ReadWordleStatusDTO
                 {
                     CompletedWords = u.WorldeStatus.CompletedWords
                 },
@@ -80,7 +80,7 @@ namespace RetroRealm_Server.Services.AdminService
             await _logService.CreateLogAsync(
                 LogType.Get.ToString(),
                 null,
-                "All users have been requested for the admin panel",
+                "All users have been successfully requested for the admin panel",
                 DateTime.Now,
                 null);
 
@@ -104,7 +104,9 @@ namespace RetroRealm_Server.Services.AdminService
                     : "Unknown User"
             }).ToList();
 
-            await _logService.CreateLogAsync(LogType.Get.ToString(), null, "All logs have been requested for the admin panel", DateTime.Now, null);
+            result.Reverse();
+
+            await _logService.CreateLogAsync(LogType.Get.ToString(), null, "All logs have been successfully requested for the admin panel", DateTime.Now, null);
             return Result<List<ReadLogDTO>>.Ok(result);
         }
     }

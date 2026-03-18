@@ -1,0 +1,276 @@
+2026-03-13 08:40:45.665 +01:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-13 08:40:45.747 +01:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-13 08:40:45.753 +01:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-13 08:40:45.775 +01:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-13 08:44:59.159 +01:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-13 08:44:59.219 +01:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-13 08:44:59.226 +01:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-13 08:44:59.243 +01:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-13 08:45:55.312 +01:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-13 08:45:55.378 +01:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-13 08:45:55.384 +01:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-13 08:45:55.401 +01:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-13 08:46:34.886 +01:00 [INF] Logged in! User:admin1
+2026-03-13 08:47:15.489 +01:00 [INF] Logged in! User:admin1
+2026-03-13 08:48:28.509 +01:00 [INF] Logged in! User:admin1
+2026-03-13 09:13:34.451 +01:00 [ERR] Invalid credentials
+2026-03-13 09:13:40.745 +01:00 [INF] Logged in! User:admin1
+2026-03-13 09:15:32.320 +01:00 [INF] FlappyBirdStatus has been requested by user-2!
+2026-03-13 09:15:45.108 +01:00 [INF] Logged in! User:admin1
+2026-03-13 09:15:45.216 +01:00 [INF] FlappyBirdStatus has been requested by user-2!
+2026-03-13 09:16:06.401 +01:00 [INF] Logged in! User:admin1
+2026-03-13 09:16:06.485 +01:00 [INF] FlappyBirdStatus has been requested by user-2!
+2026-03-13 09:17:43.724 +01:00 [INF] Logged in! User:admin1
+2026-03-13 09:18:19.197 +01:00 [INF] Logged in! User:admin1
+2026-03-13 09:21:14.302 +01:00 [INF] Logged in! User:admin1
+2026-03-13 09:21:51.018 +01:00 [INF] Logged in! User:admin1
+2026-03-13 09:23:03.363 +01:00 [INF] Logged in! User:admin1
+2026-03-13 09:23:37.638 +01:00 [INF] Logged in! User:admin1
+2026-03-13 09:24:50.972 +01:00 [INF] Logged in! User:admin1
+2026-03-13 09:25:51.487 +01:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-13 09:25:51.554 +01:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-13 09:25:51.561 +01:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-13 09:25:51.580 +01:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-13 09:26:12.570 +01:00 [ERR] Invalid credentials
+2026-03-13 09:26:17.918 +01:00 [INF] Logged in! User:admin1
+2026-03-13 09:32:59.427 +01:00 [ERR] Invalid credentials
+2026-03-13 09:33:03.963 +01:00 [ERR] Invalid credentials
+2026-03-13 09:33:11.617 +01:00 [ERR] Invalid credentials
+2026-03-13 09:33:55.395 +01:00 [INF] Logged in! User:Test
+2026-03-13 09:34:09.832 +01:00 [INF] Logged in! User:Test
+2026-03-13 11:09:02.404 +01:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-13 11:09:02.512 +01:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-13 11:09:02.520 +01:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-13 11:09:02.543 +01:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-13 11:09:27.665 +01:00 [INF] Logged in! User:admin1
+2026-03-13 11:09:27.928 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 11:09:44.121 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 11:10:48.838 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 11:11:02.829 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 11:11:15.998 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 11:11:26.308 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 11:11:29.781 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 11:11:35.253 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 11:11:43.403 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 11:12:02.564 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 11:12:02.574 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 11:12:07.468 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 11:12:07.478 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 11:12:11.114 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 11:12:11.124 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 11:12:20.968 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 11:12:20.977 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 11:12:30.129 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 11:12:30.160 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 11:12:31.263 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 11:12:31.272 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 11:12:40.329 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 11:12:40.342 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 11:12:42.298 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 11:12:42.306 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 11:12:42.984 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 11:12:42.994 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 11:12:43.501 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 11:12:43.508 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 11:12:51.330 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 11:12:51.341 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 11:12:52.030 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 11:12:52.039 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 11:12:52.564 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 11:12:52.573 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 11:12:53.068 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 11:12:53.076 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 11:12:53.531 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 11:12:53.546 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 11:12:53.959 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 11:12:53.968 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:06:37.810 +01:00 [INF] Logged in! User:admin1
+2026-03-13 12:06:37.922 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:06:37.932 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:08:13.424 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:08:13.433 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:08:20.672 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:08:20.682 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:09:52.979 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:09:52.991 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:10:48.198 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:10:48.207 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:10:57.675 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:10:57.683 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:11:07.111 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:11:07.122 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:11:11.607 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:11:11.616 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:11:41.829 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:11:41.842 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:11:59.545 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:11:59.555 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:12:05.435 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:12:05.445 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:12:49.867 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:12:49.882 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:13:05.953 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:13:05.963 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:13:08.715 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:13:08.724 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:13:32.762 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:13:32.772 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:13:34.126 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:13:34.144 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:13:43.601 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:13:43.619 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:13:51.891 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:13:51.902 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:14:33.431 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:14:33.443 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:15:11.226 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:15:11.241 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:15:40.235 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:15:40.246 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:16:19.525 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:16:19.535 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:16:41.942 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:16:41.957 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:17:09.541 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:17:09.561 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:17:16.906 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:17:16.918 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:17:55.925 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:17:55.943 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:18:03.277 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:18:03.287 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:18:06.481 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:18:06.490 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:18:10.147 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:18:10.157 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:18:21.881 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:18:21.892 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:19:03.159 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:19:03.169 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:19:55.863 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:19:55.873 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:26:46.364 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:26:46.392 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:26:58.474 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:26:58.486 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:27:12.830 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:27:12.842 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:27:58.853 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:27:58.865 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:28:04.195 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:28:04.208 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:28:48.861 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:28:48.872 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:29:01.697 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:29:01.708 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:29:15.627 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:29:15.638 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:30:57.383 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:30:57.393 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:31:01.805 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:31:01.814 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:31:09.555 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:31:09.565 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:32:04.135 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:32:04.145 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:32:20.641 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:32:20.650 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:35:20.382 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:35:20.395 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:35:22.780 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:35:22.791 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:35:53.457 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:35:53.468 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:36:14.574 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:36:14.585 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:36:19.341 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:36:19.353 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:36:31.441 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:36:31.461 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:36:46.002 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:36:46.024 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:37:03.462 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:37:03.476 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:38:12.362 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:38:12.379 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:38:18.878 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:38:18.895 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:38:33.786 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:38:33.803 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:40:53.885 +01:00 [ERR] Invalid credentials
+2026-03-13 12:41:00.980 +01:00 [INF] Logged in! User:admin1
+2026-03-13 12:41:01.072 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:41:01.082 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:42:36.739 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:42:36.750 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:44:26.258 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:44:26.273 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:45:01.898 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:45:01.908 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:45:33.398 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:45:33.409 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:45:37.231 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:45:37.246 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:46:30.543 +01:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-13 12:46:30.602 +01:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-13 12:46:30.608 +01:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-13 12:46:30.625 +01:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-13 12:46:47.082 +01:00 [INF] Logged in! User:admin1
+2026-03-13 12:46:47.311 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:46:47.347 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:55:30.850 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:55:30.871 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:55:51.823 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:55:51.837 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 12:57:06.306 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 12:57:06.320 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 13:46:23.636 +01:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-13 13:46:23.774 +01:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-13 13:46:23.784 +01:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-13 13:46:23.812 +01:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-13 13:46:48.059 +01:00 [INF] Logged in! User:admin1
+2026-03-13 13:46:48.864 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 13:46:48.966 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 13:47:26.190 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 13:47:26.224 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 13:48:32.513 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 13:48:32.551 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 13:50:56.285 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 13:50:56.329 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 13:54:53.430 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 13:54:53.445 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 13:55:21.190 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 13:55:21.250 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 13:55:32.307 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 13:55:32.344 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 13:56:44.998 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 13:56:45.036 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 13:57:11.789 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 13:57:11.815 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 13:57:14.917 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 13:57:14.963 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 13:57:25.381 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 13:57:25.399 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 14:00:58.534 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 14:00:58.612 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 14:01:06.224 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 14:01:06.255 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 14:01:20.338 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 14:01:20.383 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 14:02:24.755 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 14:02:24.779 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 14:02:32.752 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 14:02:32.793 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 14:02:38.229 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 14:02:38.314 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 14:03:44.982 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 14:03:45.000 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 14:03:48.995 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 14:03:49.050 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 14:03:53.598 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 14:03:53.654 +01:00 [INF] All logs have been requested for the admin panel
+2026-03-13 14:04:42.698 +01:00 [INF] Logged in! User:Test
+2026-03-13 14:05:41.806 +01:00 [INF] FlappyBirdStatus has been requested by user-1!
+2026-03-13 14:05:42.020 +01:00 [INF] FlappyBirdStatus has been updated for User-1!
+2026-03-13 14:05:50.464 +01:00 [INF] All users have been requested for the admin panel
+2026-03-13 14:05:50.492 +01:00 [INF] All logs have been requested for the admin panel

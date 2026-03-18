@@ -1,0 +1,19 @@
+2026-03-05 09:56:24.885 +01:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-05 09:56:24.950 +01:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-05 09:56:24.956 +01:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-05 09:56:24.973 +01:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-05 09:58:48.972 +01:00 [INF] Logged in! User:Test
+2026-03-05 11:13:17.708 +01:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-05 11:13:17.778 +01:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-05 11:13:17.784 +01:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-05 11:13:17.802 +01:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-05 11:47:23.911 +01:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-05 11:47:23.969 +01:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-05 11:47:23.976 +01:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-05 11:47:23.992 +01:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-05 11:47:25.139 +01:00 [INF] Kérés érkezett: /swagger/index.html
+2026-03-05 11:47:25.149 +01:00 [INF] Védett útvonalak száma: 3, tartalom: ["/bunnyRun/styles.css","/bunnyRun/index.js","/bunnyRun/scripts/kaplayCtx.js"]
+2026-03-05 11:47:25.159 +01:00 [INF] A fájl NINCS a védett listában.
+2026-03-05 11:47:25.322 +01:00 [INF] Kérés érkezett: /swagger/v1/swagger.json
+2026-03-05 11:47:25.324 +01:00 [INF] Védett útvonalak száma: 3, tartalom: ["/bunnyRun/styles.css","/bunnyRun/index.js","/bunnyRun/scripts/kaplayCtx.js"]
+2026-03-05 11:47:25.328 +01:00 [INF] A fájl NINCS a védett listában.

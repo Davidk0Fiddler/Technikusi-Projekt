@@ -14,7 +14,7 @@ using RetroRealm_Server.Services.BunnyRunService;
 using RetroRealm_Server.Services.CheckAchievementsService;
 using RetroRealm_Server.Services.DeleteAllRefreshTokenService;
 using RetroRealm_Server.Services.FlappyBirdService;
-using RetroRealm_Server.Services.GetAchievementsByUserService;
+using RetroRealm_Server.Services.GetAchievementsService.cs;
 using RetroRealm_Server.Services.GetAvatarsForUserService;
 using RetroRealm_Server.Services.Jwt_Service;
 using RetroRealm_Server.Services.LeaderboardService;
@@ -77,7 +77,6 @@ builder.Services.AddScoped<IRegisterService, RegisterService>();
 builder.Services.AddScoped<IRefreshTokenService, RefreshTokenService>();
 builder.Services.AddScoped<ILogOutService, LogoutService>();
 builder.Services.AddScoped<IDeleteAllRefreshTokenService, DeleteAllRefreshTokenService>();
-builder.Services.AddScoped<IGetAchievementsByUserService, GetAchievementsByUserService>();
 builder.Services.AddScoped<IGetAvatarsForUserService, GetAvatarsForUserService>();
 builder.Services.AddScoped<IBunnyRunStatusService, BunnyRunService>();
 builder.Services.AddScoped<IFlappyBirdStatusService, FlappyBirdService>();
@@ -88,6 +87,7 @@ builder.Services.AddScoped<ICheckAchievementService, CheckAchievementService>();
 builder.Services.AddScoped<IAdminService, AdminService>();
 builder.Services.AddScoped<ISetCharacterService, SetCharacterService>();
 builder.Services.AddScoped<WebSocketLoopClass>();
+builder.Services.AddScoped<IGetAchievementsService, GetAchievementsService>();
 
 
 builder.Services.AddScoped<IAuthService, AuthService>();
@@ -160,8 +160,7 @@ db => db.UseSqlite(builder.Configuration.GetConnectionString("RetroRealmLogDatab
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
+
     using var scope = app.Services.CreateScope();
     var db = scope.ServiceProvider.GetRequiredService<RetroRealmDatabaseContext>();
 
@@ -170,7 +169,7 @@ if (app.Environment.IsDevelopment())
 
     // AUTOINCREMENT nullázása (ha van)
     db.Database.ExecuteSqlRaw("DELETE FROM sqlite_sequence WHERE name='RefreshTokens';");
-}
+
 
 
 app.UseDefaultFiles();
@@ -214,4 +213,6 @@ app.Map("/ws", async context =>
     await handler.WebSocketLoop(socket);
 });
 
+
+Console.WriteLine("Server is running...");
 app.Run();

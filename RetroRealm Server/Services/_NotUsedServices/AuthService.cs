@@ -67,7 +67,7 @@ namespace RetroRealm_Server.Services._NotUserServices
             _context.RefreshTokens.Add(refreshToken);
             await _context.SaveChangesAsync();
 
-            await _logService.CreateLogAsync(LogType.Succes.ToString(), null, $"Logged in! User:{model.Username}", DateTime.Now, null);
+            await _logService.CreateLogAsync(LogType.Success.ToString(), null, $"Logged in! User:{model.Username}", DateTime.Now, null);
             return Result<OutputTokenDTO>.Ok(new OutputTokenDTO { Token = token, RefreshToken = refreshToken});
         }
         #endregion
@@ -101,7 +101,7 @@ namespace RetroRealm_Server.Services._NotUserServices
             _context.RefreshTokens.Remove(refreshToken);
             _context.RefreshTokens.Add(newRefreshToken);
             await _context.SaveChangesAsync();
-            await _logService.CreateLogAsync(LogType.Succes.ToString(), null, $"Token refreshed! UserId - {newRefreshToken.UserId}", DateTime.Now, newRefreshToken.UserId);
+            await _logService.CreateLogAsync(LogType.Success.ToString(), null, $"Token refreshed! UserId - {newRefreshToken.UserId}", DateTime.Now, newRefreshToken.UserId);
             return Result<OutputTokenDTO>.Ok(new OutputTokenDTO { Token = newToken, RefreshToken = newRefreshToken });
         }
         #endregion
@@ -112,7 +112,7 @@ namespace RetroRealm_Server.Services._NotUserServices
 
             if (refreshToken != null)
             {
-                await _logService.CreateLogAsync(LogType.Succes.ToString(), null, $"User {refreshToken.UserId} has logged out!", DateTime.Now, refreshToken.UserId);
+                await _logService.CreateLogAsync(LogType.Success.ToString(), null, $"User {refreshToken.UserId} has logged out!", DateTime.Now, refreshToken.UserId);
                 _context.RefreshTokens.Remove(refreshToken);
                 await _context.SaveChangesAsync();
             }
