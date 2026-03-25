@@ -64,7 +64,7 @@ export default function UsersPanel() {
                 <div class="game-status">
 
                     <div class="game">
-                    <h4>Worlde</h4>
+                    <h4>Wordle</h4>
                     <span class="status" id="wordle-status">Total words : 0</span>
                     </div>
 

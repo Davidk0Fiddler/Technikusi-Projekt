@@ -2,184 +2,184 @@
    GLOBAL RESET AND BASE FONT SETTINGS
    ===================================================== */
 * {
-    box-sizing: border-box;       /* Ensures padding and border are included in element size */
-    padding: 0;                   /* Removes default browser padding */
-    margin: 0;                    /* Removes default browser margin */
-    font-family: Arial, Helvetica, sans-serif;
-    font-variant: small-caps;     /* Gives the game a consistent typographic style */
+  box-sizing: border-box; /* Ensures padding and border are included in element size */
+  padding: 0; /* Removes default browser padding */
+  margin: 0; /* Removes default browser margin */
+  font-family: Arial, Helvetica, sans-serif;
+  font-variant: small-caps; /* Gives the game a consistent typographic style */
 }
 
 /* =====================================================
    PAGE BACKGROUND AND GENERAL BEHAVIOR
    ===================================================== */
 body {
-    background: url("bg.jpg");    /* Background image for the entire page */
-    background-size: cover;       /* Ensures the image always fills the screen */
-    overflow-x: hidden;           /* Prevents horizontal scrolling */
+  background: url("bg.jpg"); /* Background image for the entire page */
+  background-size: cover; /* Ensures the image always fills the screen */
+  overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 
 /* =====================================================
    MAIN GAME CONTAINER
    ===================================================== */
 .game-container {
-    height: 100vh;                              /* Full viewport height */
-    width: 40vw;                                /* Responsive width */
-    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
-    margin: auto;                               /* Centers the container horizontally */
-    text-align: center;
-    display: none;                              /* Shown only when the game starts */
+  height: 100vh; /* Full viewport height */
+  width: 40vw; /* Responsive width */
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+  margin: auto; /* Centers the container horizontally */
+  text-align: center;
+  display: none; /* Shown only when the game starts */
 }
 
 /* =====================================================
    TOP NAVIGATION BAR
    ===================================================== */
 .nav-bar {
-    margin-left: 10%;
-    width: 80%;
-    border-bottom: 2px solid black;
-    font-size: 40px;
-    text-align: center;
-    padding-top: 2vh;
+  margin-left: 10%;
+  width: 80%;
+  border-bottom: 2px solid black;
+  font-size: 40px;
+  text-align: center;
+  padding-top: 2vh;
 }
 
 /* =====================================================
    GAME BOARD STRUCTURE
    ===================================================== */
 .game-board {
-    margin: auto;
-    margin-top: 25px;
-    width: 425px;       /* Fixed width to keep grid aligned */
+  margin: auto;
+  margin-top: 25px;
+  width: 425px; /* Fixed width to keep grid aligned */
 }
 
 /* Rows that contain the cards */
 .row {
-    padding-bottom: 10px;
-    display: flex;
-    gap: 12.5px;        /* Spacing between cards */
-    justify-content: center;
+  padding-bottom: 10px;
+  display: flex;
+  gap: 12.5px; /* Spacing between cards */
+  justify-content: center;
 }
 
 /* =====================================================
    GAME CARDS
    ===================================================== */
 .card {
-    width: 60px;
-    height: 60px;
-    border: 3px solid black;
-    box-shadow: 2px 2px black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 55px;
-    font-weight: bold;
+  width: 60px;
+  height: 60px;
+  border: 3px solid black;
+  box-shadow: 2px 2px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 55px;
+  font-weight: bold;
 }
 
 /* Card color states (ID-based usage) */
 #grey {
-    background-color: grey;
-    border-color: grey;
-    color: white;
+  background-color: grey;
+  border-color: grey;
+  color: white;
 }
 
 #green {
-    background-color: rgb(25, 177, 25);
-    border-color: rgb(25, 177, 25);
-    color: white;
-    /* animation intentionally disabled here */
+  background-color: rgb(25, 177, 25);
+  border-color: rgb(25, 177, 25);
+  color: white;
+  /* animation intentionally disabled here */
 }
 
 /* =====================================================
    VIRTUAL KEYBOARD
    ===================================================== */
 .keyboard {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr); /* Keyboard layout */
-    gap: 5px;
-    background: #ddd;
-    padding: 10px;
-    border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr); /* Keyboard layout */
+  gap: 5px;
+  background: #ddd;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 /* Generic key styling */
 .key {
-    padding: 10px;
-    background: #fff;
-    text-align: center;
-    border-radius: 5px;
-    cursor: pointer;
-    user-select: none; /* Prevents text selection on click */
+  padding: 10px;
+  background: #fff;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none; /* Prevents text selection on click */
 }
 
 /* Visual feedback when pressing a key */
 .key:active {
-    background: #bbb;
+  background: #bbb;
 }
 
 /* Special keyboard keys */
 .enter {
-    grid-column: span 2;
-    background: #99ccff;
-    font-size: 11px;
-    display: flex;
-    justify-content: center;
-    align-self: center;
+  grid-column: span 2;
+  background: #99ccff;
+  font-size: 11px;
+  display: flex;
+  justify-content: center;
+  align-self: center;
 }
 
 .backspace {
-    grid-column: span 2;
-    background: #ff9999;
-    font-size: 11px;
-    display: flex;
-    justify-content: center;
-    align-self: center;
+  grid-column: span 2;
+  background: #ff9999;
+  font-size: 11px;
+  display: flex;
+  justify-content: center;
+  align-self: center;
 }
 
 /* =====================================================
    CARD COLOR STATES (CLASS-BASED)
    ===================================================== */
 .grey {
-    background: grey;
-    border-color: grey;
-    color: white;
+  background: grey;
+  border-color: grey;
+  color: white;
 }
 
 .green {
-    background: rgb(25, 177, 25);
-    border-color: rgb(25, 177, 25);
-    color: white;
+  background: rgb(25, 177, 25);
+  border-color: rgb(25, 177, 25);
+  color: white;
 }
 
 .yellow {
-    background: goldenrod;
-    border-color: goldenrod;
-    color: white;
+  background: goldenrod;
+  border-color: goldenrod;
+  color: white;
 }
 
 /* Flip animation trigger class */
 .flipping {
-    animation: 0.5s ease flipping;
+  animation: 0.5s ease flipping;
 }
 
 #yellow {
-    background-color: goldenrod;
-    border-color: goldenrod;
-    color: white;
+  background-color: goldenrod;
+  border-color: goldenrod;
+  color: white;
 }
 
 /* =====================================================
    BACK TO MENU BUTTON
    ===================================================== */
 .back-to-menu-btn {
-    background: url("backtomenubtn.png");
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-size: cover;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    visibility: hidden; /* Displayed only during gameplay */
+  background: url("backtomenubtn.png");
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  visibility: hidden; /* Displayed only during gameplay */
 }
 
 /* =====================================================
@@ -188,35 +188,38 @@ body {
 
 /* Card flipping animation */
 @keyframes flipping {
-    0% {
-        transform: scaleY(1);
-    }
-    50% {
-        transform: scaleY(0);
-    }
-    100% {
-        transform: scaleY(1);
-    }
+  0% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
 }
 
 /* Fade in and fade out animation */
 @keyframes fadeInOut {
-    0% { opacity: 0; }
-    20% { opacity: 1; }
-    80% { opacity: 1; }
-    100% { opacity: 0; }
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
-
-
 
 /* =====================================================
    LAPTOP LAYOUT (1024px)
    ===================================================== */
 
-
-
 @media screen and (min-width: 1024px) {
-
   /* =====================================================
      MAIN MENU CONTAINER
      ===================================================== */
@@ -341,7 +344,7 @@ body {
     border-radius: 15px;
     border: 2px solid black;
     background-color: white;
-    display: none;                /* Shown only when language menu is opened */
+    display: none; /* Shown only when language menu is opened */
     justify-content: space-evenly;
     align-items: center;
   }
@@ -388,7 +391,7 @@ body {
     box-shadow: 3px 3px black;
     height: 20vw;
     text-align: center;
-    display: none;                /* Displayed when the game ends */
+    display: none; /* Displayed when the game ends */
   }
 
   #end-screen-h1 {
@@ -437,7 +440,7 @@ body {
      ===================================================== */
   .backdrop-element {
     width: 100vw;
-    height: 200vh;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.6);
     position: absolute;
     display: none;
@@ -504,14 +507,11 @@ body {
   }
 }
 
-
 /* =====================================================
    LARGE DESKTOP LAYOUT (1440px)
    ===================================================== */
 
-
 @media screen and (min-width: 1440px) {
-
   /* =====================================================
      END GAME SCREEN (LARGE DISPLAYS)
      ===================================================== */
@@ -527,7 +527,7 @@ body {
     box-shadow: 3px 3px black;
     height: 20vw;
     text-align: center;
-    display: none;                /* Shown when the game ends */
+    display: none; /* Shown when the game ends */
   }
 
   /* End screen title */
@@ -588,7 +588,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    display: none;                /* Visible when a modal is active */
+    display: none; /* Visible when a modal is active */
   }
 
   /* =====================================================
@@ -657,9 +657,7 @@ body {
    EXTRA LARGE SCREENS / 4K DISPLAYS (2560px AND ABOVE)
    ===================================================== */
 
-   
 @media screen and (min-width: 2560px) {
-
   /* =====================================================
      END GAME SCREEN (EXTRA LARGE DISPLAYS)
      ===================================================== */
@@ -675,7 +673,7 @@ body {
     box-shadow: 3px 3px black;
     height: 20vw;
     text-align: center;
-    display: none;                 /* Shown only when the game ends */
+    display: none; /* Shown only when the game ends */
   }
 
   /* End screen title with increased font size for 4K */
@@ -731,10 +729,10 @@ body {
      ===================================================== */
   .backdrop-element {
     width: 100vw;
-    height: 200vh;                 /* Extended height for large screens */
+    height: 200vh; /* Extended height for large screens */
     background-color: rgba(0, 0, 0, 0.6);
     position: absolute;
-    display: none;                 /* Enabled when modal is active */
+    display: none; /* Enabled when modal is active */
   }
 
   /* =====================================================

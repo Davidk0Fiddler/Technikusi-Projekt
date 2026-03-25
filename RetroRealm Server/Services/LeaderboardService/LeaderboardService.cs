@@ -48,7 +48,7 @@ namespace RetroRealm_Server.Services.LeaderBoardService
             
             var exitLeaderboard = await MemoryGameLeaderboardMapper(statuses);
 
-            exitLeaderboard = exitLeaderboard.OrderBy(s => new TimeSpan(s.MinTime[0],s.MinTime[1],s.MinTime[2])).ToList();
+            exitLeaderboard = exitLeaderboard.OrderBy(s => new TimeSpan(s.MinTime[0],s.MinTime[1],s.MinTime[2])).Where(s => (s.MinTime[0] != 0 && s.MinTime[1] != 0 && s.MinTime[2] != 0) || (s.MinTime[1] != 0 && s.MinTime[2] != 0) || (s.MinTime[2] != 0)).ToList();
 
             await _logService.CreateLogAsync(LogType.Get.ToString(), null, "MemoryGame leaderboard (time) requested!", DateTime.Now, null);
             return Result<List<MemoryGameLeaderboardElementDTO>>.Ok(exitLeaderboard);
@@ -60,7 +60,7 @@ namespace RetroRealm_Server.Services.LeaderBoardService
 
             var exitLeaderboard = await MemoryGameLeaderboardMapper(statuses);
 
-            exitLeaderboard = exitLeaderboard.OrderBy(s => s.MinFlipping).ToList();
+            exitLeaderboard = exitLeaderboard.OrderBy(s => s.MinFlipping).Where(s => s.MinFlipping != 0 ).ToList();
 
             await _logService.CreateLogAsync(LogType.Get.ToString(), null, "MemoryGame leaderboard (flips) requested!", DateTime.Now, null);
             return Result<List<MemoryGameLeaderboardElementDTO>>.Ok(exitLeaderboard);
