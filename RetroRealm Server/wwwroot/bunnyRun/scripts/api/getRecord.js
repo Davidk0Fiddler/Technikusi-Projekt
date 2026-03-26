@@ -1,49 +1,48 @@
 import getAuthData from "../../../scripts/getAuthData.js";
 import refreshToken from "../../../scripts/tokenRefresher.js";
 
-export default async function getRecord() {
-    // Visszatérési objektum
-    const record = {
-        success: false,
-        data: {}
-    };
+export default async function GetRecord() {
+  // Visszatérési objektum
+  const record = {
+    success: false,
+    data: {},
+  };
 
-    const endPoint = "https://localhost:7234/api/BunnyRunStatus";
-    let isTried = false;
+  const endPoint = "https://localhost:7234/api/BunnyRunStatus";
+  let isTried = false;
 
-    // Aktuális auth adatok
-    let authData = await getAuthData();
+  // Aktuális auth adatok
+  let authData = await getAuthData();
 
-    const fetchRecord = async () => {
-        try {
-            const response = await fetch(endPoint, {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${authData.token}`
-                }
-            });
+  const fetchRecord = async () => {
+    try {
+      const response = await fetch(endPoint, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${authData.token}`,
+        },
+      });
 
-            // Token lejárt => egyszeri frissítés és újrapróbálás
-            if (!response.ok) {
-                if (!isTried) {
-                    isTried = true;
-                    await refreshToken(authData.refreshToken);
-                    authData = await getAuthData();
-                    return await fetchRecord();
-                }
-                throw new Error("HTTP error: " + response.status);
-            }
-
-            // Sikeres válasz
-            record.success = true;
-            record.data = await response.json();
-
-        } catch (e) {
-            console.error("ERROR:", e);
+      // Token lejárt => egyszeri frissítés és újrapróbálás
+      if (!response.ok) {
+        if (!isTried) {
+          isTried = true;
+          await refreshToken(authData.refreshToken);
+          authData = await getAuthData();
+          return await fetchRecord();
         }
-    };
+        throw new Error("HTTP error: " + response.status);
+      }
 
-    await fetchRecord();
-    return record;
+      // Sikeres válasz
+      record.success = true;
+      record.data = await response.json();
+    } catch (e) {
+      console.error("ERROR:", e);
+    }
+  };
+
+  await fetchRecord();
+  return record;
 }

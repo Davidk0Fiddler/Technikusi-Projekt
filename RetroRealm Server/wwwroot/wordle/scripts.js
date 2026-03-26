@@ -7,15 +7,15 @@ import texts from "./texts.js";
 // Importing token refresh logic for authenticated backend calls
 import refreshToken from "../scripts/tokenRefresher.js";
 
-function checkScreenSize() {
+function CheckScreenSize() {
   if (window.innerWidth < 1024) {
     window.location.href = "/landingpage";
   }
 }
 
-checkScreenSize();
+CheckScreenSize();
 
-window.addEventListener("resize", checkScreenSize);
+window.addEventListener("resize", CheckScreenSize);
 
 /* ================================================================
    DOM REFERENCES – GAME GRID
@@ -48,7 +48,7 @@ let lang = localStorage.getItem("lang") ?? "eng";
 
 // Updates the player's statistics on the backend
 // Uses stored JWT tokens and attempts token refresh on failure
-function changeStat() {
+function ChangeStat() {
   const sessionRefreshToken = sessionStorage.getItem("RefreshToken");
   const token = sessionStorage.getItem("Token");
 
@@ -109,7 +109,7 @@ const gameContainer = document.getElementById("game-container");
 playBtn.addEventListener("click", () => {
   menu.style.display = "none";
   gameContainer.style.display = "block";
-  startGame();
+  StartGame();
 });
 
 /* ================================================================
@@ -117,7 +117,7 @@ playBtn.addEventListener("click", () => {
 ================================================================ */
 
 // Returns a random element from an array
-function getRandomElement(arr) {
+function GetRandomElement(arr) {
   const randomIndex = Math.floor(Math.random() * arr.length);
   return arr[randomIndex];
 }
@@ -160,7 +160,7 @@ const allowedChars = [
 let allowedCharsIdColors = Array(26).fill("");
 
 // Updates a key's color using priority rules
-function setKeyColor(char, newColor) {
+function SetKeyColor(char, newColor) {
   const index = allowedChars.indexOf(char);
 
   const priority = {
@@ -196,12 +196,12 @@ document.body.addEventListener("keydown", async (event) => {
   // Add character
   if (allowedChars.includes(event.key.toLowerCase()) && inputword.length < 5) {
     inputword += event.key.toLowerCase();
-    updateNextRow(rownum, inputword);
+    UpdateNextRow(rownum, inputword);
   }
   // Remove character
   else if (event.key === "Backspace" && inputword.length > 0) {
     inputword = inputword.slice(0, -1);
-    updateNextRow(rownum, inputword);
+    UpdateNextRow(rownum, inputword);
   }
   // Submit word
   else if (
@@ -209,10 +209,10 @@ document.body.addEventListener("keydown", async (event) => {
     rownum < 7 &&
     inputword.length === 5 &&
     words.includes(inputword) &&
-    usedWords.includes(inputword)
+    !usedWords.includes(inputword)
   ) {
     usedWords.push(inputword);
-    const finished = await checkrow(rownum, inputword, word);
+    const finished = await CheckRow(rownum, inputword, word);
     if (!finished) rownum++;
     inputword = "";
   }
@@ -223,8 +223,8 @@ document.body.addEventListener("keydown", async (event) => {
 ================================================================ */
 
 // Updates the current row display
-function updateNextRow(row, inputword) {
-  const rowElement = getRowElement(row);
+function UpdateNextRow(row, inputword) {
+  const rowElement = GetRowElement(row);
   if (!rowElement) return;
 
   const chars = inputword.split("").concat(Array(5).fill("")).slice(0, 5);
@@ -235,7 +235,7 @@ function updateNextRow(row, inputword) {
 }
 
 // Returns the DOM element for a given row index
-function getRowElement(row) {
+function GetRowElement(row) {
   switch (row) {
     case 1:
       return firstRow;
@@ -259,11 +259,11 @@ function getRowElement(row) {
 ================================================================ */
 
 // Evaluates a guess and applies Wordle rules
-async function checkrow(row, inputword, word) {
+async function CheckRow(row, inputword, word) {
   if (isAnimating) return true;
   isAnimating = true;
 
-  const rowElement = getRowElement(row);
+  const rowElement = GetRowElement(row);
   if (!rowElement) {
     isAnimating = false;
     return true;
@@ -301,16 +301,16 @@ async function checkrow(row, inputword, word) {
 
   // Update keyboard colors
   for (let i = 0; i < 5; i++) {
-    setKeyColor(inputword[i], ids[i]);
+    SetKeyColor(inputword[i], ids[i]);
   }
 
-  await animateRow(rowElement, guessChars, ids);
-  loadkeys();
+  await AnimateRow(rowElement, guessChars, ids);
+  LoadKeys();
   isAnimating = false;
 
   const isWin = ids.every((id) => id === "green");
   if (isWin || row === 6) {
-    endGame(isWin);
+    EndGame(isWin);
     return true;
   }
 
@@ -322,7 +322,7 @@ async function checkrow(row, inputword, word) {
 ================================================================ */
 
 // Animates the card flip and color reveal
-async function animateRow(rowElement, chars, ids, delay = 500) {
+async function AnimateRow(rowElement, chars, ids, delay = 500) {
   for (let i = 0; i < 5; i++) {
     rowElement.innerHTML = chars
       .map((char, j) => {
@@ -351,36 +351,36 @@ async function animateRow(rowElement, chars, ids, delay = 500) {
    VIRTUAL KEYBOARD
 ================================================================ */
 
-function clickKey(key) {
+function ClickKey(key) {
   if (gameEnded || isAnimating) return;
 
   if (allowedChars.includes(key.toLowerCase()) && inputword.length < 5) {
     inputword += key.toLowerCase();
-    updateNextRow(rownum, inputword);
+    UpdateNextRow(rownum, inputword);
   }
 }
 
-async function clickEnter() {
+async function ClickEnter() {
   if (gameEnded || isAnimating) return;
 
   if (rownum < 7 && inputword.length === 5 && words.includes(inputword)) {
-    const finished = await checkrow(rownum, inputword, word);
+    const finished = await CheckRow(rownum, inputword, word);
     if (!finished) rownum++;
     inputword = "";
   }
 }
 
-function clickBackspace() {
+function ClickBackspace() {
   if (gameEnded || isAnimating) return;
 
   if (inputword.length > 0) {
     inputword = inputword.slice(0, -1);
-    updateNextRow(rownum, inputword);
+    UpdateNextRow(rownum, inputword);
   }
 }
 
 // Renders the on-screen keyboard
-function loadkeys() {
+function LoadKeys() {
   let keyboard = document.getElementById("keys");
   keyboard.innerHTML = "";
 
@@ -389,38 +389,38 @@ function loadkeys() {
     keyboard.innerHTML += `
             <div class="${allowedCharsIdColors[id]} key"
                  id="key-${char}"
-                 onclick='clickKey("${char}")'>${char}</div>
+                 onclick='ClickKey("${char}")'>${char}</div>
         `;
     id++;
   });
 
   keyboard.innerHTML += `
-        <div class="key enter" onclick="clickEnter()">Enter</div>
-        <div class="key backspace" onclick="clickBackspace()">Backspace</div>
+        <div class="key enter" onclick="ClickEnter()">Enter</div>
+        <div class="key backspace" onclick="ClickBackspace()">Backspace</div>
     `;
 }
 
-loadkeys();
+LoadKeys();
 
 /* ================================================================
    GAME RESET / START / END
 ================================================================ */
 
-function resetGameData() {
+function ResetGameData() {
   allowedCharsIdColors = Array(26).fill("");
   rownum = 1;
   inputword = "";
 }
 
-function startGame() {
+function StartGame() {
   menu.style.display = "none";
   endScreen.style.display = "none";
   backToMenuFromaGameBtn.style.display = "block";
   gameContainer.style.display = "block";
 
   usedWords = [];
-  word = getRandomElement(words);
-  resetGameData();
+  word = GetRandomElement(words);
+  ResetGameData();
   gameEnded = false;
 
   [firstRow, secondRow, thirdRow, fourthRow, fifthRow, sixthRow].forEach(
@@ -429,12 +429,12 @@ function startGame() {
     },
   );
 
-  loadkeys();
+  LoadKeys();
 }
 
-function endGame(win) {
+function EndGame(win) {
   gameEnded = true;
-  setTimeout(() => displayEndScreen(win, word), 1200);
+  setTimeout(() => DisplayEndScreen(win, word), 1200);
 }
 
 /* ================================================================
@@ -488,7 +488,7 @@ const endScreenH5 = document.getElementById("end-screen-h5");
 const playAgainBtn = document.getElementById("play-again-button");
 const backToMenuBtn = document.getElementById("back-to-menu-button");
 
-function displayEndScreen(win, word) {
+function DisplayEndScreen(win, word) {
   gameContainer.style.display = "none";
   endScreen.style.display = "block";
   backToMenuFromaGameBtn.style.display = "none";
@@ -497,7 +497,7 @@ function displayEndScreen(win, word) {
     ? texts.endScreenH1WIN[lang]
     : texts.endScreenH1[lang];
 
-  if (win && changeStat()) {
+  if (win && ChangeStat()) {
     endScreenH5.textContent = texts.endScreenH5[lang];
     endScreenH5.style.animation = "3s fadeInOut";
     endScreenH5.style.visibility = "visible";
@@ -508,11 +508,11 @@ function displayEndScreen(win, word) {
   playAgainBtn.textContent = texts.endScreenPlayAgain[lang];
   backToMenuBtn.textContent = texts.endScreenBackToMenu[lang];
 
-  playAgainBtn.addEventListener("click", startGame);
-  backToMenuBtn.addEventListener("click", backToMenu);
+  playAgainBtn.addEventListener("click", StartGame);
+  backToMenuBtn.addEventListener("click", BackToMenu);
 }
 
-function backToMenu() {
+function BackToMenu() {
   gameContainer.style.display = "none";
   menu.style.display = "block";
   endScreen.style.display = "none";
@@ -567,4 +567,4 @@ function displayHelp() {
 ================================================================ */
 
 const backToMenuFromaGameBtn = document.getElementById("back-to-menu-btn");
-backToMenuFromaGameBtn.addEventListener("click", backToMenu);
+backToMenuFromaGameBtn.addEventListener("click", BackToMenu);
