@@ -13,10 +13,11 @@ namespace RetroRealm_Server.Services.RefreshTokenService
         private readonly ILogService _logService;
         private readonly IJwtService _jwtService;
 
-        public RefreshTokenService(RetroRealmDatabaseContext context, ILogService logService)
+        public RefreshTokenService(RetroRealmDatabaseContext context, ILogService logService, IJwtService jwtService)
         {
             _context = context;
             _logService = logService;
+            _jwtService = jwtService;
         }
 
         public async Task<Result<OutputTokenDTO>> RefreshTokenAsync(RefreshTokenDto model)

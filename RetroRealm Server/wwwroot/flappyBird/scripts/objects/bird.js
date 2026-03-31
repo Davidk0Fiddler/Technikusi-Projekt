@@ -3,56 +3,56 @@ import k from "../kaplayCtx.js";
 import endScreen from "../scenes/endScreen.js";
 
 export class Bird {
-    constructor() {
-        this.k = k;
+  constructor() {
+    this.k = k;
 
-        // Bird game object
-        this.object = this.k.add([
-            sprite("bird"),
-            pos(this.k.width() / 4, (this.k.height() - 56) / 2),
-            z(5),
-            body(),
-            area({
-                shape: new Rect(vec2(4, 8), 14, 12),
-            }),
-            "bird",
-        ]);
+    // Bird game object
+    this.object = this.k.add([
+      sprite("bird"),
+      pos(this.k.width() / 4, (this.k.height() - 56) / 2),
+      z(5),
+      body(),
+      area({
+        shape: new Rect(vec2(4, 8), 14, 12),
+      }),
+      "bird",
+    ]);
 
-        // Ugrás tiltása ütközés után
-        this.isNotCollided = true;
+    // Ugrás tiltása ütközés után
+    this.isNotCollided = true;
+  }
+
+  BirdInit() {
+    // Alap animáció
+    this.object.play("moving");
+  }
+
+  BirdJump(pipes, background, ground, scoreBoard) {
+    // Ugrás csak aktív állapotban
+    if (this.isNotCollided) {
+      this.object.jump(100);
     }
 
-    birdInit() {
-        // Alap animáció
-        this.object.play("moving");
-    }   
+    this.object.onUpdate(() => {
+      // Halál feltételek: kirepül vagy földre esik
+      if (this.object.pos.y < -20 || this.object.isGrounded()) {
+        this.DisableJump();
 
-    birdJump(pipes, background, ground, scoreBoard) {
-        // Ugrás csak aktív állapotban
-        if (this.isNotCollided) {            
-            this.object.jump(100);
-        }
+        // Játék megállítása
+        pipes.SetPipeSpeed(0);
+        background.SetBackgroundSpeed(0);
+        ground.SetGroundSpeed(0);
 
-        this.object.onUpdate(() => {
-            // Halál feltételek: kirepül vagy földre esik
-            if (this.object.pos.y < -20 || this.object.isGrounded()) {
-                this.disableJump();
+        // Score rögzítése és end screen
+        scoreBoard.SetStateScore();
+        k.wait(2, () => this.k.go("endScreen"));
+      }
+    });
+  }
 
-                // Játék megállítása
-                pipes.setPipeSpeed(0);
-                background.setBackgroundSpeed(0);
-                ground.setGroundSpeed(0);
-
-                // Score rögzítése és end screen
-                scoreBoard.setStateScore();
-                k.wait(2, () => this.k.go("endScreen"));
-            }
-        });
-    }
-
-    disableJump() {
-        // Ütközés utáni állapot
-        this.isNotCollided = false;
-        this.object.angle = 45;
-    }
+  DisableJump() {
+    // Ütközés utáni állapot
+    this.isNotCollided = false;
+    this.object.angle = 45;
+  }
 }
