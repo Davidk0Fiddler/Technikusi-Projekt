@@ -1,0 +1,251 @@
+@font-face {
+  font-family: "pirataone";
+  src: url("./PirataOne-Regular.ttf") format("truetype");
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+  position: relative;
+  z-index: 1;
+}
+
+/*---------------------------*/
+
+body {
+  margin: 0;
+  font-family: "pirataone";
+}
+
+.button-container {
+  display: flex;
+  height: 50vh;
+  justify-content: space-evenly;
+}
+
+.btn {
+  /* flex: 1; */
+  display: block;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.4s ease;
+
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%);
+  text-align: center;
+  width: 20vw;
+  border-radius: 15px;
+}
+
+/* külön képek */
+#flappyplaybtn {
+  background-image: url("flappy.png");
+}
+
+#memoryplaybtn {
+  background-image: url("memoria.png");
+}
+
+#bunnyplaybtn {
+  background-image: url("bunny.png");
+}
+
+#wordleplaybtn {
+  background-image: url("wordle.png");
+}
+#retrorealmbtn {
+  background-image: url("retrorealm.png");
+}
+
+/* hover effekt */
+.btn:hover {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+.material-symbols-outlined {
+  font-size: 60px;
+  color: black;
+  padding-top: 0.1%;
+}
+.katt {
+  color: black;
+  padding-top: 89%;
+  margin-bottom: 6px;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+#pe1 {
+  font-size: 25px;
+}
+#pe2 {
+  font-size: 25px;
+}
+
+#belepbtnranglista {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+
+  cursor: pointer;
+  transition: all 0.4s ease;
+
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%);
+  text-align: center;
+  width: 20vw;
+  border-radius: 15px;
+  margin: auto;
+  font-family: "pirataone";
+}
+#belepbtncustom {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+
+  cursor: pointer;
+  transition: all 0.4s ease;
+
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%);
+  text-align: center;
+  width: 20vw;
+  border-radius: 15px;
+  margin: auto;
+  font-family: "pirataone";
+}
+
+#belepbtnbelep {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+
+  cursor: pointer;
+  transition: all 0.4s ease;
+
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%);
+  text-align: center;
+  width: 20vw;
+  border-radius: 15px;
+  margin: auto;
+  font-family: "pirataone";
+}
+
+#belepbtnmerfold {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+
+  cursor: pointer;
+  transition: all 0.4s ease;
+
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%);
+  text-align: center;
+  width: 20vw;
+  border-radius: 15px;
+  margin: auto;
+  font-family: "pirataone";
+}
+
+.retrorealmbtnstyle {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: black;
+  cursor: pointer;
+  transition: all 0.4s ease;
+
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%);
+  text-align: center;
+  width: 91vw;
+  border-radius: 15px;
+  height: 30vh;
+  margin-bottom: 0px;
+}
+
+.retrorealmbtnstyle:hover {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+#kattretro {
+  color: black;
+  padding-top: 5%;
+  margin-bottom: 6px;
+}
+
+.button-containerretr {
+  display: flex;
+  height: fit-content;
+  justify-content: space-evenly;
+}
+
+@media (max-width: 1024px) {
+  .button-container {
+    display: none;
+  }
+  .button-containerretr {
+    display: none;
+  }
+}
+#buttonsinhead {
+  display: flex;
+}
+#nyelvvalt {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 3px;
+  font-family: "pirataone";
+  font-size: 20px;
+  text-align: center;
+}
+
+#langselection {
+  position: absolute;
+  padding-top: 0;
+  right: 0;
+  margin: 3px;
+  font-family: "pirataone";
+  font-size: 20px;
+  text-align: center;
+}
+
+.btnsegybe {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+
+  cursor: pointer;
+
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  margin: auto;
+  font-family: "pirataone";
+  width: 100px;
+}
