@@ -3,7 +3,7 @@ import { Background } from "../objects/Background.js";
 import { Ground } from "../objects/Ground.js";
 import { Bird } from "../objects/Bird.js";
 import { PipeGroup } from "../objects/Pipes.js";
-import { ScoreBoard } from "../objects/score.js";
+import { ScoreBoard } from "../objects/Score.js";
 import endScreen from "../scenes/endScreen.js";
 
 // Get Ready felirat
@@ -35,16 +35,13 @@ function SceneInit() {
   k.setGravity(0);
 }
 
-// Játék logika indítása
 function Game() {
   k.setGravity(300);
 
-  // Bird jump input
   gameClick = k.onClick(() => {
     bird.BirdJump(pipes, background, ground, scoreBoard);
   });
 
-  // Pipe generálás
   pipes.DisplayPipes();
 
   k.onUpdate(() => {
@@ -52,12 +49,10 @@ function Game() {
     scoreBoard.DisplayScore();
   });
 
-  // Score növelés
   k.onCollide("bird", "scoreZone", (zone) => {
     if (!zone.passed) scoreBoard.IncreaseScore();
   });
 
-  // Ütközés csővel → game over
   k.onCollide("bird", "pipe", () => {
     bird.DisableJump();
     pipes.SetPipeSpeed(0);

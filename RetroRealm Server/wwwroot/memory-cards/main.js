@@ -12,10 +12,10 @@ checkScreenSize();
 window.addEventListener("resize", checkScreenSize);
 
 /*
-    ---------------------------------------------
-    DATA DEFINITIONS
-    ---------------------------------------------
-*/
+      ---------------------------------------------
+      DATA DEFINITIONS
+      ---------------------------------------------
+  */
 
 // List of fruits and vegetables with translations and image references
 
@@ -85,9 +85,9 @@ let fruits = [
 ];
 
 /*
-    Text resources used throughout the UI
-    Indexed access is used for language switching
-*/
+      Text resources used throughout the UI
+      Indexed access is used for language switching
+  */
 
 const Texts = [
   {
@@ -145,10 +145,10 @@ const Texts = [
 ];
 
 /*
-    ---------------------------------------------
-    LANGUAGE HANDLING
-    ---------------------------------------------
-*/
+      ---------------------------------------------
+      LANGUAGE HANDLING
+      ---------------------------------------------
+  */
 
 // Default language
 let lang = localStorage.getItem("lang") ?? "eng";
@@ -157,16 +157,15 @@ let lang = localStorage.getItem("lang") ?? "eng";
 function SwitchLang(newLang) {
   lang = newLang;
   localStorage.setItem("lang", newLang);
-  console.log(lang);
   document.getElementById("h5").textContent = Texts[0][lang];
   document.getElementById("play-button").textContent = Texts[1][lang];
 }
 
 /*
-    ---------------------------------------------
-    USER DATA HANDLING
-    ---------------------------------------------
-*/
+      ---------------------------------------------
+      USER DATA HANDLING
+      ---------------------------------------------
+  */
 
 // Load user data from backend (if authenticated)
 const userData = await GetUserData();
@@ -174,10 +173,10 @@ let user;
 if (userData != undefined) user = userData;
 
 /*
-    ---------------------------------------------
-    DOM ELEMENT REFERENCES
-    ---------------------------------------------
-*/
+      ---------------------------------------------
+      DOM ELEMENT REFERENCES
+      ---------------------------------------------
+  */
 
 // Main containers and controls
 const gameContainer = document.getElementById("game-container");
@@ -226,10 +225,10 @@ const helpRightSide = document.getElementById("help-right-side");
 const newRecordBlock = document.getElementById("newRecordBlock");
 
 /*
-    ---------------------------------------------
-    GAME STATE VARIABLES
-    ---------------------------------------------
-*/
+      ---------------------------------------------
+      GAME STATE VARIABLES
+      ---------------------------------------------
+  */
 
 // Game size (board dimension)
 let gameSize = 2;
@@ -246,10 +245,10 @@ let flipping = 0;
 let timerId = null;
 
 /*
-    ---------------------------------------------
-    GAME LOGIC
-    ---------------------------------------------
-*/
+      ---------------------------------------------
+      GAME LOGIC
+      ---------------------------------------------
+  */
 
 // Resets all runtime variables for starting a new game
 function Reset() {
@@ -483,7 +482,7 @@ function UpdateInfo() {
 function MakeGame() {
   // Stop the existing game updater loop if it exists
   if (timerId !== null) {
-    ClearTimeout(timerId);
+    clearTimeout(timerId);
   }
 
   // Reset animations to prevent conflicts
@@ -545,7 +544,7 @@ function UpdateGame() {
 }
 
 // Displays the end screen after finishing the game
-function DisplayEndScreen() {
+async function DisplayEndScreen() {
   // Hide game UI
   infoPanel.style.display = "none";
   infoPanel.style.animation = " ";
@@ -591,7 +590,7 @@ function DisplayEndScreen() {
 
   // Update statistics only for the hardest difficulty
   if (gameSize == 8) {
-    ChangeStat();
+    await ChangeStat();
   }
 }
 
@@ -896,8 +895,8 @@ async function ChangeStat() {
   }
 
   // Upload updated statistics to the backend
-  function UploadNewStatus(newStatus) {
-    var response = fetch("https://localhost:7234/api/MemoryGameStatus", {
+  async function UploadNewStatus(newStatus) {
+    var response = await fetch("https://localhost:7234/api/MemoryGameStatus", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -908,9 +907,9 @@ async function ChangeStat() {
 
     // Retry after refreshing token if request fails
     if (!response.ok) {
-      refreshToken(sessionRefreshToken);
-      fetch("https://localhost:7234/api/MemoryGameStatus", {
-        method: "GET",
+      await refreshToken(sessionRefreshToken);
+      response = await fetch("https://localhost:7234/api/MemoryGameStatus", {
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -945,7 +944,12 @@ async function ChangeStat() {
 
     // Check for new time record
     if (
-      IsNewTimeLesser([hours, minutes, seconds], userBestGameStatus.minTime)
+      IsNewTimeLesser(
+        [hours, minutes, seconds],
+        userBestGameStatus.minTime.every((x) => x === 0)
+          ? [999, 999, 999]
+          : userBestGameStatus.minTime,
+      )
     ) {
       newStatus.minTime = [hours, minutes, seconds];
       endScreenTimeArea.style.animation = "newRecordBlockAnimation 1s infinite";
@@ -953,7 +957,14 @@ async function ChangeStat() {
     }
 
     // Check for new flip record
-    if (IsNewFlipsLesser(flipping, userBestGameStatus.minFlipping)) {
+    if (
+      IsNewFlipsLesser(
+        flipping,
+        userBestGameStatus.minFlipping == 0
+          ? 999
+          : userBestGameStatus.minFlipping,
+      )
+    ) {
       newStatus.minFlipping = flipping;
       endScreenTotalFlipsArea.style.animation =
         "newRecordBlockAnimation 1s infinite";

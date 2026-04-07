@@ -84,16 +84,29 @@ namespace RetroRealm_Server.Services.MemoryGameService
                 return Result<bool>.Fail("Status not found");
             }
 
-            if (currentStatus.MinFlipping > updatedStatus.MinFlipping)
+            if (currentStatus.MinFlipping > updatedStatus.MinFlipping || currentStatus.MinFlipping == 0)
             {
                 currentStatus.MinFlipping = updatedStatus.MinFlipping;
                 await _checkAchievementService.CheckMemoryCardAchievementsAsync(userId, updatedStatus.MinFlipping);
             }
-                
-            
-            if (currentStatus.MinTime[0]*60*60 + currentStatus.MinTime[0] * 60 + currentStatus.MinTime[0] > updatedStatus.MinTime[0] * 60 * 60 + updatedStatus.MinTime[0] * 60 + updatedStatus.MinTime[0]) 
+
+
+            int currentTime =
+                currentStatus.MinTime[0] * 3600 +
+                currentStatus.MinTime[1] * 60 +
+                currentStatus.MinTime[2];
+
+            int newTime =
+                updatedStatus.MinTime[0] * 3600 +
+                updatedStatus.MinTime[1] * 60 +
+                updatedStatus.MinTime[2];
+
+            if (currentStatus.MinTime.SequenceEqual(new int[] { 0, 0, 0 })
+                || newTime < currentTime)
+            {
                 currentStatus.MinTime = updatedStatus.MinTime;
-            
+            }
+
             try
             {
                 await _context.SaveChangesAsync();

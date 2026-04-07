@@ -73,7 +73,7 @@ export class Character {
           : this.facing === "down"
             ? "idleDown"
             : this.facing === "left"
-              ? "idelLeft"
+              ? "idleLeft"
               : "idleRight",
       );
       return;

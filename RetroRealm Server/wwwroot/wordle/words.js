@@ -1349,7 +1349,6 @@ const words = [
   "daisy",
   "crude",
   "bored",
-  "allah",
   "fares",
   "hoped",
   "safer",
