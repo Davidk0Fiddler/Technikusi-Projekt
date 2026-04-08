@@ -260,3 +260,15 @@ h1 {
   font-family: "pirataone";
   width: 100px;
 }
+
+@media (max-width: 765px) {
+  #buttonsinhead {
+    display: block;
+  }
+  #buttonsinhead button {
+    width: 40%;
+    margin: auto;
+    margin-bottom: 10px;
+    font-size: 1rem;
+  }
+}
