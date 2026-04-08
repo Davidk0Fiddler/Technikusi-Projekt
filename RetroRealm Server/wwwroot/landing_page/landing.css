@@ -211,6 +211,17 @@ h1 {
     display: none;
   }
 }
+
+#kijelentbutton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 3px;
+  font-family: "pirataone";
+  font-size: 20px;
+  text-align: center;
+}
+
 #buttonsinhead {
   display: flex;
 }
