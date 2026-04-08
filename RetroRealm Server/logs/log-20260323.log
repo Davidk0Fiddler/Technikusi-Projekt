@@ -1,0 +1,9 @@
+2026-03-23 08:24:34.179 +01:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-23 08:24:34.250 +01:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-23 08:24:34.256 +01:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-23 08:24:34.275 +01:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-23 08:24:46.757 +01:00 [INF] Logged in! User:admin1
+2026-03-23 08:24:47.054 +01:00 [INF] All users have been successfully requested for the admin panel
+2026-03-23 08:24:47.098 +01:00 [INF] All logs have been successfully requested for the admin panel
+2026-03-23 08:27:28.852 +01:00 [INF] All users have been successfully requested for the admin panel
+2026-03-23 08:27:28.869 +01:00 [INF] All logs have been successfully requested for the admin panel

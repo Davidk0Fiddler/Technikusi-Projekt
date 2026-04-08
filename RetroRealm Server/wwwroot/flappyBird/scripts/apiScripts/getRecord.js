@@ -1,3 +1,4 @@
+import baseURL from "../../../scripts/baseURL.js";
 import getAuthData from "../../../scripts/getAuthData.js";
 import refreshToken from "../../../scripts/tokenRefresher.js";
 
@@ -8,7 +9,6 @@ export default async function GetRecord() {
     data: {},
   };
 
-  const endPoint = "https://localhost:7234/api/FlappyBirdStatus";
   let isTried = false;
 
   // Aktuális auth adatok
@@ -16,7 +16,7 @@ export default async function GetRecord() {
 
   const fetchRecord = async () => {
     try {
-      const response = await fetch(endPoint, {
+      const response = await fetch(`${baseURL}/api/FlappyBirdStatus`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

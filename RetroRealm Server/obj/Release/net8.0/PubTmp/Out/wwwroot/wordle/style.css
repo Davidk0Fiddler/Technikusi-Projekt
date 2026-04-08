@@ -1,0 +1,800 @@
+/* =====================================================
+   GLOBAL RESET AND BASE FONT SETTINGS
+   ===================================================== */
+* {
+    box-sizing: border-box;       /* Ensures padding and border are included in element size */
+    padding: 0;                   /* Removes default browser padding */
+    margin: 0;                    /* Removes default browser margin */
+    font-family: Arial, Helvetica, sans-serif;
+    font-variant: small-caps;     /* Gives the game a consistent typographic style */
+}
+
+/* =====================================================
+   PAGE BACKGROUND AND GENERAL BEHAVIOR
+   ===================================================== */
+body {
+    background: url("bg.jpg");    /* Background image for the entire page */
+    background-size: cover;       /* Ensures the image always fills the screen */
+    overflow-x: hidden;           /* Prevents horizontal scrolling */
+}
+
+/* =====================================================
+   MAIN GAME CONTAINER
+   ===================================================== */
+.game-container {
+    height: 100vh;                              /* Full viewport height */
+    width: 40vw;                                /* Responsive width */
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+    margin: auto;                               /* Centers the container horizontally */
+    text-align: center;
+    display: none;                              /* Shown only when the game starts */
+}
+
+/* =====================================================
+   TOP NAVIGATION BAR
+   ===================================================== */
+.nav-bar {
+    margin-left: 10%;
+    width: 80%;
+    border-bottom: 2px solid black;
+    font-size: 40px;
+    text-align: center;
+    padding-top: 2vh;
+}
+
+/* =====================================================
+   GAME BOARD STRUCTURE
+   ===================================================== */
+.game-board {
+    margin: auto;
+    margin-top: 25px;
+    width: 425px;       /* Fixed width to keep grid aligned */
+}
+
+/* Rows that contain the cards */
+.row {
+    padding-bottom: 10px;
+    display: flex;
+    gap: 12.5px;        /* Spacing between cards */
+    justify-content: center;
+}
+
+/* =====================================================
+   GAME CARDS
+   ===================================================== */
+.card {
+    width: 60px;
+    height: 60px;
+    border: 3px solid black;
+    box-shadow: 2px 2px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 55px;
+    font-weight: bold;
+}
+
+/* Card color states (ID-based usage) */
+#grey {
+    background-color: grey;
+    border-color: grey;
+    color: white;
+}
+
+#green {
+    background-color: rgb(25, 177, 25);
+    border-color: rgb(25, 177, 25);
+    color: white;
+    /* animation intentionally disabled here */
+}
+
+/* =====================================================
+   VIRTUAL KEYBOARD
+   ===================================================== */
+.keyboard {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr); /* Keyboard layout */
+    gap: 5px;
+    background: #ddd;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* Generic key styling */
+.key {
+    padding: 10px;
+    background: #fff;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none; /* Prevents text selection on click */
+}
+
+/* Visual feedback when pressing a key */
+.key:active {
+    background: #bbb;
+}
+
+/* Special keyboard keys */
+.enter {
+    grid-column: span 2;
+    background: #99ccff;
+    font-size: 11px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.backspace {
+    grid-column: span 2;
+    background: #ff9999;
+    font-size: 11px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+/* =====================================================
+   CARD COLOR STATES (CLASS-BASED)
+   ===================================================== */
+.grey {
+    background: grey;
+    border-color: grey;
+    color: white;
+}
+
+.green {
+    background: rgb(25, 177, 25);
+    border-color: rgb(25, 177, 25);
+    color: white;
+}
+
+.yellow {
+    background: goldenrod;
+    border-color: goldenrod;
+    color: white;
+}
+
+/* Flip animation trigger class */
+.flipping {
+    animation: 0.5s ease flipping;
+}
+
+#yellow {
+    background-color: goldenrod;
+    border-color: goldenrod;
+    color: white;
+}
+
+/* =====================================================
+   BACK TO MENU BUTTON
+   ===================================================== */
+.back-to-menu-btn {
+    background: url("backtomenubtn.png");
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    visibility: hidden; /* Displayed only during gameplay */
+}
+
+/* =====================================================
+   ANIMATIONS
+   ===================================================== */
+
+/* Card flipping animation */
+@keyframes flipping {
+    0% {
+        transform: scaleY(1);
+    }
+    50% {
+        transform: scaleY(0);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+/* Fade in and fade out animation */
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+
+
+/* =====================================================
+   LAPTOP LAYOUT (1024px)
+   ===================================================== */
+
+
+
+@media screen and (min-width: 1024px) {
+
+  /* =====================================================
+     MAIN MENU CONTAINER
+     ===================================================== */
+  .menu {
+    width: 40vw;
+    height: 50vh;
+    border: 1px solid black;
+    box-shadow: 10px 10px 10px black;
+    border-radius: 15px;
+    margin: auto;
+    margin-top: 20vh;
+    background-color: white;
+  }
+
+  /* Menu title */
+  .menu > h1 {
+    text-align: center;
+    padding-top: 5vh;
+    font-size: 50px;
+  }
+
+  /* Menu subtitle / description */
+  .menu > h5 {
+    text-align: center;
+    font-size: 20px;
+    font-weight: lighter;
+    font-style: italic;
+  }
+
+  /* =====================================================
+     MAIN MENU BUTTON AREA
+     ===================================================== */
+  .buttons {
+    width: 100%;
+    height: 20vh;
+    margin-top: 5vh;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  /* Individual menu buttons */
+  .button {
+    width: 30%;
+    height: 15vh;
+    border-radius: 15px;
+    border: 1px solid black;
+    box-shadow: 5px 5px 10px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+  }
+
+  /* Hover animation for menu buttons */
+  .button:hover {
+    cursor: pointer;
+    animation: button-scaling 1s forwards;
+  }
+
+  /* Button scaling animation */
+  @keyframes button-scaling {
+    0% {
+      transform: scale(1);
+      box-shadow: 5px 5px 10px black;
+    }
+    100% {
+      transform: scale(1.05);
+      box-shadow: 10px 10px 20px black;
+    }
+  }
+
+  /* =====================================================
+     BOTTOM MENU BUTTONS
+     ===================================================== */
+  .bottom-buttons {
+    width: 100%;
+    height: 10vh;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  /* Icon-based bottom buttons */
+  .bottom-button {
+    width: 8vh;
+    height: 8vh;
+    background-size: cover;
+  }
+
+  .bottom-button:hover {
+    cursor: pointer;
+  }
+
+  /* Background images for bottom menu buttons */
+  #main-menu {
+    background-image: url("./mainmenu-btn.png");
+  }
+
+  #leaderboard {
+    background-image: url("./leaderboard-btn.png");
+  }
+
+  #help {
+    background-image: url("./help-btn.png");
+  }
+
+  #language {
+    background-image: url("./language-btn.png");
+  }
+
+  /* =====================================================
+     LANGUAGE SELECTION PANEL
+     ===================================================== */
+  .language-buttons {
+    position: relative;
+    width: 30vh;
+    height: 10vh;
+    top: 50%;
+    left: 50.5%;
+    transform: translate(40%, 0%);
+    border-radius: 15px;
+    border: 2px solid black;
+    background-color: white;
+    display: none;                /* Shown only when language menu is opened */
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  /* Individual language selection buttons */
+  .language-button {
+    border: 1px solid black;
+    width: 8vh;
+    height: 8vh;
+    border-radius: 15px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* Language flags */
+  #eng {
+    background-image: url("./eng.jpg");
+  }
+
+  #hun {
+    background-image: url("./hun.jpg");
+  }
+
+  #esp {
+    background-image: url("./esp.jpg");
+  }
+
+  .language-button:hover {
+    cursor: pointer;
+  }
+
+  /* =====================================================
+     END GAME SCREEN
+     ===================================================== */
+  .end-screen {
+    width: 40vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 4px solid black;
+    border-radius: 25px;
+    box-shadow: 3px 3px black;
+    height: 20vw;
+    text-align: center;
+    display: none;                /* Displayed when the game ends */
+  }
+
+  #end-screen-h1 {
+    margin-top: 20px;
+    font-size: 30px;
+    text-decoration: underline;
+  }
+
+  #end-screen-word {
+    margin-top: 5px;
+    font-size: 25px;
+    font-weight: lighter;
+  }
+
+  .end-screen h5 {
+    margin-top: 10px;
+  }
+
+  /* Buttons inside the end screen */
+  .end-screen-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 15px;
+    align-items: center;
+  }
+
+  .end-screen-button {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    border: 3px solid black;
+    box-shadow: 1px 1px black;
+    padding: 15px;
+    font-size: 15px;
+  }
+
+  .end-screen-button:hover {
+    cursor: pointer;
+  }
+
+  /* =====================================================
+     BACKDROP (MODAL OVERLAY)
+     ===================================================== */
+  .backdrop-element {
+    width: 100vw;
+    height: 200vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+  }
+
+  /* =====================================================
+     HELP PANEL
+     ===================================================== */
+  .help-panel {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    display: none;
+    width: 50vw;
+    height: 70vh;
+    border-radius: 15px;
+    background-color: white;
+    border: 2px solid black;
+  }
+
+  /* Left side navigation in help panel */
+  .left-side {
+    height: 100%;
+    width: 30%;
+  }
+
+  .help-button {
+    height: 33%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    width: 100%;
+    font-size: 20px;
+  }
+
+  .help-button:hover {
+    cursor: pointer;
+  }
+
+  /* Right side content area in help panel */
+  .right-side {
+    width: 70%;
+    padding: 25px;
+    font-size: 15px;
+    text-align: justify;
+  }
+
+  /* Images inside help panel */
+  .language-image {
+    width: 100%;
+    display: block;
+    margin: auto;
+  }
+
+  .howtoplay-image {
+    width: 55%;
+    margin-left: 22.5%;
+  }
+}
+
+
+/* =====================================================
+   LARGE DESKTOP LAYOUT (1440px)
+   ===================================================== */
+
+
+@media screen and (min-width: 1440px) {
+
+  /* =====================================================
+     END GAME SCREEN (LARGE DISPLAYS)
+     ===================================================== */
+  .end-screen {
+    width: 40vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 4px solid black;
+    border-radius: 25px;
+    box-shadow: 3px 3px black;
+    height: 20vw;
+    text-align: center;
+    display: none;                /* Shown when the game ends */
+  }
+
+  /* End screen title */
+  #end-screen-h1 {
+    margin-top: 20px;
+    font-size: 40px;
+    text-decoration: underline;
+  }
+
+  /* Displayed solution word */
+  #end-screen-word {
+    margin-top: 5px;
+    font-size: 25px;
+    font-weight: lighter;
+  }
+
+  /* Additional end screen text */
+  .end-screen h5 {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: lighter;
+  }
+
+  /* Container for end screen action buttons */
+  .end-screen-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 6vh;
+    align-items: center;
+  }
+
+  /* Individual end screen buttons */
+  .end-screen-button {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    border: 3px solid black;
+    box-shadow: 1px 1px black;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  .end-screen-button:hover {
+    cursor: pointer;
+  }
+
+  /* =====================================================
+     BACKDROP ELEMENT (MODAL OVERLAY)
+     ===================================================== */
+  .backdrop-element {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;                /* Visible when a modal is active */
+  }
+
+  /* =====================================================
+     HELP PANEL (LARGE DISPLAYS)
+     ===================================================== */
+  .help-panel {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    display: none;
+    width: 50vw;
+    height: 70vh;
+    border-radius: 15px;
+    background-color: white;
+    border: 2px solid black;
+  }
+
+  /* Left navigation area of the help panel */
+  .left-side {
+    height: 100%;
+    width: 30%;
+  }
+
+  /* Help panel navigation buttons */
+  .help-button {
+    height: 33%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    width: 100%;
+    font-size: 30px;
+  }
+
+  .help-button:hover {
+    cursor: pointer;
+  }
+
+  /* Right content area of the help panel */
+  .right-side {
+    width: 70%;
+    padding: 25px;
+    font-size: 20px;
+    text-align: justify;
+  }
+
+  /* Language selection images */
+  .language-image {
+    width: 70%;
+    display: block;
+    margin: auto;
+  }
+
+  /* How-to-play illustration */
+  .howtoplay-image {
+    width: 40%;
+    display: block;
+    margin: auto;
+  }
+}
+
+/* =====================================================
+   EXTRA LARGE SCREENS / 4K DISPLAYS (2560px AND ABOVE)
+   ===================================================== */
+
+   
+@media screen and (min-width: 2560px) {
+
+  /* =====================================================
+     END GAME SCREEN (EXTRA LARGE DISPLAYS)
+     ===================================================== */
+  .end-screen {
+    width: 40vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 4px solid black;
+    border-radius: 25px;
+    box-shadow: 3px 3px black;
+    height: 20vw;
+    text-align: center;
+    display: none;                 /* Shown only when the game ends */
+  }
+
+  /* End screen title with increased font size for 4K */
+  #end-screen-h1 {
+    margin-top: 20px;
+    font-size: 70px;
+    text-decoration: underline;
+  }
+
+  /* Displayed correct word after game ends */
+  #end-screen-word {
+    margin-top: 2%;
+    font-size: 50px;
+    font-weight: lighter;
+  }
+
+  /* Additional descriptive text on end screen */
+  .end-screen h5 {
+    margin-top: 40px;
+    font-size: 30px;
+    font-weight: lighter;
+  }
+
+  /* Container for action buttons on the end screen */
+  .end-screen-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 6vh;
+    align-items: center;
+  }
+
+  /* End screen buttons scaled for very large displays */
+  .end-screen-button {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    border: 3px solid black;
+    box-shadow: 1px 1px black;
+    padding: 15px;
+    font-size: 40px;
+    font-weight: bold;
+  }
+
+  .end-screen-button:hover {
+    cursor: pointer;
+  }
+
+  /* =====================================================
+     BACKDROP ELEMENT (MODAL OVERLAY FOR 4K)
+     ===================================================== */
+  .backdrop-element {
+    width: 100vw;
+    height: 200vh;                 /* Extended height for large screens */
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    display: none;                 /* Enabled when modal is active */
+  }
+
+  /* =====================================================
+     HELP PANEL (EXTRA LARGE SCREENS)
+     ===================================================== */
+  .help-panel {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    display: none;
+    width: 50vw;
+    height: 70vh;
+    border-radius: 15px;
+    background-color: white;
+    border: 2px solid black;
+  }
+
+  /* Left navigation area of the help panel */
+  .left-side {
+    height: 100%;
+    width: 30%;
+  }
+
+  /* Navigation buttons inside the help panel */
+  .help-button {
+    height: 33%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    width: 100%;
+    font-size: 30px;
+  }
+
+  .help-button:hover {
+    cursor: pointer;
+  }
+
+  /* Right content area of the help panel */
+  .right-side {
+    width: 70%;
+    padding: 50px;
+    font-size: 40px;
+    text-align: justify;
+  }
+
+  /* Language selection images */
+  .language-image {
+    width: 70%;
+    display: block;
+    margin: auto;
+  }
+
+  /* How-to-play illustration image */
+  .howtoplay-image {
+    width: 40%;
+    display: block;
+    margin: auto;
+  }
+}

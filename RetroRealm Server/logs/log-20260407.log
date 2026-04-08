@@ -1,0 +1,15 @@
+2026-04-07 09:00:51.642 +02:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-07 09:00:51.877 +02:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-07 09:00:51.894 +02:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-07 09:00:51.979 +02:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-07 18:27:42.077 +02:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-07 18:27:42.149 +02:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-07 18:27:42.160 +02:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-07 18:27:42.185 +02:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-07 18:28:06.220 +02:00 [INF] Logged in! User:admin2
+2026-04-07 18:28:18.392 +02:00 [INF] Logged in! User:admin2
+2026-04-07 18:28:18.680 +02:00 [INF] All users have been successfully requested for the admin panel
+2026-04-07 18:28:18.717 +02:00 [INF] All logs have been successfully requested for the admin panel
+2026-04-07 19:25:24.987 +02:00 [INF] Logged in! User:admin2
+2026-04-07 19:25:25.055 +02:00 [INF] All users have been successfully requested for the admin panel
+2026-04-07 19:25:25.067 +02:00 [INF] All logs have been successfully requested for the admin panel

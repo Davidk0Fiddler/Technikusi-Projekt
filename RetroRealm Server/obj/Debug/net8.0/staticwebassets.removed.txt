@@ -1,0 +1,2 @@
+C:\Technikusi Projekt\Technikusi-Projekt\RetroRealm Server\wwwroot\register\registerlaptop.css
+C:\Technikusi Projekt\Technikusi-Projekt\RetroRealm Server\wwwroot\register\registerlaptop.js

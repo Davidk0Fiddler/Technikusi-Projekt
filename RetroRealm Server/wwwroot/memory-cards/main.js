@@ -1,9 +1,10 @@
 // Importing the token refresh helper used for authentication renewal
+import baseURL from "../scripts/baseURL.js";
 import refreshToken from "../scripts/tokenRefresher.js";
 
 function checkScreenSize() {
   if (window.innerWidth < 1024) {
-    window.location.href = "/landingpage";
+    window.location.href = baseURL;
   }
 }
 
@@ -827,7 +828,7 @@ infoMenuBtn.addEventListener("click", () => {
 
 // Navigate to main menu page
 mainMenuBtn.addEventListener("click", () => {
-  window.location.href = "https://localhost:7234";
+  window.location.href = baseURL;
 });
 
 // Navigate to leaderboard page
@@ -845,7 +846,7 @@ async function GetUserData() {
   if (sessionRefreshToken != undefined && token != undefined) {
     // Retry up to 5 times
     for (let i = 0; i < 5; i++) {
-      const response = await fetch("https://localhost:7234/api/GetUserName", {
+      const response = await fetch(`${baseURL}/api/GetUserName`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -877,16 +878,13 @@ async function ChangeStat() {
 
   // Fetch user's best game statistics
   async function GetUserStatusData(token) {
-    const response = await fetch(
-      "https://localhost:7234/api/MemoryGameStatus",
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
+    const response = await fetch(`${baseURL}/api/MemoryGameStatus`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
-    );
+    });
 
     if (response.ok) {
       let data = await response.json();
@@ -896,7 +894,7 @@ async function ChangeStat() {
 
   // Upload updated statistics to the backend
   async function UploadNewStatus(newStatus) {
-    var response = await fetch("https://localhost:7234/api/MemoryGameStatus", {
+    var response = await fetch(`${baseURL}/api/MemoryGameStatus`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -908,7 +906,7 @@ async function ChangeStat() {
     // Retry after refreshing token if request fails
     if (!response.ok) {
       await refreshToken(sessionRefreshToken);
-      response = await fetch("https://localhost:7234/api/MemoryGameStatus", {
+      response = await fetch(`${baseURL}/api/MemoryGameStatus`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

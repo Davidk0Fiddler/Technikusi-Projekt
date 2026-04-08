@@ -1,0 +1,67 @@
+2026-04-06 13:12:13.487 +02:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-06 13:12:13.558 +02:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-06 13:12:13.566 +02:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-06 13:12:13.594 +02:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-06 13:13:45.536 +02:00 [INF] Logged in! User:test2
+2026-04-06 13:14:47.202 +02:00 [INF] FlappyBirdStatus has been requested by user-5!
+2026-04-06 13:14:58.563 +02:00 [INF] FlappyBirdStatus has been requested by user-5!
+2026-04-06 13:14:58.575 +02:00 [INF] FlappyBirdStatus has been requested by user-5!
+2026-04-06 13:14:58.583 +02:00 [INF] FlappyBirdStatus has been requested by user-5!
+2026-04-06 13:14:58.594 +02:00 [INF] FlappyBirdStatus has been requested by user-5!
+2026-04-06 13:14:58.601 +02:00 [INF] FlappyBirdStatus has been requested by user-5!
+2026-04-06 13:14:58.644 +02:00 [INF] FlappyBirdStatus has been updated for User-5!
+2026-04-06 13:14:58.651 +02:00 [INF] FlappyBirdStatus has been updated for User-5!
+2026-04-06 13:14:58.659 +02:00 [INF] FlappyBirdStatus has been updated for User-5!
+2026-04-06 13:14:58.667 +02:00 [INF] FlappyBirdStatus has been updated for User-5!
+2026-04-06 13:14:58.674 +02:00 [INF] FlappyBirdStatus has been updated for User-5!
+2026-04-06 18:37:40.185 +02:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-06 18:37:40.239 +02:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-06 18:37:40.246 +02:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-06 18:37:40.264 +02:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-06 18:37:57.424 +02:00 [INF] Logged in! User:test2
+2026-04-06 20:42:29.294 +02:00 [INF] Logged in! User:test2
+2026-04-06 20:59:31.162 +02:00 [INF] MemoryGameStatus has been requested by user-5!
+2026-04-06 21:07:59.874 +02:00 [INF] MemoryGameStatus has been requested by user-5!
+2026-04-06 21:13:06.524 +02:00 [INF] MemoryGameStatus has been requested by user-5!
+2026-04-06 21:17:17.131 +02:00 [INF] Logged in! User:test2
+2026-04-06 21:21:00.540 +02:00 [INF] MemoryGameStatus has been requested by user-5!
+2026-04-06 21:22:16.085 +02:00 [INF] MemoryGameStatus has been requested by user-5!
+2026-04-06 21:24:05.122 +02:00 [INF] MemoryGameStatus has been requested by user-5!
+2026-04-06 21:25:01.006 +02:00 [INF] MemoryGameStatus has been requested by user-5!
+2026-04-06 21:25:49.900 +02:00 [INF] MemoryGameStatus has been requested by user-5!
+2026-04-06 21:25:49.938 +02:00 [INF] MemoryGameStatus has been updated for User-5!
+2026-04-06 21:28:11.933 +02:00 [INF] MemoryGameStatus has been requested by user-5!
+2026-04-06 21:28:11.959 +02:00 [INF] MemoryGameStatus has been updated for User-5!
+2026-04-06 21:28:11.975 +02:00 [INF] MemoryGameStatus has been updated for User-5!
+2026-04-06 21:30:43.985 +02:00 [INF] MemoryGameStatus has been requested by user-5!
+2026-04-06 21:30:43.997 +02:00 [INF] MemoryGameStatus has been updated for User-5!
+2026-04-06 21:33:23.553 +02:00 [INF] MemoryGameStatus has been requested by user-5!
+2026-04-06 21:33:23.568 +02:00 [INF] MemoryGameStatus has been updated for User-5!
+2026-04-06 21:42:24.156 +02:00 [INF] MemoryGameStatus has been requested by user-5!
+2026-04-06 21:42:24.173 +02:00 [INF] MemoryGameStatus has been updated for User-5!
+2026-04-06 21:43:02.865 +02:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-06 21:43:02.927 +02:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-06 21:43:02.932 +02:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-06 21:43:02.950 +02:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-06 21:43:18.238 +02:00 [INF] Logged in! User:test2
+2026-04-06 21:43:27.773 +02:00 [INF] MemoryGameStatus has been requested by user-5!
+2026-04-06 21:43:27.809 +02:00 [INF] MemoryGameStatus has been updated for User-5!
+2026-04-06 21:44:14.743 +02:00 [INF] MemoryGameStatus has been requested by user-5!
+2026-04-06 21:44:14.761 +02:00 [INF] MemoryGameStatus has been updated for User-5!
+2026-04-06 21:47:44.314 +02:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-06 21:47:44.369 +02:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-06 21:47:44.376 +02:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-06 21:47:44.392 +02:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-06 21:48:11.719 +02:00 [INF] Logged in! User:test2
+2026-04-06 21:48:20.885 +02:00 [INF] MemoryGameStatus has been requested by user-5!
+2026-04-06 21:48:20.951 +02:00 [INF] MemoryGameStatus has been updated for User-5!
+2026-04-06 21:54:27.086 +02:00 [INF] MemoryGameStatus has been requested by user-5!
+2026-04-06 21:54:43.628 +02:00 [INF] MemoryGameStatus has been requested by user-5!
+2026-04-06 21:54:43.645 +02:00 [INF] MemoryGameStatus has been updated for User-5!
+2026-04-06 22:00:23.775 +02:00 [INF] MemoryGameStatus has been requested by user-5!
+2026-04-06 22:00:23.813 +02:00 [INF] MemoryGameStatus has been updated for User-5!
+2026-04-06 23:24:38.580 +02:00 [INF] Logged in! User:test2
+2026-04-06 23:25:44.362 +02:00 [INF] WordleStatus has been updated for User-5!
+2026-04-06 23:25:44.525 +02:00 [INF] WordleStatus has been updated for User-5!
+2026-04-06 23:37:27.236 +02:00 [INF] WordleStatus has been updated for User-5!
+2026-04-06 23:37:27.372 +02:00 [INF] WordleStatus has been updated for User-5!

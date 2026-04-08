@@ -8008,9 +8008,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Technikusi Projekt\\Technikusi-Projekt\\RetroRealm Server\\RetroRealm Server.csproj",
-      "projectName": "RetroRealm Server",
-      "projectPath": "C:\\Technikusi Projekt\\Technikusi-Projekt\\RetroRealm Server\\RetroRealm Server.csproj",
+      "projectUniqueName": "C:\\Technikusi Projekt\\Technikusi-Projekt\\RetroRealm Server\\RetroRealm_Server.csproj",
+      "projectName": "RetroRealm_Server",
+      "projectPath": "C:\\Technikusi Projekt\\Technikusi-Projekt\\RetroRealm Server\\RetroRealm_Server.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
       "outputPath": "C:\\Technikusi Projekt\\Technikusi-Projekt\\RetroRealm Server\\obj\\",
       "projectStyle": "PackageReference",

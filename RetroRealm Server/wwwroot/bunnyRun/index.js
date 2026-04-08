@@ -1,3 +1,4 @@
+import baseURL from "../scripts/baseURL.js";
 import k from "./scripts/kaplayCtx.js";
 import loadingScene from "./scripts/scenes/kaplayLoadingScene.js";
 
@@ -6,7 +7,7 @@ document.querySelector("canvas").style.cursor =
 
 function CheckScreenSize() {
   if (window.innerWidth < 1024) {
-    window.location.href = "/landingpage";
+    window.location.href = baseURL;
   }
 }
 

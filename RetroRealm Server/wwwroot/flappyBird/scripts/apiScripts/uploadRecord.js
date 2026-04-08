@@ -1,15 +1,15 @@
+import baseURL from "../../../scripts/baseURL.js";
 import getAuthData from "../../../scripts/getAuthData.js";
 import refreshToken from "../../../scripts/tokenRefresher.js";
 
 export default async function UploadRecord(currentRecord) {
-  const endPoint = "https://localhost:7234/api/FlappyBirdStatus";
   let isTried = false;
 
   // Aktuális auth adatok
   let authData = await getAuthData();
 
   while (true) {
-    const response = await fetch(endPoint, {
+    const response = await fetch(`${baseURL}/api/FlappyBirdStatus`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

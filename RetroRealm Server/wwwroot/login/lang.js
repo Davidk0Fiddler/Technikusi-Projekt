@@ -1,57 +1,47 @@
 export const texts = {
   loginH1: {
-    en: "RetroRealm Login",
-    hu: "RetroRealm Bejelentkezés",
+    eng: "RetroRealm Login",
+    hun: "RetroRealm Bejelentkezés",
     esp: "Inicio de sesión en RetroRealm",
   },
-  inputtext: {
-    en: "Username",
-    hu: "Felhasználónév",
+  usernameInput: {
+    eng: "Username",
+    hun: "Felhasználónév",
     esp: "Nombre de usuario",
   },
-  inputpass: {
-    en: "Password",
-    hu: "Jelszó",
+  passwordInput: {
+    eng: "Password",
+    hun: "Jelszó",
     esp: "Contraseña",
   },
   belepes: {
-    en: "Login",
-    hu: "Belépés",
+    eng: "Login",
+    hun: "Belépés",
     esp: "Acceso",
   },
   szin: {
-    en: "Don't have an account yet? Click <a id='link' href='registerlaptop2.html'>ide</a>",
-    hu: "Még nem regisztrált? Kattintson <a id='link' href='registerlaptop2.html'>ide</a>",
-    esp: "¿Aún no estás registrado? Haz clic <a id='link' href='registerlaptop2.html'>ide</a>",
+    eng: "Don't have an account yet? Click <a id='link' href='../register/index.html'>ide</a>",
+    hun: "Még nem regisztrált? Kattintson <a id='link' href='../register/index.html'>ide</a>",
+    esp: "¿Aún no estás registrado? Haz clic <a id='link' href='../register/index.html'>ide</a>",
   },
   link: {
-    en: "here!",
-    hu: "ide!",
+    eng: "here!",
+    hun: "ide!",
     esp: "aquí!",
   },
   nyelvvalt: {
-    en: "Language",
-    hu: "Nyelv",
+    eng: "Language",
+    hun: "Nyelv",
     esp: "Idioma",
   },
-  registH1: {
-    en: "RetroRealm Registration",
-    hu: "RetroRealm Regisztráció",
-    esp: "Registro RetroRealm",
+  successFullLoginAlertMessage: {
+    eng: "Successfull login! Redirecting . . .",
+    hun: "Sikeres bejelentkezés! Átírányítás . . .",
+    esp: "¡Inicio de sesión exitoso! Redireccionando . . .",
   },
-  inputpassagain: {
-    en: "Password again",
-    hu: "Jelszó újra",
-    esp: "Contraseña nuevamente",
-  },
-  regisztracio: {
-    en: "Create account",
-    hu: "Fiók létrehozása",
-    esp: "Crear una cuenta",
-  },
-  szin2: {
-    en: "Already have an account? Click <a id='link' href='loginlaptop2.html'>ide</a>",
-    hu: "Már regisztrált? Kattintson <a id='link' href='loginlaptop2.html'>ide</a>",
-    esp: "¿Ya estás registrado? Haz clic <a id='link' href='loginlaptop2.html'>ide</a>",
+  unSuccessFullLoginAlertMessage: {
+    eng: "Error occoured during login!",
+    hun: "Hiba merült fel a belépés közben!",
+    esp: "¡Se ha producido un error al iniciar sesión!",
   },
 };

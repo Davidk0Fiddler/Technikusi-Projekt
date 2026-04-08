@@ -1,8 +1,9 @@
+import baseURL from "../../../scripts/baseURL.js";
 import getAuthData from "../../../scripts/getAuthData.js";
 import refreshToken from "../../../scripts/tokenRefresher.js";
 
 export default async function UploadRecord(currentRecord) {
-  const endPoint = "https://localhost:7234/api/BunnyRunStatus";
+  const endPoint = `${baseURL}/api/BunnyRunStatus`;
   let isTried = false;
 
   // Aktuális auth adatok

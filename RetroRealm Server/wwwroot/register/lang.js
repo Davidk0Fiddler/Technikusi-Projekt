@@ -1,57 +1,52 @@
 export const texts = {
-  loginH1: {
-    en: "RetroRealm Login",
-    hu: "RetroRealm Bejelentkezés",
-    esp: "Inicio de sesión en RetroRealm",
-  },
-  inputtext: {
-    en: "Username",
-    hu: "Felhasználónév",
+  usernameInput: {
+    eng: "Username",
+    hun: "Felhasználónév",
     esp: "Nombre de usuario",
   },
-  inputpass: {
-    en: "Password",
-    hu: "Jelszó",
+  passwrodInput: {
+    eng: "Password",
+    hun: "Jelszó",
     esp: "Contraseña",
   },
-  belepes: {
-    en: "Login",
-    hu: "Belépés",
-    esp: "Acceso",
-  },
-  szin: {
-    en: "Don't have an account yet? Click <a id='link' href='registerlaptop2.html'>ide</a>",
-    hu: "Még nem regisztrált? Kattintson <a id='link' href='registerlaptop2.html'>ide</a>",
-    esp: "¿Aún no estás registrado? Haz clic <a id='link' href='registerlaptop2.html'>ide</a>",
-  },
   link: {
-    en: "here!",
-    hu: "ide!",
+    eng: "here!",
+    hun: "ide!",
     esp: "aquí!",
   },
   nyelvvalt: {
-    en: "Language",
-    hu: "Nyelv",
+    eng: "Language",
+    hun: "Nyelv",
     esp: "Idioma",
   },
   registH1: {
-    en: "RetroRealm Registration",
-    hu: "RetroRealm Regisztráció",
+    eng: "RetroRealm Registration",
+    hun: "RetroRealm Regisztráció",
     esp: "Registro RetroRealm",
   },
-  inputpassagain: {
-    en: "Password again",
-    hu: "Jelszó újra",
+  passwordAgainInput: {
+    eng: "Password again",
+    hun: "Jelszó újra",
     esp: "Contraseña nuevamente",
   },
   regisztracio: {
-    en: "Create account",
-    hu: "Fiók létrehozása",
+    eng: "Create account",
+    hun: "Fiók létrehozása",
     esp: "Crear una cuenta",
   },
   szin2: {
-    en: "Already have an account? Click <a id='link' href='loginlaptop2.html'>ide</a>",
-    hu: "Már regisztrált? Kattintson <a id='link' href='loginlaptop2.html'>ide</a>",
-    esp: "¿Ya estás registrado? Haz clic <a id='link' href='loginlaptop2.html'>ide</a>",
+    eng: "Already have an account? Click <a id='link' href='../login/index.html'>ide</a>",
+    hun: "Már regisztrált? Kattintson <a id='link' href='../login/index.html'>ide</a>",
+    esp: "¿Ya estás registrado? Haz clic <a id='link' href='../login/index.html'>ide</a>",
+  },
+  successfullRegisterAlertMessage: {
+    eng: "Successfull register! Redirecting . . .",
+    hun: "Sikeres regisztráció! Átirányítás . . .",
+    esp: "¡Registro exitoso! Redireccionando . . .",
+  },
+  unSuccessfullRegisterAlertMessage: {
+    eng: "Error occoured during registering!",
+    hun: "Hiba adódott a regisztráció során!",
+    esp: "¡Se ha producido un error durante el registro!",
   },
 };

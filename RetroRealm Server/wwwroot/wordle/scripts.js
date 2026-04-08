@@ -7,6 +7,8 @@ import texts from "./texts.js";
 // Importing token refresh logic for authenticated backend calls
 import refreshToken from "../scripts/tokenRefresher.js";
 
+import baseUrl from "../scripts/baseURL.js";
+
 function CheckScreenSize() {
   if (window.innerWidth < 1024) {
     window.location.href = "/landingpage";
@@ -55,7 +57,7 @@ function ChangeStat() {
   // Abort if authentication data is missing
   if (sessionRefreshToken != undefined && token != undefined) {
     // Send statistics update request
-    let response = fetch("https://localhost:7234/api/WordleStatus", {
+    let response = fetch(`${baseUrl}/api/WordleStatus`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -70,7 +72,7 @@ function ChangeStat() {
     if (!response.ok) {
       refreshToken(sessionRefreshToken);
 
-      fetch("https://localhost:7234/api/WordleStatus", {
+      fetch(`${baseUrl}/api/WordleStatus`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

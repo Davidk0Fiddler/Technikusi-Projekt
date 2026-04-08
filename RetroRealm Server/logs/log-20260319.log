@@ -1,0 +1,80 @@
+2026-03-19 09:46:39.811 +01:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-19 09:46:39.879 +01:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-19 09:46:39.886 +01:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-19 09:46:39.908 +01:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-19 10:07:38.662 +01:00 [INF] User has been created! (UserForTest)
+2026-03-19 10:07:38.853 +01:00 [INF] New BunnyRunStatus has been created for user-7!
+2026-03-19 10:07:38.866 +01:00 [INF] New FlappyBirdStatus has been created for user-7
+2026-03-19 10:07:38.884 +01:00 [INF] New MemoryGameStatus has been created for user-7
+2026-03-19 10:07:38.896 +01:00 [INF] New WordleStatus has been created for user-7
+2026-03-19 10:07:38.929 +01:00 [INF] Statuses has been added! (UserForTest)
+2026-03-19 10:16:46.993 +01:00 [ERR] Invalid credentials
+2026-03-19 10:16:52.729 +01:00 [INF] Logged in! User:admin1
+2026-03-19 10:17:27.402 +01:00 [INF] All users have been successfully requested for the admin panel
+2026-03-19 10:17:51.772 +01:00 [INF] All logs have been successfully requested for the admin panel
+2026-03-19 10:18:12.273 +01:00 [INF] WordleStatus has been updated for User-2!
+2026-03-19 10:18:29.055 +01:00 [INF] WordleStatus has been requested by user-2!
+2026-03-19 10:19:16.844 +01:00 [INF] Avatar (rangerCharacter) has been succesfully purchased by User-2!
+2026-03-19 10:19:35.468 +01:00 [INF] MemoryGameStatus has been updated for User-2!
+2026-03-19 10:19:47.315 +01:00 [INF] MemoryGameStatus has been requested by user-2!
+2026-03-19 10:20:11.132 +01:00 [INF] All refresh tokens have been deleted!
+2026-03-19 10:20:53.444 +01:00 [INF] Logged in! User:Test
+2026-03-19 10:21:24.259 +01:00 [INF] User 1 has logged out!
+2026-03-19 10:21:32.172 +01:00 [INF] Logged in! User:Test
+2026-03-19 10:23:05.192 +01:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at RetroRealm_Server.Services.RefreshTokenService.RefreshTokenService.RefreshTokenAsync(RefreshTokenDto model) in C:\Technikusi Projekt\Technikusi-Projekt\RetroRealm Server\Services\RefreshTokenService\RefreshTokenService.cs:line 44
+   at RetroRealm_Server.Controllers.RefreshtokenController.RefreshToken(RefreshTokenDto model) in C:\Technikusi Projekt\Technikusi-Projekt\RetroRealm Server\Controllers\RefreshtokenController.cs:line 22
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-03-19 10:38:49.181 +01:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-19 10:38:49.250 +01:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-19 10:38:49.256 +01:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-19 10:38:49.275 +01:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-19 10:39:01.976 +01:00 [INF] Logged in! User:Test
+2026-03-19 10:39:33.410 +01:00 [INF] Token refreshed! UserId - 1
+2026-03-19 10:40:00.563 +01:00 [INF] User (Test) set character (baseCharacter) successfully.
+2026-03-19 10:40:24.668 +01:00 [INF] Logged in! User:admin1
+2026-03-19 10:40:24.821 +01:00 [INF] All users have been successfully requested for the admin panel
+2026-03-19 10:40:24.864 +01:00 [INF] All logs have been successfully requested for the admin panel
+2026-03-19 10:54:28.338 +01:00 [INF] All users have been successfully requested for the admin panel
+2026-03-19 10:54:28.365 +01:00 [INF] All logs have been successfully requested for the admin panel
+2026-03-19 10:55:27.811 +01:00 [INF] All users have been successfully requested for the admin panel
+2026-03-19 10:55:27.822 +01:00 [INF] All logs have been successfully requested for the admin panel
+2026-03-19 10:55:43.267 +01:00 [INF] All users have been successfully requested for the admin panel
+2026-03-19 10:55:43.279 +01:00 [INF] All logs have been successfully requested for the admin panel
+2026-03-19 10:55:51.189 +01:00 [INF] All users have been successfully requested for the admin panel
+2026-03-19 10:55:51.202 +01:00 [INF] All logs have been successfully requested for the admin panel
+2026-03-19 10:56:05.009 +01:00 [INF] All users have been successfully requested for the admin panel
+2026-03-19 10:56:05.021 +01:00 [INF] All logs have been successfully requested for the admin panel
+2026-03-19 10:56:17.638 +01:00 [INF] All users have been successfully requested for the admin panel
+2026-03-19 10:56:17.651 +01:00 [INF] All logs have been successfully requested for the admin panel
+2026-03-19 10:56:26.409 +01:00 [INF] All users have been successfully requested for the admin panel
+2026-03-19 10:56:26.424 +01:00 [INF] All logs have been successfully requested for the admin panel
+2026-03-19 10:56:36.305 +01:00 [INF] All users have been successfully requested for the admin panel
+2026-03-19 10:56:36.318 +01:00 [INF] All logs have been successfully requested for the admin panel
+2026-03-19 10:56:47.251 +01:00 [INF] All users have been successfully requested for the admin panel
+2026-03-19 10:56:47.263 +01:00 [INF] All logs have been successfully requested for the admin panel
+2026-03-19 10:57:10.958 +01:00 [INF] All users have been successfully requested for the admin panel
+2026-03-19 10:57:10.971 +01:00 [INF] All logs have been successfully requested for the admin panel
+2026-03-19 10:57:32.820 +01:00 [INF] All users have been successfully requested for the admin panel
+2026-03-19 10:57:32.833 +01:00 [INF] All logs have been successfully requested for the admin panel
+2026-03-19 11:05:00.574 +01:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-19 11:05:00.632 +01:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-19 11:05:00.639 +01:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-19 11:05:00.661 +01:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-03-19 11:05:08.105 +01:00 [INF] Achievements have been requested!
+2026-03-19 12:11:48.073 +01:00 [INF] All avatars have been requested!
