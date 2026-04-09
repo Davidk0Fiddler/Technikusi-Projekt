@@ -1,0 +1,108 @@
+@font-face {
+  font-family: Retro;
+  src: url(PirataOne-Regular.ttf);
+}
+* {
+  font-family: Retro;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  overflow-x: hidden;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ===== NAVBAR ===== */
+#nav-bar {
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+#nav-bar a {
+  color: white;
+  text-decoration: none;
+  font-size: 2.2em;
+  margin-left: 10px;
+}
+
+#nav-bar a:hover {
+  color: red;
+}
+
+#lang-button {
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  padding: 5px 10px;
+  cursor: pointer;
+  width: 90px;
+}
+
+#lang-button:hover {
+  background-color: red;
+  border: 1px solid red;
+}
+
+#lang-selection {
+  position: absolute;
+  top: 60px;
+  right: 10px;
+}
+
+#lang-selection button {
+  width: 100%;
+  font-size: 1em;
+  margin-bottom: 5px;
+}
+
+#title {
+  font-size: 3em;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.item-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+  max-width: 650px;
+}
+
+.item {
+  max-width: 310px;
+  height: 150px;
+  border-radius: 5px;
+  border: 2px solid black;
+  text-align: center;
+  padding: 0px;
+  margin: 5px;
+  flex: 1 1 33%;
+}
+
+.achievement-name {
+  width: 100%;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.achievement-requirement {
+  font-size: 17px;
+}
+
+@media screen and (max-width: 500px) {
+  .item {
+    flex: 0 0 100%;
+  }
+}
