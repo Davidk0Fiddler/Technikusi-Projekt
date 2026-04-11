@@ -10,4 +10,10 @@ export const texts = {
     hun: "Mérföldkövek",
     esp: "Logros",
   },
+
+  prize: {
+    eng: "Prize",
+    hun: "Jutalom",
+    esp: "Premio",
+  },
 };

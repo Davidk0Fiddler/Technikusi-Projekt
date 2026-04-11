@@ -43,22 +43,22 @@ body {
 }
 
 /* külön képek */
-#flappyplaybtn {
+#flappy-bird-play-btn {
   background-image: url("flappy.png");
 }
 
-#memoryplaybtn {
+#memory-game-play-btn {
   background-image: url("memoria.png");
 }
 
-#bunnyplaybtn {
+#bunny-run-play-btn {
   background-image: url("bunny.png");
 }
 
-#wordleplaybtn {
+#wordle-play-btn {
   background-image: url("wordle.png");
 }
-#retrorealmbtn {
+#retrorealm-btn {
   background-image: url("retrorealm.png");
 }
 
@@ -72,12 +72,11 @@ body {
 .material-symbols-outlined {
   font-size: 60px;
   color: black;
-  padding-top: 0.1%;
 }
 .katt {
   color: black;
-  padding-top: 89%;
-  margin-bottom: 6px;
+  margin-top: 80%;
+  /* background-color: rgba(255, 255, 255, 0.6); */
 }
 
 h1 {
@@ -85,10 +84,19 @@ h1 {
 }
 
 #pe1 {
+  padding-left: 2.5%;
+  padding-right: 2.5%;
   font-size: 25px;
 }
 #pe2 {
+  padding-left: 2.5%;
+  padding-right: 2.5%;
   font-size: 25px;
+}
+
+#ha2 {
+  padding-left: 2.5%;
+  padding-right: 2.5%;
 }
 
 #belepbtnranglista {
@@ -109,7 +117,7 @@ h1 {
   margin: auto;
   font-family: "pirataone";
 }
-#belepbtncustom {
+#customitemshop-btn {
   display: block;
   align-items: center;
   justify-content: center;
@@ -128,7 +136,8 @@ h1 {
   font-family: "pirataone";
 }
 
-#belepbtnbelep {
+#admin-panel-btn,
+#profile-btn {
   display: block;
   align-items: center;
   justify-content: center;
@@ -147,7 +156,7 @@ h1 {
   font-family: "pirataone";
 }
 
-#belepbtnmerfold {
+#belep-btn-merfold {
   display: block;
   align-items: center;
   justify-content: center;
@@ -203,7 +212,7 @@ h1 {
   justify-content: space-evenly;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .button-container {
     display: none;
   }
@@ -261,7 +270,7 @@ h1 {
   width: 100px;
 }
 
-@media (max-width: 765px) {
+@media (max-width: 850px) {
   #buttonsinhead {
     display: block;
   }

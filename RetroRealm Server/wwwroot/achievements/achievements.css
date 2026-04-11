@@ -48,6 +48,10 @@ body {
   width: 90px;
 }
 
+#exit-page-btn {
+  cursor: pointer;
+}
+
 #lang-button:hover {
   background-color: red;
   border: 1px solid red;
@@ -76,18 +80,18 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 20px;
-  max-width: 650px;
+  width: 100%;
 }
 
 .item {
-  max-width: 310px;
+  width: 620px;
   height: 150px;
   border-radius: 5px;
   border: 2px solid black;
   text-align: center;
   padding: 0px;
   margin: 5px;
-  flex: 1 1 33%;
+  flex: 1 1 20%;
 }
 
 .achievement-name {
@@ -101,8 +105,16 @@ body {
   font-size: 17px;
 }
 
+@media screen and (max-width: 1024px) {
+  .item {
+    flex: 1 1 33%;
+    width: 80%;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .item {
-    flex: 0 0 100%;
+    flex: 1 1 100%;
+    width: 60%;
   }
 }

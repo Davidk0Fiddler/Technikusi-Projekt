@@ -1,5 +1,7 @@
-export default async function GetAvatars() {
-  const response = await fetch("https://localhost:7234/api/GetAchievements");
+import baseURL from "../scripts/baseURL.js";
+
+export default async function GetAchievements() {
+  const response = await fetch(`${baseURL}/api/GetAchievements`);
   if (response.ok) {
     return await response.json();
   }

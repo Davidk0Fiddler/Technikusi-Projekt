@@ -1,4 +1,4 @@
-﻿namespace RetroRealm_Server.DTOs.LeaderBoardDTOs
+﻿    namespace RetroRealm_Server.DTOs.LeaderBoardDTOs
 {
     public class AchievementsLeaderboardElementDTO
     {

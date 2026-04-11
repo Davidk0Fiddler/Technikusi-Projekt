@@ -225,6 +225,8 @@ const helpRightSide = document.getElementById("help-right-side");
 // New record indicator
 const newRecordBlock = document.getElementById("newRecordBlock");
 
+mainMenuBtn.addEventListener("click", () => (window.location.href = baseURL));
+
 /*
       ---------------------------------------------
       GAME STATE VARIABLES
@@ -833,7 +835,7 @@ mainMenuBtn.addEventListener("click", () => {
 
 // Navigate to leaderboard page
 leaderboardBtn.addEventListener("click", () => {
-  // Leaderboard navigation placeholder
+  window.location.href = `${baseURL}/leaderboard/leaderboard.html?leaderboard=memorygameflips`;
 });
 
 // Fetch logged-in user's data from the backend

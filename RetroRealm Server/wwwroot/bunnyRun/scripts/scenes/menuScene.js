@@ -6,6 +6,7 @@ import {
   foxSheet,
 } from "../sprites.js";
 import gameScene from "./gameScene.js";
+import baseURL from "../../../scripts/baseURL.js";
 
 // Menü háttér kirajzolása
 function DisplayBackground() {
@@ -42,6 +43,10 @@ function DisplayMenuButton() {
   menuButton.onHoverEnd(() => {
     k.setCursor('url("./assets/cursor.png") 11 13, auto');
     menuButton.scale = vec2(4, 4);
+  });
+
+  menuButton.onClick(() => {
+    window.location.href = baseURL;
   });
 }
 
@@ -90,6 +95,10 @@ function DisplayLeaderBoardButton() {
   leaderBoardButton.onHoverEnd(() => {
     k.setCursor('url("./assets/cursor.png") 11 13, auto');
     leaderBoardButton.scale = vec2(4, 4);
+  });
+
+  leaderBoardButton.onClick(() => {
+    window.location.href = `${baseURL}/leaderboard/leaderboard.html?leaderboard=bunnyrun`;
   });
 }
 

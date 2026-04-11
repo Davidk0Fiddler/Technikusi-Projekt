@@ -1,7 +1,12 @@
 import { texts } from "./lang.js";
 import GetUserData from "./GetUserData.js";
+import baseURL from "../scripts/baseURL.js";
+import SwitchAvatar from "./SwitchAvatar.js";
 
 function setLanguage(lang) {
+  localStorage.setItem("lang", lang);
+  document.getElementById("lang-selection").style.display = "none";
+
   const langButton = document.getElementById("lang-button");
   langButton.textContent = texts.langButton[lang];
   const achievementsTitle = document.getElementById("achievements-head");
@@ -21,21 +26,21 @@ langButton.addEventListener("click", () => {
   });
 });
 
-const engButton = document.getElementById("eng");
-engButton.addEventListener("click", () => {
-  setLanguage("en");
-  document.getElementById("lang-selection").style.display = "none";
-});
-const hunButton = document.getElementById("hun");
-hunButton.addEventListener("click", () => {
-  setLanguage("hu");
-  document.getElementById("lang-selection").style.display = "none";
-});
-const espButton = document.getElementById("esp");
-espButton.addEventListener("click", () => {
-  setLanguage("esp");
-  document.getElementById("lang-selection").style.display = "none";
-});
+document
+  .getElementById("eng")
+  .addEventListener("click", () => setLanguage("eng"));
+
+document
+  .getElementById("hun")
+  .addEventListener("click", () => setLanguage("hun"));
+
+document
+  .getElementById("esp")
+  .addEventListener("click", () => setLanguage("esp"));
+
+document
+  .getElementById("exit-page-btn")
+  .addEventListener("click", () => (window.location.href = baseURL));
 
 function displayUserData(userData) {
   const picture = document.getElementById("profile-pic");
@@ -50,8 +55,14 @@ function displayUserData(userData) {
 
   userData.ownedAvatars.forEach((avatar) => {
     ownedAvatars.innerHTML += `
-    <img src="${avatar}.png" alt="${avatar}" class="owned-avatar"/>`;
+    <img src="${avatar}.png" alt="${avatar}" class="owned-avatar"
+    onclick="SwitchAvatar('${avatar}')">`;
   });
+
+  window.SwitchAvatar = async function (avatar) {
+    await SwitchAvatar(avatar);
+    await Start();
+  };
 
   const words = document.getElementById("words");
   words.textContent = `Words: ${userData.wordleStatus.completedWords}`;
@@ -75,5 +86,12 @@ function displayUserData(userData) {
     <p>${achievement.nameEng}</p>`;
   });
 }
+async function Start() {
+  const userData = await GetUserData();
 
-displayUserData(await GetUserData());
+  userData != undefined
+    ? await displayUserData(userData)
+    : (window.location.href = baseURL);
+}
+
+await Start();

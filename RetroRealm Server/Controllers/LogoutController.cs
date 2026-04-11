@@ -16,7 +16,6 @@ namespace RetroRealm_Server.Controllers
         }
 
         [HttpPost()]
-        [Authorize]
         public async Task<IActionResult> Logout([FromBody] RefreshTokenDto model)
         {
             var result = await _logOutService.LogoutAsync(model);

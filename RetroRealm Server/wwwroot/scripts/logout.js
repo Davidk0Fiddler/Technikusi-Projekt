@@ -1,23 +1,22 @@
 async function logout() {
   const refreshToken = sessionStorage.getItem("RefreshToken");
-  console.log(refreshToken);
   const response = await fetch("https://localhost:7234/api/Logout", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      token: refreshToken
-    })
+      token: refreshToken,
+    }),
   });
 
-  if (response.ok)
-  {
+  if (response.ok) {
     sessionStorage.removeItem("Token");
     sessionStorage.removeItem("RefreshToken");
     window.location.href = "../index.html";
   }
 
+  console.log(response.status);
 }
 
 export default logout;

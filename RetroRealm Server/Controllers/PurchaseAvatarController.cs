@@ -24,9 +24,9 @@ namespace RetroRealm_Server.Controllers
 
             switch (result.Error)
             {
-                case "Avatar not found!": return NotFound();
-                case "User not found!": return NotFound();
-                case "Not enough coins!": return BadRequest("Not enough coins!");
+                case "Not valid User!": return NotFound();
+                case "Not valid avatarId!": return NotFound();
+                case "User does not have enough coins!": return BadRequest("Not enough coins!");
                 case "User already has this avatar!": return BadRequest("User already has this avatar!");
             }
 

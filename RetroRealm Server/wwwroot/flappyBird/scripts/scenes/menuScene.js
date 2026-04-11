@@ -1,3 +1,4 @@
+import baseURL from "../../../scripts/baseURL.js";
 import k from "../kaplayCtx.js";
 import sprites from "../sprites.js";
 import gameScene from "./gameScene.js";
@@ -77,6 +78,10 @@ function DisplayLeaderboardButton() {
     k.setCursor('url("./assets/cursor.png") 11 13, auto');
     leaderboardButton.scale = vec2(0.8, 0.8);
   });
+
+  leaderboardButton.onClick(() => {
+    window.location.href = `${baseURL}/leaderboard/leaderboard.html?leaderboard=flappybird`;
+  });
 }
 
 // Menü ikon gomb
@@ -97,6 +102,10 @@ function DisplayMenuButton() {
   menuButton.onHoverEnd(() => {
     k.setCursor('url("./assets/cursor.png") 11 13, auto');
     menuButton.scale = vec2(0.8, 0.8);
+  });
+
+  menuButton.onClick(() => {
+    window.location.href = baseURL;
   });
 }
 

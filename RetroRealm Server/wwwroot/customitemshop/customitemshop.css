@@ -96,8 +96,12 @@ body {
   width: 70%;
   height: 50%;
   object-fit: cover;
-  border-radius: 50%;
   margin-top: 5%;
+  image-rendering: pixelated;
+}
+
+#exit-page-btn {
+  cursor: pointer;
 }
 
 .item h2 {

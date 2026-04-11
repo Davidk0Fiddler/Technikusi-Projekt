@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="leaderboardlaptop.css" />
+    <title>LeaderBoard</title>
+  </head>
+  <body>
+    <div id="container">
+      <div id="nav-bar">
+        <a id="exit-page-btn">X</a>
+        <button id="lang-button">Language</button>
+      </div>
+      <div id="lang-selection" style="display: none">
+        <button id="eng">English</button> <br />
+        <button id="hun">Magyar</button> <br />
+        <button id="esp">Español</button>
+      </div>
+      <div id="leaderboard">
+        <div id="leaderboardhead">
+          <h1 id="leaderboard-title">LeaderBoard</h1>
+        </div>
+        <div id="types">
+          <div class="dropdown">
+            <button class="dropbtn" id="dropbtn">Choose LeaderBoard</button>
+            <div class="dropdown-content">
+              <a id="bunny-run-btn">Bunny Run leaderboard</a>
+              <a id="flappy-bird-btn">FlappyBird LeaderBoard</a>
+              <a id="memory-game-flips-btn">Memory Game Flips LeaderBoard</a>
+              <a id="memory-game-time-btn">Memory Game Time LeaderBoard</a>
+              <a id="wordle-btn">Worlde LeaderBoard</a>
+              <a id="achievements-btn">Achievements Leaderboard</a>
+            </div>
+          </div>
+        </div>
+        <div id="content"></div>
+      </div>
+    </div>
+
+    <script type="module" src="leaderboard_laptop.js"></script>
+  </body>
+</html>

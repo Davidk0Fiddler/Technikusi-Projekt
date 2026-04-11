@@ -5,7 +5,7 @@ export default async function GetUserName() {
   if (!token) return "";
 
   async function request(tokenToUse) {
-    return fetch(`${baseURL}/api/GetUserName0`, {
+    return fetch(`${baseURL}/api/GetUserName`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${tokenToUse}`,
@@ -17,7 +17,9 @@ export default async function GetUserName() {
     let response = await request(token);
 
     if (response.status === 401) {
-      const refreshed = await refreshToken();
+      const refreshed = await refreshToken(
+        sessionStorage.getItem("RefreshToken"),
+      );
       if (!refreshed) return "";
 
       const newToken = sessionStorage.getItem("Token");

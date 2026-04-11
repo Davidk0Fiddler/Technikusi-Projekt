@@ -11,7 +11,7 @@ import baseUrl from "../scripts/baseURL.js";
 
 function CheckScreenSize() {
   if (window.innerWidth < 1024) {
-    window.location.href = "/landingpage";
+    window.location.href = baseUrl;
   }
 }
 
@@ -101,9 +101,18 @@ const playBtn = document.getElementById("play-button");
 const menu = document.getElementById("menu");
 
 const backToMainMenuBtn = document.getElementById("main-menu");
-backToMainMenuBtn.addEventListener("click", () => {
-  window.location.href = "../htmls/pc.html";
-});
+backToMainMenuBtn.addEventListener(
+  "click",
+  () => (window.location.href = baseUrl),
+);
+
+document
+  .getElementById("leaderboard")
+  .addEventListener(
+    "click",
+    () =>
+      (window.location.href = `${baseUrl}/leaderboard/leaderboard.html?leaderboard=wordle`),
+  );
 
 const gameContainer = document.getElementById("game-container");
 
