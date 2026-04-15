@@ -1,71 +1,66 @@
 import k from "../kaplayCtx.js";
-import { Background } from "../objects/background.js";
-import { Ground } from "../objects/ground.js";
-import { Bird } from "../objects/bird.js";
-import { PipeGroup } from "../objects/pipes.js";
-import { ScoreBoard } from "../objects/score.js";
+import { Background } from "../objects/Background.js";
+import { Ground } from "../objects/Ground.js";
+import { Bird } from "../objects/Bird.js";
+import { PipeGroup } from "../objects/Pipes.js";
+import { ScoreBoard } from "../objects/Score.js";
 import endScreen from "../scenes/endScreen.js";
 
 // Get Ready felirat
-function displayGetReadyLabel() {
-    getReadyLabel = k.add([
-        sprite("getReadyLabel"),
-        anchor("center"),
-        pos(k.width() / 2, k.height() / 2),
-        z(10),
-    ]);
+function DisplayGetReadyLabel() {
+  getReadyLabel = k.add([
+    sprite("getReadyLabel"),
+    anchor("center"),
+    pos(k.width() / 2, k.height() / 2),
+    z(10),
+  ]);
 }
 
 // Tap ikon (indítás előtt)
-function displayTapTapIcon() {
-    tapTapIcon = k.add([
-        sprite("tapTapIcon"),
-        anchor("center"),
-        pos(k.width() / 2, k.height() / 2),
-        z(10),
-        scale(0),
-    ]);
+function DisplayTapTapIcon() {
+  tapTapIcon = k.add([
+    sprite("tapTapIcon"),
+    anchor("center"),
+    pos(k.width() / 2, k.height() / 2),
+    z(10),
+    scale(0),
+  ]);
 }
 
 // Scene alapállapot
-function sceneInit() {
-    time = 0;
-    countDownNumber = 3;
-    isStarting = true;
-    k.setGravity(0);
+function SceneInit() {
+  time = 0;
+  countDownNumber = 3;
+  isStarting = true;
+  k.setGravity(0);
 }
 
-// Játék logika indítása
 function Game() {
-    k.setGravity(300);
+  k.setGravity(300);
 
-    // Bird jump input
-    gameClick = k.onClick(() => {
-        bird.birdJump(pipes, background, ground, scoreBoard);
-    });
+  gameClick = k.onClick(() => {
+    bird.BirdJump(pipes, background, ground, scoreBoard);
+  });
 
-    // Pipe generálás
-    pipes.displayPipes();
+  pipes.DisplayPipes();
 
-    k.onUpdate(() => {
-        pipes.movePipes();
-        scoreBoard.displayScore();
-    });
+  k.onUpdate(() => {
+    pipes.MovePipes();
+    scoreBoard.DisplayScore();
+  });
 
-    // Score növelés
-    k.onCollide("bird", "scoreZone", (zone) => {
-        if (!zone.passed) scoreBoard.increaseScore();
-    });
+  k.onCollide("bird", "scoreZone", (zone) => {
+    if (!zone.passed) scoreBoard.IncreaseScore();
+  });
 
-    // Ütközés csővel → game over
-    k.onCollide("bird", "pipe", () => {
-        bird.disableJump();
-        pipes.setPipeSpeed(0);
-        background.setBackgroundSpeed(0);
-        ground.setGroundSpeed(0);
-        scoreBoard.setStateScore();
-        k.wait(2, () => k.go("endScreen"));
-    });
+  k.onCollide("bird", "pipe", () => {
+    bird.DisableJump();
+    pipes.SetPipeSpeed(0);
+    background.SetBackgroundSpeed(0);
+    ground.SetGroundSpeed(0);
+    scoreBoard.SetStateScore();
+    k.wait(2, () => k.go("endScreen"));
+  });
 }
 
 // Scene state változók
@@ -87,75 +82,73 @@ var pipes;
 var scoreBoard;
 
 export default scene("gameScene", () => {
-    sceneInit();
-    document.querySelector("canvas").style.cursor = "none";
+  SceneInit();
+  document.querySelector("canvas").style.cursor = "none";
 
-    // Objektumok létrehozása
-    background = new Background();
-    ground = new Ground();
-    bird = new Bird();
-    pipes = new PipeGroup();
-    scoreBoard = new ScoreBoard();
+  // Objektumok létrehozása
+  background = new Background();
+  ground = new Ground();
+  bird = new Bird();
+  pipes = new PipeGroup();
+  scoreBoard = new ScoreBoard();
 
-    displayGetReadyLabel();
-    displayTapTapIcon();
-    bird.birdInit();
+  DisplayGetReadyLabel();
+  DisplayTapTapIcon();
+  bird.BirdInit();
 
-    // Háttér és ground animáció
-    k.onUpdate(() => {
-        ground.displayGround();
-        background.displayBackground();
+  // Háttér és ground animáció
+  k.onUpdate(() => {
+    ground.DisplayGround();
+    background.DisplayBackground();
+  });
+
+  // Indulás előtti countdown
+  if (isStarting) {
+    loop(1, () => {
+      time += 1;
+
+      if (time < 1) {
+        DisplayGetReadyLabel();
+      }
+
+      if (time > 1 && time < 5) {
+        getReadyLabel.destroy();
+
+        if (countDownNumber < 3) {
+          countDownDigitSprite.destroy();
+        }
+
+        countDownDigitSprite = k.add([
+          sprite(`digit${countDownNumber}`),
+          pos(k.width() / 2, k.height() / 2),
+          anchor("center"),
+          z(10),
+        ]);
+
+        countDownNumber -= 1;
+      }
+
+      if (time >= 5) {
+        countDownDigitSprite.destroy();
+      }
     });
 
-    // Indulás előtti countdown
-    if (isStarting) {
-        loop(1, () => {
-            time += 1;
+    // Tap ikon pulzálás
+    loop(0.3, () => {
+      if (isStarting && time >= 5) {
+        tapTapIcon.scale = isTapTapBig ? vec2(1.0, 1.0) : vec2(1.01, 1.01);
+        isTapTapBig = !isTapTapBig;
+      }
+    });
 
-            if (time < 1) {
-                displayGetReadyLabel();
-            }
-
-            if (time > 1 && time < 5) {
-                getReadyLabel.destroy();
-
-                if (countDownNumber < 3) {
-                    countDownDigitSprite.destroy();
-                }
-
-                countDownDigitSprite = k.add([
-                    sprite(`digit${countDownNumber}`),
-                    pos(k.width() / 2, k.height() / 2),
-                    anchor("center"),
-                    z(10),
-                ]);
-
-                countDownNumber -= 1;
-            }
-
-            if (time >= 5) {
-                countDownDigitSprite.destroy();
-            }
-        });
-
-        // Tap ikon pulzálás
-        loop(0.3, () => {
-            if (isStarting && time >= 5) {
-                tapTapIcon.scale = isTapTapBig
-                    ? vec2(1.0, 1.0)
-                    : vec2(1.01, 1.01);
-                isTapTapBig = !isTapTapBig;
-            }
-        });
-
-        // Játék indítása clickre
-        startClick = k.onClick(() => {
-            if (time >= 5) {
-                isStarting = false;
-                tapTapIcon.destroy();
-                startClick.cancel();
-                Game();
-            }
-        });
-    }
+    // Játék indítása clickre
+    startClick = k.onClick(() => {
+      if (time >= 5) {
+        isStarting = false;
+        tapTapIcon.destroy();
+        startClick.cancel();
+        Game();
+      }
+    });
+  }
 });

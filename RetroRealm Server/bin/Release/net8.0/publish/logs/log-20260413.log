@@ -1,0 +1,30 @@
+2026-04-13 08:19:09.437 +02:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-13 08:19:09.506 +02:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-13 08:19:09.512 +02:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-13 08:19:09.528 +02:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-13 08:22:47.669 +02:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-13 08:22:47.719 +02:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-13 08:22:47.725 +02:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-13 08:22:47.740 +02:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-13 08:24:12.777 +02:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-13 08:24:12.825 +02:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-13 08:24:12.831 +02:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-13 08:24:12.846 +02:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-13 08:24:19.272 +02:00 [INF] BunnyRun leaderboard requested!
+2026-04-13 08:24:19.424 +02:00 [INF] FlappyBird leaderboard requested!
+2026-04-13 08:24:19.456 +02:00 [INF] MemoryGame leaderboard (flips) requested!
+2026-04-13 08:24:19.476 +02:00 [INF] MemoryGame leaderboard (time) requested!
+2026-04-13 08:24:19.500 +02:00 [INF] Wordle leaderboard requested!
+2026-04-13 08:24:19.518 +02:00 [INF] Achievement leaderboard requested!
+2026-04-13 08:25:58.573 +02:00 [WRN] Navigations 'BunnyRunStatus.User' and 'User.BunnyRunStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-13 08:25:58.622 +02:00 [WRN] Navigations 'FlappyBirdStatus.User' and 'User.FlappyBirdStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-13 08:25:58.627 +02:00 [WRN] Navigations 'MemoryGameStatus.User' and 'User.MemoryGameStatus' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-13 08:25:58.642 +02:00 [WRN] Navigations 'User.WorldeStatus' and 'WordleStatus.User' were separated into two relationships since the [ForeignKey] attribute was specified on navigations on both sides.
+2026-04-13 08:26:02.538 +02:00 [INF] All avatars have been requested!
+2026-04-13 08:54:18.489 +02:00 [INF] BunnyRun leaderboard requested!
+2026-04-13 08:54:18.593 +02:00 [INF] FlappyBird leaderboard requested!
+2026-04-13 08:54:18.678 +02:00 [INF] MemoryGame leaderboard (flips) requested!
+2026-04-13 08:54:18.721 +02:00 [INF] MemoryGame leaderboard (time) requested!
+2026-04-13 08:54:18.785 +02:00 [INF] Wordle leaderboard requested!
+2026-04-13 08:54:18.831 +02:00 [INF] Achievement leaderboard requested!
+2026-04-13 08:55:14.105 +02:00 [INF] All avatars have been requested!

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RetroRealm Belépés</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div id="navbar">
+      <button id="nyelvvalt">Nyelv</button>
+    </div>
+    <div id="langselection" style="display: none">
+      <button id="hun">Magyar</button><br />
+      <button id="eng">English</button><br />
+      <button id="esp">Español</button>
+    </div>
+    <div class="particles" id="particles"></div>
+    <h1 align="center" id="login-h1">RetroRealm Bejelentkezés</h1>
+
+    <div id="container">
+      <form id="login-form" class="active">
+        <input
+          type="text"
+          placeholder="Felhasználónév"
+          required
+          id="username-input"
+        /><br /><br />
+        <input
+          type="password"
+          placeholder="Jelszó"
+          required
+          id="password-input"
+        /><br /><br />
+        <button type="submit" id="belepes-btn">Belépés</button>
+      </form>
+
+      <br /><br />
+      <p align="center" id="szin">
+        Még nem regisztrált? Kattintson
+        <a id="link" href="../register/index.html">ide</a>!
+      </p>
+    </div>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <link rel="stylesheet" href="profile.css" />
+  </head>
+  <body>
+    <div id="nav-bar">
+      <a id="exit-page-btn">X</a>
+      <button id="lang-button">Language</button>
+    </div>
+    <div id="lang-selection" style="display: none">
+      <button id="eng">English 🇬🇧</button> <br />
+      <button id="hun">Hungarian 🇭🇺</button> <br />
+      <button id="esp">Spanish 🇪🇸</button>
+    </div>
+
+    <div id="container">
+      <div id="top">
+        <div id="profile">
+          <img id="profile-pic" src="baseCharacter.png" alt="Profile Picture" />
+          <h1 id="name">John Doe</h1>
+        </div>
+        <div>
+          <h1 id="coins">Coins: 60</h1>
+        </div>
+      </div>
+      <div id="games">
+        <div class="cards">
+          <p>Wordle</p>
+          <p id="words" class="info">Total words: 0</p>
+        </div>
+        <div class="cards">
+          <p>Memory Game</p>
+          <p id="min-time" class="info">Min-Time: 0</p>
+          <p id="min-flips" class="info">Min-Flips: 0</p>
+        </div>
+        <div class="cards">
+          <p>Bunny Run</p>
+          <p id="max-distance" class="info">Max-Distance: 0</p>
+        </div>
+        <div class="cards">
+          <p>Flappy Bird</p>
+          <p id="max-passed-pipes" class="info">Max-Passed-Pipes: 0</p>
+        </div>
+      </div>
+      <h1>Avatars</h1>
+      <div id="avatars"></div>
+      <h1 id="achievements-head">Completed Achievements</h1>
+      <div id="achievements"></div>
+    </div>
+
+    <script type="module" src="profile.js"></script>
+  </body>
+</html>
